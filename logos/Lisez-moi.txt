@@ -24,3 +24,5 @@ TYPOGRAPHIES (Google Fonts, gratuites)
    Hanken Grotesk (texte) · Martian Mono (infos, chiffres)
 
 Règle : ne jamais déformer, recolorer ni ajouter d'effet (ombre, lueur, dégradé).
+
+05 Pictos — 36 pictos arrondis (24 × 24, trait 1,5 rond, un point de lumière ambre)

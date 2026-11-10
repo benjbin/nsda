@@ -725,8 +725,12 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .ic span{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--voile)}
 .ic:hover{background:var(--salon);--ic-accent:var(--lait)}
 .ic:hover span{color:var(--lait)}
-.i{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:square;stroke-linejoin:miter}
+.i{fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .i .dot{fill:var(--ic-accent,var(--lueur));stroke:none}
+.ico-grp{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--voile);display:flex;justify-content:space-between;gap:10px;margin:22px 0 10px}
+.ico-grp b{font-weight:400;color:var(--lueur)}
+.ico-dl{display:inline-flex;margin-top:16px}
+@media (max-width:720px){.ico-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.ic:nth-child(6n){border-right:1px solid var(--filet)}.ic:nth-child(4n){border-right:0}.ic:nth-last-child(-n+6){border-bottom:1px solid var(--filet)}.ic:nth-last-child(-n+4){border-bottom:0}}
 .ico-meta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;margin-top:16px}
 .ico-sizes{background:var(--nuit);border-radius:var(--r-l);box-shadow:inset 0 0 0 1px var(--filet);padding:18px;display:flex;align-items:flex-end;gap:22px;flex-wrap:wrap}
 .ico-sizes figure{display:flex;flex-direction:column;gap:8px;align-items:center;color:var(--voile)}
@@ -1564,19 +1568,43 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     <!-- QR factice -->
     <symbol id="qr" viewBox="0 0 25 25"><path shape-rendering="crispEdges" d="M0 0h1v1h-1zM1 0h1v1h-1zM2 0h1v1h-1zM3 0h1v1h-1zM4 0h1v1h-1zM5 0h1v1h-1zM6 0h1v1h-1zM8 0h1v1h-1zM9 0h1v1h-1zM10 0h1v1h-1zM12 0h1v1h-1zM13 0h1v1h-1zM14 0h1v1h-1zM18 0h1v1h-1zM19 0h1v1h-1zM20 0h1v1h-1zM21 0h1v1h-1zM22 0h1v1h-1zM23 0h1v1h-1zM24 0h1v1h-1zM0 1h1v1h-1zM6 1h1v1h-1zM11 1h1v1h-1zM13 1h1v1h-1zM14 1h1v1h-1zM15 1h1v1h-1zM16 1h1v1h-1zM18 1h1v1h-1zM24 1h1v1h-1zM0 2h1v1h-1zM2 2h1v1h-1zM3 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM12 2h1v1h-1zM13 2h1v1h-1zM18 2h1v1h-1zM20 2h1v1h-1zM21 2h1v1h-1zM22 2h1v1h-1zM24 2h1v1h-1zM0 3h1v1h-1zM2 3h1v1h-1zM3 3h1v1h-1zM4 3h1v1h-1zM6 3h1v1h-1zM8 3h1v1h-1zM9 3h1v1h-1zM11 3h1v1h-1zM12 3h1v1h-1zM18 3h1v1h-1zM20 3h1v1h-1zM21 3h1v1h-1zM22 3h1v1h-1zM24 3h1v1h-1zM0 4h1v1h-1zM2 4h1v1h-1zM3 4h1v1h-1zM4 4h1v1h-1zM6 4h1v1h-1zM11 4h1v1h-1zM14 4h1v1h-1zM15 4h1v1h-1zM18 4h1v1h-1zM20 4h1v1h-1zM21 4h1v1h-1zM22 4h1v1h-1zM24 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM9 5h1v1h-1zM11 5h1v1h-1zM12 5h1v1h-1zM18 5h1v1h-1zM24 5h1v1h-1zM0 6h1v1h-1zM1 6h1v1h-1zM2 6h1v1h-1zM3 6h1v1h-1zM4 6h1v1h-1zM5 6h1v1h-1zM6 6h1v1h-1zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM19 6h1v1h-1zM20 6h1v1h-1zM21 6h1v1h-1zM22 6h1v1h-1zM23 6h1v1h-1zM24 6h1v1h-1zM8 7h1v1h-1zM9 7h1v1h-1zM10 7h1v1h-1zM13 7h1v1h-1zM0 8h1v1h-1zM3 8h1v1h-1zM4 8h1v1h-1zM6 8h1v1h-1zM7 8h1v1h-1zM9 8h1v1h-1zM12 8h1v1h-1zM13 8h1v1h-1zM14 8h1v1h-1zM16 8h1v1h-1zM17 8h1v1h-1zM18 8h1v1h-1zM21 8h1v1h-1zM22 8h1v1h-1zM24 8h1v1h-1zM1 9h1v1h-1zM2 9h1v1h-1zM3 9h1v1h-1zM5 9h1v1h-1zM7 9h1v1h-1zM9 9h1v1h-1zM11 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM16 9h1v1h-1zM17 9h1v1h-1zM19 9h1v1h-1zM20 9h1v1h-1zM22 9h1v1h-1zM23 9h1v1h-1zM24 9h1v1h-1zM2 10h1v1h-1zM3 10h1v1h-1zM4 10h1v1h-1zM5 10h1v1h-1zM6 10h1v1h-1zM7 10h1v1h-1zM9 10h1v1h-1zM10 10h1v1h-1zM11 10h1v1h-1zM15 10h1v1h-1zM16 10h1v1h-1zM17 10h1v1h-1zM19 10h1v1h-1zM22 10h1v1h-1zM23 10h1v1h-1zM24 10h1v1h-1zM4 11h1v1h-1zM7 11h1v1h-1zM8 11h1v1h-1zM9 11h1v1h-1zM10 11h1v1h-1zM12 11h1v1h-1zM13 11h1v1h-1zM14 11h1v1h-1zM16 11h1v1h-1zM18 11h1v1h-1zM20 11h1v1h-1zM22 11h1v1h-1zM24 11h1v1h-1zM1 12h1v1h-1zM2 12h1v1h-1zM6 12h1v1h-1zM9 12h1v1h-1zM12 12h1v1h-1zM14 12h1v1h-1zM15 12h1v1h-1zM17 12h1v1h-1zM18 12h1v1h-1zM21 12h1v1h-1zM24 12h1v1h-1zM2 13h1v1h-1zM4 13h1v1h-1zM5 13h1v1h-1zM7 13h1v1h-1zM10 13h1v1h-1zM14 13h1v1h-1zM16 13h1v1h-1zM18 13h1v1h-1zM19 13h1v1h-1zM20 13h1v1h-1zM22 13h1v1h-1zM23 13h1v1h-1zM24 13h1v1h-1zM0 14h1v1h-1zM2 14h1v1h-1zM5 14h1v1h-1zM6 14h1v1h-1zM7 14h1v1h-1zM11 14h1v1h-1zM12 14h1v1h-1zM13 14h1v1h-1zM16 14h1v1h-1zM19 14h1v1h-1zM23 14h1v1h-1zM7 15h1v1h-1zM9 15h1v1h-1zM10 15h1v1h-1zM11 15h1v1h-1zM12 15h1v1h-1zM13 15h1v1h-1zM16 15h1v1h-1zM17 15h1v1h-1zM19 15h1v1h-1zM20 15h1v1h-1zM21 15h1v1h-1zM22 15h1v1h-1zM23 15h1v1h-1zM6 16h1v1h-1zM7 16h1v1h-1zM10 16h1v1h-1zM11 16h1v1h-1zM12 16h1v1h-1zM13 16h1v1h-1zM14 16h1v1h-1zM16 16h1v1h-1zM17 16h1v1h-1zM18 16h1v1h-1zM19 16h1v1h-1zM20 16h1v1h-1zM21 16h1v1h-1zM22 16h1v1h-1zM8 17h1v1h-1zM13 17h1v1h-1zM15 17h1v1h-1zM16 17h1v1h-1zM20 17h1v1h-1zM23 17h1v1h-1zM0 18h1v1h-1zM1 18h1v1h-1zM2 18h1v1h-1zM3 18h1v1h-1zM4 18h1v1h-1zM5 18h1v1h-1zM6 18h1v1h-1zM11 18h1v1h-1zM13 18h1v1h-1zM14 18h1v1h-1zM15 18h1v1h-1zM16 18h1v1h-1zM18 18h1v1h-1zM20 18h1v1h-1zM21 18h1v1h-1zM23 18h1v1h-1zM0 19h1v1h-1zM6 19h1v1h-1zM8 19h1v1h-1zM9 19h1v1h-1zM11 19h1v1h-1zM13 19h1v1h-1zM14 19h1v1h-1zM15 19h1v1h-1zM16 19h1v1h-1zM20 19h1v1h-1zM21 19h1v1h-1zM24 19h1v1h-1zM0 20h1v1h-1zM2 20h1v1h-1zM3 20h1v1h-1zM4 20h1v1h-1zM6 20h1v1h-1zM9 20h1v1h-1zM12 20h1v1h-1zM15 20h1v1h-1zM16 20h1v1h-1zM17 20h1v1h-1zM18 20h1v1h-1zM19 20h1v1h-1zM20 20h1v1h-1zM0 21h1v1h-1zM2 21h1v1h-1zM3 21h1v1h-1zM4 21h1v1h-1zM6 21h1v1h-1zM8 21h1v1h-1zM9 21h1v1h-1zM13 21h1v1h-1zM14 21h1v1h-1zM17 21h1v1h-1zM18 21h1v1h-1zM19 21h1v1h-1zM20 21h1v1h-1zM22 21h1v1h-1zM24 21h1v1h-1zM0 22h1v1h-1zM2 22h1v1h-1zM3 22h1v1h-1zM4 22h1v1h-1zM6 22h1v1h-1zM9 22h1v1h-1zM10 22h1v1h-1zM13 22h1v1h-1zM14 22h1v1h-1zM15 22h1v1h-1zM16 22h1v1h-1zM17 22h1v1h-1zM18 22h1v1h-1zM19 22h1v1h-1zM20 22h1v1h-1zM21 22h1v1h-1zM22 22h1v1h-1zM23 22h1v1h-1zM0 23h1v1h-1zM6 23h1v1h-1zM11 23h1v1h-1zM13 23h1v1h-1zM16 23h1v1h-1zM17 23h1v1h-1zM19 23h1v1h-1zM22 23h1v1h-1zM0 24h1v1h-1zM1 24h1v1h-1zM2 24h1v1h-1zM3 24h1v1h-1zM4 24h1v1h-1zM5 24h1v1h-1zM6 24h1v1h-1zM8 24h1v1h-1zM9 24h1v1h-1zM10 24h1v1h-1zM11 24h1v1h-1zM15 24h1v1h-1zM17 24h1v1h-1zM19 24h1v1h-1zM21 24h1v1h-1zM24 24h1v1h-1z" style="fill:var(--nuit)"/><rect x="10" y="10" width="5" height="5" style="fill:var(--halo)"/></symbol>
 
-    <!-- Pictogrammes 24 × 24 : trait 1,5, terminaisons carrées, un point de lumière -->
-    <symbol id="i-table" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 3v2.5M12 18.5V21M3 12h2.5M18.5 12H21"/><rect class="dot" x="10.75" y="10.75" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-bouteille" viewBox="0 0 24 24"><path d="M10 3h4v3.2l1.6 2.8V20.5H8.4V9L10 6.2z"/><path d="M8.4 12h7.2"/><rect class="dot" x="10.75" y="15" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6.5" height="6.5"/><rect x="14" y="3.5" width="6.5" height="6.5"/><rect x="3.5" y="14" width="6.5" height="6.5"/><path d="M14 14h2.5v2.5M20.5 14v3M14 20.5h3M20.5 20.5h0"/><rect class="dot" x="5.5" y="5.5" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-vestiaire" viewBox="0 0 24 24"><path d="M10 6.5a2 2 0 1 1 2.6 1.9c-.4.1-.6.5-.6.9v1.2"/><path d="M12 10.5 3.5 17.5h17z"/><rect class="dot" x="10.75" y="19" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-dj" viewBox="0 0 24 24"><circle cx="10" cy="13" r="7"/><path d="M19 3v8l-3.5 3.5"/><rect class="dot" x="8.75" y="11.75" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-carte" viewBox="0 0 24 24"><path d="M3.5 6 9 4l6 2 5.5-2v14L15 20l-6-2-5.5 2z"/><path d="M9 4v14M15 6v14"/><rect class="dot" x="10.75" y="10" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-horloge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3.5 2"/><rect class="dot" x="10.75" y="10.75" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-groupe" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 20v-1a5.5 5.5 0 0 1 11 0v1"/><path d="M15.5 5.3a3 3 0 0 1 0 5.4M17 14a5.5 5.5 0 0 1 3.5 5v1"/><rect class="dot" x="7.75" y="16.5" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-vip" viewBox="0 0 24 24"><path d="M5.5 9.5V20M18.5 9.5V20M3.5 20.5h4M16.5 20.5h4"/><circle cx="5.5" cy="7.4" r="1.6"/><circle cx="18.5" cy="7.4" r="1.6"/><path d="M5.5 11.5c3 4.2 10 4.2 13 0"/><rect class="dot" x="10.75" y="17.5" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-lieu" viewBox="0 0 24 24"><path d="M12 21s-6.5-6-6.5-11a6.5 6.5 0 0 1 13 0c0 5-6.5 11-6.5 11z"/><rect class="dot" x="10.75" y="8.75" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-favori" viewBox="0 0 24 24"><path d="M12 19.5s-7.5-4.4-7.5-10A4.2 4.2 0 0 1 12 7a4.2 4.2 0 0 1 7.5 2.5c0 5.6-7.5 10-7.5 10z"/><rect class="dot" x="10.75" y="11" width="2.5" height="2.5"/></symbol>
-    <symbol id="i-billet" viewBox="0 0 24 24"><path d="M3.5 7h17v3a2 2 0 0 0 0 4v3h-17v-3a2 2 0 0 0 0-4z"/><path d="M15 7.5V9M15 11.25v1.5M15 15v1.5"/><rect class="dot" x="7.5" y="10.75" width="2.5" height="2.5"/></symbol>
+    <!-- Pictogrammes 24 × 24 : trait 1,5 arrondi, coins arrondis, un point de lumière (carré arrondi 28 %) -->
+    <symbol id="i-table" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M9 4a8.5 8.5 0 0 1 6 0M20 9a8.5 8.5 0 0 1 0 6M15 20a8.5 8.5 0 0 1-6 0M4 15a8.5 8.5 0 0 1 0-6"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-bouteille" viewBox="0 0 24 24"><path d="M10.75 7.5a.75.75 0 0 1 .75-.75h1a.75.75 0 0 1 .75.75v1.25c0 1.25 3 1.5 3 3.75V19a2 2 0 0 1-2 2h-4.5a2 2 0 0 1-2-2v-6.5c0-2.25 3-2.5 3-3.75z"/><path d="M7.75 14.5h8.5"/><rect class="dot" x="10.5" y="2" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="6.5" height="6.5" rx="2"/><rect x="14" y="3.5" width="6.5" height="6.5" rx="2"/><rect x="3.5" y="14" width="6.5" height="6.5" rx="2"/><path d="M14.75 20.25v-3.5a2 2 0 0 1 2-2h3.5"/><rect class="dot" x="17.25" y="17.25" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-vestiaire" viewBox="0 0 24 24"><path d="M10 5a2 2 0 1 1 3 1.75c-.6.35-1 .8-1 1.5v.25"/><path d="M12 8.5 4.5 15.5c-.9.85-.25 2 1 2h13c1.25 0 1.9-1.15 1-2z"/><rect class="dot" x="10.5" y="12.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-dj" viewBox="0 0 24 24"><circle cx="10" cy="13" r="7.5"/><circle cx="10" cy="13" r="4"/><path d="M19.5 3v7.5a2 2 0 0 1-.6 1.4L16 14.75"/><rect class="dot" x="8.5" y="11.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-carte" viewBox="0 0 24 24"><path d="M3 7.5Q3 6 4.5 5.5L9 4l6 2 4.5-1.5Q21 4 21 5.5v11q0 1.5-1.5 2L15 20l-6-2-4.5 1.5Q3 20 3 18.5z"/><path d="M9 4v14M15 6v14"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-horloge" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.25"/><path d="M16.25 12H12l-2.5 3"/><rect class="dot" x="10.5" y="5.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-groupe" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3.5 19.5V19a5.5 5.5 0 0 1 11 0v.5"/><path d="M15 5.25a3 3 0 0 1 0 5.5M16.5 13.75a5.5 5.5 0 0 1 4 5.25v.5"/><rect class="dot" x="7.5" y="15.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-vip" viewBox="0 0 24 24"><path d="M5.5 9v11M18.5 9v11M3.5 20.5h4M16.5 20.5h4"/><circle cx="5.5" cy="7.5" r="1.5"/><circle cx="18.5" cy="7.5" r="1.5"/><path d="M5.5 11.5c3 4.25 10 4.25 13 0"/><rect class="dot" x="10.5" y="16.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-lieu" viewBox="0 0 24 24"><path d="M12 21.25c-.75 0-6.5-5.5-6.5-11.25a6.5 6.5 0 0 1 13 0c0 5.75-5.75 11.25-6.5 11.25z"/><rect class="dot" x="10.5" y="8.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-favori" viewBox="0 0 24 24"><path d="M12 19.5c-.5 0-8.25-4.5-8.25-10.25C3.75 6.75 5.5 5 7.75 5c1.75 0 3 1 3.75 1.75q.5.6 1 0C13.25 6 14.25 5 16.25 5c2.25 0 4 1.75 4 4.25 0 5.75-7.75 10.25-8.25 10.25z"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-billet" viewBox="0 0 24 24"><path d="M5 6.5h14a2 2 0 0 1 2 2v1c0 1-1.5 1.25-1.5 2.5s1.5 1.5 1.5 2.5v1a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-1c0-1 1.5-1.25 1.5-2.5S3 10.5 3 9.5v-1a2 2 0 0 1 2-2z"/><path d="M15.5 8.75v.5M15.5 11.75v.5M15.5 14.75v.5"/><rect class="dot" x="8.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-accueil" viewBox="0 0 24 24"><path d="M3.75 10.75 10.6 4.9Q12 3.75 13.4 4.9L20.25 10.75"/><path d="M5.75 9.5V18Q5.75 20 7.75 20H16.25Q18.25 20 18.25 18V9.5"/><rect class="dot" x="10.5" y="13.25" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-recherche" viewBox="0 0 24 24"><circle cx="10.75" cy="10.75" r="6.75"/><path d="M15.75 15.75 20.25 20.25"/><rect class="dot" x="9.25" y="9.25" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-calendrier" viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15.5" rx="3"/><path d="M3.5 10H20.5"/><path d="M8 3.25V6.75M16 3.25V6.75"/><rect class="dot" x="14.25" y="13.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-notif" viewBox="0 0 24 24"><path d="M5 16.75Q6.75 15.5 6.75 13V10.5A5.25 5.25 0 0 1 17.25 10.5V13Q17.25 15.5 19 16.75Z"/><path d="M12 3V5.25"/><rect class="dot" x="10.5" y="18.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-profil" viewBox="0 0 24 24"><circle cx="12" cy="7.5" r="4"/><path d="M4.75 20.5Q4.75 14 12 14T19.25 20.5"/><rect class="dot" x="10.5" y="16.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-reglages" viewBox="0 0 24 24"><path d="M8.75 6.25L8.75 6.25Q9.75 5.5 10 4.5L10 4Q10 3 11.25 3L12.75 3Q14 3 14 4L14 4.5Q14.25 5.5 15.25 6.25L15.5 6.25Q16.5 7 17.5 6.5L17.75 6.25Q18.75 5.75 19.5 6.75L20.25 8.25Q20.75 9.25 20 9.75L19.5 10Q18.75 10.75 18.75 11.75L18.75 12.25Q18.75 13.25 19.5 14L20 14.25Q20.75 14.75 20.25 15.75L19.5 17.25Q18.75 18.25 17.75 17.75L17.5 17.5Q16.5 17 15.5 17.75L15.25 17.75Q14.25 18.5 14 19.5L14 20Q14 21 12.75 21L11.25 21Q10 21 10 20L10 19.5Q9.75 18.5 8.75 17.75L8.5 17.75Q7.5 17 6.5 17.5L6.25 17.75Q5.25 18.25 4.5 17.25L3.75 15.75Q3.25 14.75 4 14.25L4.5 14Q5.25 13.25 5.25 12.25L5.25 11.75Q5.25 10.75 4.5 10L4 9.75Q3.25 9.25 3.75 8.25L4.5 6.75Q5.25 5.75 6.25 6.25L6.5 6.5Q7.5 7 8.5 6.25Z"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-partager" viewBox="0 0 24 24"><path d="M8.5 9.5H7.25Q5 9.5 5 11.75V18.25Q5 20.5 7.25 20.5H16.75Q19 20.5 19 18.25V11.75Q19 9.5 16.75 9.5H15.5"/><path d="M12 3.25V12.25M8.75 6.5 12 3.25 15.25 6.5"/><rect class="dot" x="10.5" y="14.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-filtre" viewBox="0 0 24 24"><path d="M5.5 4.25H18.5Q20.25 4.25 19.25 5.75L14.5 12Q14 12.75 14 13.5V18.25Q14 19 13.25 19.5L11.25 20.5Q10 21 10 19.75V13.5Q10 12.75 9.5 12L4.75 5.75Q3.75 4.25 5.5 4.25Z"/><rect class="dot" x="10.5" y="6.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-salle" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3.5"/><circle cx="7.75" cy="7.75" r="2"/><circle cx="7.75" cy="16.25" r="2"/><circle cx="15.25" cy="12" r="3.75"/><rect class="dot" x="13.75" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-split" viewBox="0 0 24 24"><path d="M5 20.75V6Q5 3.25 7.75 3.25H16.25Q19 3.25 19 6V20.75Q18 19.75 17 20.75T15 20.75 13 20.75 11 20.75 9 20.75 7 20.75 5 20.75Z"/><path d="M12 6V7.5M12 10.25V11.75M12 14.5V16"/><rect class="dot" x="14" y="9.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><rect x="3" y="7.5" width="18" height="12.5" rx="3"/><path d="M6 7.5 15.25 3.75Q17.25 3.25 17.75 5L18.5 7.5"/><rect class="dot" x="15.75" y="12.25" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-membre" viewBox="0 0 24 24"><rect x="2.75" y="5" width="18.5" height="14" rx="3"/><circle cx="8.25" cy="9.5" r="2"/><path d="M5.25 16.5A3 3 0 0 1 11.25 16.5"/><path d="M14.25 15.5H18"/><rect class="dot" x="14.25" y="8.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-ajouter" viewBox="0 0 24 24"><path d="M12 4.75L12 8.75"/><path d="M12 15.25L12 19.25"/><path d="M4.75 12L8.75 12"/><path d="M15.25 12L19.25 12"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-fermer" viewBox="0 0 24 24"><path d="M5.5 5.5L9.5 9.5"/><path d="M14.5 14.5L18.5 18.5"/><path d="M18.5 5.5L14.5 9.5"/><path d="M9.5 14.5L5.5 18.5"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-valider" viewBox="0 0 24 24"><path d="M3.75 12.75 L7.25 16.25 Q8.25 17.25 9.25 16.25 L16.5 9"/><rect class="dot" x="17.5" y="5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-retour" viewBox="0 0 24 24"><path d="M17 4.5 L11.25 10.5 Q10 12 11.25 13.5 L17 19.5"/><rect class="dot" x="5.25" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-suivant" viewBox="0 0 24 24"><path d="M7 4.5 L12.75 10.5 Q14 12 12.75 13.5 L7 19.5"/><rect class="dot" x="15.75" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.25"/><circle cx="19" cy="12" r="1.25"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 12L12 16.75"/><rect class="dot" x="10.5" y="6.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-alerte" viewBox="0 0 24 24"><path d="M13.25 5.25 L20 17.75 Q21.25 20 18.75 20 L5.25 20 Q2.75 20 4 17.75 L10.75 5.25 Q12 3 13.25 5.25Z"/><path d="M12 9L12 12.5"/><rect class="dot" x="10.5" y="14.75" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-cadenas" viewBox="0 0 24 24"><rect x="4.5" y="10.25" width="15" height="10.5" rx="3"/><path d="M8 10.25V7.5a4 4 0 0 1 8 0v2.75"/><rect class="dot" x="10.5" y="14" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3.5 8V6.5a3 3 0 0 1 3-3H8"/><path d="M16 3.5h1.5a3 3 0 0 1 3 3V8"/><path d="M20.5 16v1.5a3 3 0 0 1-3 3H16"/><path d="M8 20.5H6.5a3 3 0 0 1-3-3V16"/><rect class="dot" x="10.5" y="10.5" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-message" viewBox="0 0 24 24"><path d="M6.5 4 L17.5 4 Q21 4 21 7.5 L21 13.5 Q21 17 17.5 17 L13 17 Q12 17 11.25 17.75 L8.25 20.25 Q7.5 21 7.5 20 L7.5 17.75 Q7.5 17 6.75 17 L6.5 17 Q3 17 3 13.5 L3 7.5 Q3 4 6.5 4Z"/><rect class="dot" x="10.5" y="9" width="3" height="3" rx=".85"/></symbol>
+    <symbol id="i-inviter" viewBox="0 0 24 24"><circle cx="9.5" cy="6.75" r="3.5"/><path d="M4.5 20.75h10a1 1 0 0 0 1-1v-1a5 5 0 0 0-5-5h-2a5 5 0 0 0-5 5v1a1 1 0 0 0 1 1Z"/><path d="M19 6.5L19 11.5"/><path d="M16.5 9L21.5 9"/><rect class="dot" x="8" y="15.75" width="3" height="3" rx=".85"/></symbol>
   </defs>
 </svg>
 <style>.dot{fill:var(--ic-accent,var(--lueur));stroke:none}</style>
@@ -1657,7 +1685,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <li><a href="#signe"><span class="n">05</span><span class="t">Le signe</span><span class="p">Trace · halo</span></a></li>
       <li><a href="#image"><span class="n">06</span><span class="t">Image</span><span class="p">Duotone · cadres</span></a></li>
       <li><a href="#motion"><span class="n">07</span><span class="t">Motion</span><span class="p">Courbes · boucles</span></a></li>
-      <li><a href="#icones"><span class="n">08</span><span class="t">Icônes</span><span class="p">12 pictos</span></a></li>
+      <li><a href="#icones"><span class="n">08</span><span class="t">Icônes</span><span class="p">36 pictos</span></a></li>
       <li><a href="#composants"><span class="n">09</span><span class="t">Composants</span><span class="p">États · cartes</span></a></li>
       <li><a href="#site"><span class="n">10</span><span class="t">Site</span><span class="p">Accueil · événement</span></a></li>
       <li><a href="#app"><span class="n">11</span><span class="t">App</span><span class="p">4 écrans</span></a></li>
@@ -2490,11 +2518,12 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     <header class="sh">
       <div class="sh-num" aria-hidden="true">08</div>
       <div>
-        <p class="eyebrow"><span>Iconographie</span><span>12 pictos, une même lumière</span></p>
+        <p class="eyebrow"><span>Iconographie</span><span>36 pictos, une même lumière</span></p>
         <h2 class="sh-title" id="t-icones">Chaque picto porte <em>un point de lumière</em></h2>
-        <p class="sh-lead">Trait de 1,5 px sur une grille de 24, terminaisons carrées, angles vifs, comme le carré du logo. Chaque picto contient <b>un seul carré plein</b> de 2,5 px : le point de lumière. Il prend la lueur chaude au repos, le Lait au survol.</p>
+        <p class="sh-lead">Nos propres pictos, dessinés dans le rond : trait de 1,5 sur une grille de 24, <b>terminaisons et jonctions arrondies, coins arrondis</b>, aucun angle vif. Chaque picto porte <b>un seul point de lumière</b> : un carré plein de 3 × 3 arrondi à 28 %, comme le carré du logo. Il marque l'endroit où ça se passe ; lueur chaude au repos, Lait au survol.</p>
       </div>
     </header>
+    <p class="ico-grp"><span><b>La nuit</b> · Lieu, table, soirée</span><span>12</span></p>
     <div class="ico-grid">
       <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-table"/></svg><span>Table</span></div>
       <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-bouteille"/></svg><span>Bouteille</span></div>
@@ -2509,16 +2538,47 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-favori"/></svg><span>Favori</span></div>
       <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-billet"/></svg><span>Billet</span></div>
     </div>
+    <p class="ico-grp"><span><b>L'app</b> · Navigation et fonctions</span><span>12</span></p>
+    <div class="ico-grid">
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-accueil"/></svg><span>Accueil</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-recherche"/></svg><span>Recherche</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendrier"/></svg><span>Calendrier</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-notif"/></svg><span>Notif</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-profil"/></svg><span>Profil</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-reglages"/></svg><span>Réglages</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-partager"/></svg><span>Partager</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-filtre"/></svg><span>Filtre</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-salle"/></svg><span>Salle</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-split"/></svg><span>Split</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-wallet"/></svg><span>Wallet</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-membre"/></svg><span>Membre</span></div>
+    </div>
+    <p class="ico-grp"><span><b>Actions</b> · Gestes et états</span><span>12</span></p>
+    <div class="ico-grid">
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ajouter"/></svg><span>Ajouter</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-fermer"/></svg><span>Fermer</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-valider"/></svg><span>Valider</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-retour"/></svg><span>Retour</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-suivant"/></svg><span>Suivant</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-plus"/></svg><span>Plus</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-info"/></svg><span>Info</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-alerte"/></svg><span>Alerte</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-cadenas"/></svg><span>Cadenas</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-scan"/></svg><span>Scan</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-message"/></svg><span>Message</span></div>
+      <div class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-inviter"/></svg><span>Inviter</span></div>
+    </div>
+    <a class="lk ico-dl" href="icones/night-square-pictos.zip" download>Télécharger les 36 pictos · SVG →</a>
     <div class="ico-meta">
       <div class="ico-cons">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <g stroke-width=".08" style="stroke:color-mix(in srgb,var(--valide) 35%,transparent)"><path d="M0 0h24v24H0zM2 2h20v20H2z" fill="none"/><path d="M0 4h24M0 8h24M0 12h24M0 16h24M0 20h24M4 0v24M8 0v24M12 0v24M16 0v24M20 0v24"/></g>
-          <g class="i" style="stroke:var(--lait);fill:none;stroke-width:1.5;stroke-linecap:square"><use href="#i-vip"/></g>
+          <g class="i" style="stroke:var(--lait);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round"><use href="#i-vip"/></g>
         </svg>
         <ul>
           <li><b>Grille 24</b>, zone utile 20 (marge 2).</li>
-          <li><b>Trait 1,5</b> ; terminaisons carrées ; angles vifs.</li>
-          <li><b>Un point de lumière</b> de 2,5 × 2,5, jamais deux.</li>
+          <li><b>Trait 1,5</b> ; terminaisons et jonctions rondes ; coins arrondis (rx 2 à 3,5).</li>
+          <li><b>Un point de lumière</b> de 3 × 3, arrondi à 28 %, jamais deux ; 1 de vide autour.</li>
           <li><b>Pas de remplissage</b> en dehors du point.</li>
           <li>Le VIP, ce sont <b>les potelets du carré</b>, pas une couronne.</li>
         </ul>
@@ -2571,7 +2631,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           <div class="av"><div class="pv" style="flex-direction:row;align-items:center;gap:10px"><span class="rad-x" style="border-radius:5px;width:46%"></span><span class="rad-x" style="border-radius:22px;width:46%"></span></div><p><b>Rayon hors échelle</b>Ni 5, ni 22, ni 16 « pour voir » : six valeurs, pas une de plus.</p></div>
           <div class="av"><div class="pv"><span class="rad-x" style="border-radius:var(--r-pill);height:76px"></span></div><p><b>Pilule sur un bloc</b>La pilule est pour ce qui se touche ; une carte en gélule perd sa surface.</p></div>
         </div>
-        <p class="note"><b>Lissage.</b> Là où le navigateur le permet, les blocs passent en courbure continue (squircle), rayons × 1,25 pour garder la même douceur ; ailleurs, l'arrondi reste circulaire. <b>Focus</b> : l'anneau suit le rayon de l'élément. <b>Restent vifs</b> : les filets et lignes de 1 à 2 px, les modules du QR, le logo et le signe (carré rémanent, retravaillés à part), les pictos à terminaisons carrées.</p>
+        <p class="note"><b>Lissage.</b> Là où le navigateur le permet, les blocs passent en courbure continue (squircle), rayons × 1,25 pour garder la même douceur ; ailleurs, l'arrondi reste circulaire. <b>Focus</b> : l'anneau suit le rayon de l'élément. <b>Restent vifs</b> : les filets et lignes de 1 à 2 px, les modules du QR, le logo et le signe (carré rémanent, retravaillés à part) ; les pictos, eux, sont arrondis comme les blocs.</p>
       </div>
     </div>
 
@@ -3113,7 +3173,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           <label><input type="checkbox"><span>Tokens Velours et Lueur, typo, motion en variables Figma + CSS + Swift</span></label>
           <label><input type="checkbox"><span>Logo v2 tokenisé : wordmark et carré rémanent en SVG / PDF, icône iOS et Android, favicon</span></label>
           <label><input type="checkbox"><span>Polices auto-hébergées, sous-ensemble latin</span></label>
-          <label><input type="checkbox"><span>Bibliothèque des 12 pictos</span></label>
+          <label><input type="checkbox"><span>Bibliothèque des 36 pictos arrondis (SVG)</span></label>
           <label><input type="checkbox"><span>Contrôle de contraste automatique dans la CI</span></label>
         </div>
         <div class="phase">

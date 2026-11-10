@@ -10,6 +10,7 @@ Nouvelle identité visuelle de Night Square : réservation de tables et de bille
 |---|---|
 | [`afterglow.html`](afterglow.html) | Brand book complet : logo, couleurs, typographies, app, print, réseaux sociaux |
 | [`logos/`](logos/) | Kit logos prêt à l'emploi : monogramme Relais, wordmark, icône d'app, favicons (SVG + PNG transparents) |
+| [`icones/`](icones/) | 36 pictos arrondis en SVG (un fichier par picto + sprite de symboles + zip) |
 | [`monogrammes/final/`](monogrammes/final/) | Fichiers sources du monogramme Relais et [fiche de construction](monogrammes/final/construction.html) |
 | [`tests/b-final.html`](tests/b-final.html) | Stories système B : DJ, event, ce soir, produit FR |
 | [`tests/b-produit.html`](tests/b-produit.html) | Stories produit en anglais : mockups, benefits, campagne |
