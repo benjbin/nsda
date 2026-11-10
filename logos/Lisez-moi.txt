@@ -26,3 +26,5 @@ TYPOGRAPHIES (Google Fonts, gratuites)
 Règle : ne jamais déformer, recolorer ni ajouter d'effet (ombre, lueur, dégradé).
 
 05 Pictos — 36 pictos arrondis (24 × 24, trait 1,5 rond, un point de lumière ambre)
+
+06 Sous-marques — Night Square Pro (app de scan à l entrée : icône avec coins de scan ambre) et Night Square Partners (app des organisateurs : icône sur ivoire). Lockups ivoire (fond sombre) et nuit (fond clair).

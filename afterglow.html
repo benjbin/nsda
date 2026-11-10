@@ -446,6 +446,29 @@ svg{display:block}
 .badge.b-off i{background:var(--cendre);box-shadow:none}
 .badge.b-plein{background:var(--lait);color:var(--nuit);box-shadow:none}
 .badge.b-plein i{background:var(--signature);box-shadow:none}
+
+/* =========================================================
+   15 SOUS-MARQUES
+   ========================================================= */
+.s15-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.s15-t{border-radius:var(--r-l);padding:22px;display:flex;flex-direction:column;gap:28px;min-height:230px;justify-content:space-between;box-shadow:inset 0 0 0 1px var(--filet)}
+.s15-t.dk{background:var(--v-nuit,#0B0908);color:#EFE6DA}
+.s15-t.lt{background:#EFE6DA;color:#0B0908}
+.s15-cap{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;opacity:.8}
+.s15-t img{width:100%;max-width:560px;height:auto;display:block;margin:auto}
+.s15-t p{font-size:14px;line-height:1.5;max-width:46ch;opacity:.85}
+.s15-icons{margin-top:16px;border-radius:var(--r-l);background:var(--nuit);box-shadow:inset 0 0 0 1px var(--filet);padding:28px 22px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.s15-icons figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:14px;text-align:center}
+.s15-icons .ics{display:flex;align-items:flex-end;gap:14px}
+.s15-icons img{border-radius:22%;box-shadow:0 0 0 1px var(--filet-fort);display:block}
+.s15-icons figcaption{font-size:13.5px;color:var(--voile);max-width:30ch}
+.s15-icons figcaption b{display:block;color:var(--lait);font-weight:600;margin-bottom:2px}
+.s15-rules{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.s15-rules div{border-radius:var(--r-l);background:var(--nuit);box-shadow:inset 0 0 0 1px var(--filet);padding:18px;font-size:14px;color:var(--voile)}
+.s15-rules b{display:block;color:var(--lait);font-weight:600;margin-bottom:4px}
+.s15-rules .n{font-family:var(--f-mono);font-size:10.5px;color:var(--lueur);letter-spacing:.1em;display:block;margin-bottom:10px}
+.s15-dl{margin-top:16px;display:inline-flex}
+@media (max-width:760px){.s15-grid,.s15-icons,.s15-rules{grid-template-columns:minmax(0,1fr)}}
 </style>
 <style>
 /* =========================================================
@@ -1703,6 +1726,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <li><a href="#hors-ecran"><span class="n">12</span><span class="t">Hors écran</span><span class="p">Print · club · social</span></a></li>
       <li><a href="#bilan"><span class="n">13</span><span class="t">Bilan</span><span class="p">Déploiement</span></a></li>
       <li><a href="#social"><span class="n">14</span><span class="t">Réseaux sociaux</span><span class="p">Stories · système B</span></a></li>
+      <li><a href="#sous-marques"><span class="n">15</span><span class="t">Sous-marques</span><span class="p">Pro · Partners</span></a></li>
     </ol>
   </div>
 </section>
@@ -3388,6 +3412,42 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
   </div>
 </section>
 
+
+<!-- =====================================================
+     15 SOUS-MARQUES
+     ===================================================== -->
+<section class="sec" id="sous-marques" aria-labelledby="t-sous">
+  <div class="wrap">
+    <header class="sh">
+      <div class="sh-num" aria-hidden="true">15</div>
+      <div>
+        <p class="eyebrow"><span>Sous-marques</span><span>Night Square Pro · Night Square Partners</span></p>
+        <h2 class="sh-title" id="t-sous">Un seul nom, <em>trois portes</em></h2>
+        <p class="sh-lead">Les clients ont l'app Night Square. Le personnel à l'entrée a <b>Night Square Pro</b>, qui scanne les QR. Les clubs et les organisateurs ont <b>Night Square Partners</b>, qui gère les tables et les réservations. Le wordmark ne change jamais : on lui ajoute un descripteur, et chaque app garde le Relais avec <b>un seul signe distinctif</b>.</p>
+      </div>
+    </header>
+
+    <div class="s15-grid">
+      <div class="s15-t dk"><div class="s15-cap"><span>Night Square Pro</span><span>Fond sombre</span></div><img src="monogrammes/sous-marques/night-square-pro-ivoire.svg" alt="Logo Night Square Pro, ivoire sur nuit"><p>L'app de la porte : scan des billets et des tables, liste d'invités, entrées en direct.</p></div>
+      <div class="s15-t dk"><div class="s15-cap"><span>Night Square Partners</span><span>Fond sombre</span></div><img src="monogrammes/sous-marques/night-square-partners-ivoire.svg" alt="Logo Night Square Partners, ivoire sur nuit"><p>L'app des organisateurs : événements, plan de salle, réservations, ventes et paiements.</p></div>
+      <div class="s15-t lt"><div class="s15-cap"><span>Night Square Pro</span><span>Fond clair</span></div><img src="monogrammes/sous-marques/night-square-pro-nuit.svg" alt="Logo Night Square Pro, nuit sur ivoire"></div>
+      <div class="s15-t lt"><div class="s15-cap"><span>Night Square Partners</span><span>Fond clair</span></div><img src="monogrammes/sous-marques/night-square-partners-nuit.svg" alt="Logo Night Square Partners, nuit sur ivoire"></div>
+    </div>
+
+    <div class="s15-icons">
+      <figure><div class="ics"><img src="monogrammes/final/relais-appicon.svg" width="112" height="112" alt="Icône Night Square"><img src="monogrammes/final/relais-appicon.svg" width="44" height="44" alt=""></div><figcaption><b>Night Square</b>L'app des clients. Le Relais ivoire sur nuit.</figcaption></figure>
+      <figure><div class="ics"><img src="monogrammes/sous-marques/icone-pro.svg" width="112" height="112" alt="Icône Night Square Pro"><img src="monogrammes/sous-marques/icone-pro.svg" width="44" height="44" alt=""></div><figcaption><b>Night Square Pro</b>Le Relais dans un cadre de scan aux coins arrondis, en ambre.</figcaption></figure>
+      <figure><div class="ics"><img src="monogrammes/sous-marques/icone-partners.svg" width="112" height="112" alt="Icône Night Square Partners"><img src="monogrammes/sous-marques/icone-partners.svg" width="44" height="44" alt=""></div><figcaption><b>Night Square Partners</b>Le Relais inversé, nuit sur ivoire : l'outil de travail, en plein jour.</figcaption></figure>
+    </div>
+
+    <div class="s15-rules">
+      <div><span class="n">01</span><b>Le wordmark ne bouge pas</b>Même dessin, même carré, même trace. On n'écrit jamais « NIGHT SQUARE PRO » dans la typo du logo.</div>
+      <div><span class="n">02</span><b>Un descripteur, en mono</b>Martian Mono en capitales, interlettrage 16 %, hauteur de capitale à 46 % de celle du wordmark, après un filet arrondi.</div>
+      <div><span class="n">03</span><b>Un signe par app</b>Pro : les coins de scan ambre. Partners : le fond ivoire. Rien d'autre, aucune nouvelle couleur.</div>
+    </div>
+    <a class="lk s15-dl" href="https://github.com/benjbin/nsda/tree/main/monogrammes/sous-marques" target="_blank" rel="noopener">Les fichiers Pro et Partners · SVG →</a>
+  </div>
+</section>
 </main>
 
 <footer class="end">
