@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Système story B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Hanken+Grotesk:wght@300..700&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bx-nuit:#0B0908;--bx-ivoire:#EFE6DA;--bx-cire:#CDBBA5;--bx-voile:#ADA093;--bx-ambre:#B5683C;
+  --bx-page:#17110E;--bx-filet:#3A2A22;
+  --bx-display:"Anybody",system-ui,sans-serif;
+  --bx-text:"Hanken Grotesk",system-ui,sans-serif;
+  --bx-mono:"Martian Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bx-page);color:var(--bx-ivoire);font-family:var(--bx-text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.bx-page{max-width:1240px;margin:0 auto;padding:56px 32px 96px}
+.bx-kicker{font-family:var(--bx-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--bx-voile);margin:0 0 18px}
+.bx-h1{font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:clamp(34px,5vw,64px);line-height:.9;margin:0 0 28px;letter-spacing:-.01em}
+.bx-h2{font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:clamp(22px,2.4vw,30px);line-height:.95;margin:0 0 8px}
+.bx-lede{font-size:15px;line-height:1.55;color:var(--bx-cire);margin:0;max-width:40em}
+.bx-lede b{color:var(--bx-ivoire);font-weight:600}
+
+/* ---------- En-tête ---------- */
+.bx-head{display:grid;grid-template-columns:minmax(0,1fr) 390px;gap:56px;border-top:1px solid var(--bx-ivoire);padding-top:20px;margin-bottom:72px;align-items:start}
+.bx-rules{list-style:none;margin:0;padding:0;counter-reset:r}
+.bx-rules li{counter-increment:r;display:grid;grid-template-columns:34px minmax(0,1fr);padding:12px 0;border-bottom:1px solid var(--bx-filet);font-size:15px;line-height:1.45;color:var(--bx-cire)}
+.bx-rules li::before{content:counter(r,decimal-leading-zero);font-family:var(--bx-mono);font-size:11px;color:var(--bx-voile);padding-top:3px}
+.bx-rules b{color:var(--bx-ivoire);font-weight:600}
+.bx-schema-wrap{position:sticky;top:24px}
+.bx-schema-cap{font-family:var(--bx-mono);font-size:10.5px;line-height:1.5;text-transform:uppercase;color:var(--bx-voile);margin:10px 0 0}
+
+/* Schéma : une story de 390 px, taille téléphone */
+.bx-g{container-type:inline-size;position:relative;width:390px;max-width:100%;aspect-ratio:9/16;border-radius:14px;background:var(--bx-nuit);overflow:hidden;outline:1px solid var(--bx-filet)}
+.bx-g>*{position:absolute}
+.bx-g .lbl{font-family:var(--bx-mono);font-variation-settings:"wdth" 87.5;font-size:2.6cqw;line-height:1.3;text-transform:uppercase;color:var(--bx-voile);white-space:nowrap}
+.bx-g .ig{left:0;right:0;border:1px dashed #6d625a}
+.bx-g .marg{top:24.9cqw;bottom:35.6cqw;width:0;border-left:1px dotted #5a4f47}
+.bx-g .eyes{left:0;right:0;top:38cqw;height:28cqw;border-top:1px solid #4a3f38;border-bottom:1px solid #4a3f38}
+.bx-g .head{left:36cqw;width:28cqw;top:30cqw;height:42cqw;border:1.5px solid var(--bx-ivoire);border-radius:50% 50% 46% 46%}
+.bx-g .eyeline{left:0;right:0;top:50cqw;border-top:1px solid var(--bx-cire)}
+.bx-g .chin{left:0;right:0;top:100cqw;border-top:1px dashed #7d7066}
+.bx-g .band{left:0;right:0;top:106cqw;height:34cqw;background:var(--bx-ivoire)}
+.bx-g .band .lbl{position:absolute;color:var(--bx-nuit);left:6cqw;top:5cqw;font-size:2.8cqw}
+.bx-g .band i{position:absolute;top:5.6cqw;right:6cqw;width:5.9cqw;height:5.9cqw;background:var(--bx-nuit)}
+.bx-g .pill{top:144cqw;height:8.6cqw;border:1px solid var(--bx-ivoire);border-radius:2.4cqw;display:flex;align-items:center;padding:0 3cqw}
+.bx-g .pill .lbl{position:static;color:var(--bx-ivoire)}
+.bx-g .reply{left:3.4cqw;right:16cqw;top:161.8cqw;height:11cqw;border:1px solid #7d7066;border-radius:6cqw}
+.bx-g .r{right:3cqw;text-align:right}
+.bx-g .l{left:3cqw}
+
+/* ---------- Décisions ---------- */
+.bx-dec{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 48px;border-top:1px solid var(--bx-ivoire);padding-top:16px;margin-bottom:72px}
+.bx-dec h3{font-family:var(--bx-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--bx-ivoire);margin:0 0 8px}
+.bx-dec p{font-size:14.5px;line-height:1.55;color:var(--bx-cire);margin:0 0 12px}
+.bx-dec b{color:var(--bx-ivoire);font-weight:600}
+
+.bx-mini{display:grid;grid-template-columns:repeat(3,96px);gap:14px;margin:18px 0 18px}
+.bx-mini figure{margin:0}
+.bx-mini figcaption{font-family:var(--bx-mono);font-size:10px;line-height:1.35;text-transform:uppercase;color:var(--bx-voile);margin-top:6px}
+.bx-m{container-type:inline-size;position:relative;width:96px;aspect-ratio:9/16;border-radius:6px;overflow:hidden;background:var(--bx-nuit);outline:1px solid var(--bx-filet)}
+.bx-m>*{position:absolute;left:0;right:0}
+.bx-m .ph{background:#5a514b}
+.bx-m .bd{top:106cqw;height:34cqw;background:var(--bx-ivoire)}
+.bx-m .ft{top:142.2cqw;bottom:0;border-top:1px dashed var(--bx-ambre)}
+.bx-m .pl{top:144cqw;height:8.6cqw;width:30cqw;background:#fff;border-radius:2.4cqw;left:6cqw;right:auto}
+.bx-m .rp{top:161.8cqw;height:11cqw;left:3.4cqw;right:16cqw;border:1px solid #fff;border-radius:6cqw}
+/* ---------- Barre ---------- */
+.bx-bar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;margin-bottom:40px;background:var(--bx-page);border-bottom:1px solid var(--bx-filet);font-family:var(--bx-mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--bx-voile)}
+.bx-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;color:var(--bx-ivoire)}
+.bx-toggle input{appearance:none;-webkit-appearance:none;width:34px;height:18px;border:1px solid var(--bx-ivoire);border-radius:9px;margin:0;position:relative;cursor:pointer}
+.bx-toggle input::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--bx-ivoire);transition:transform .15s}
+.bx-toggle input:checked::after{transform:translateX(16px)}
+
+/* ---------- Sections de stories ---------- */
+.bx-sec{margin:0 0 80px}
+.bx-sec-head{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;border-top:1px solid var(--bx-ivoire);padding-top:16px;margin-bottom:28px}
+.bx-num{font-family:var(--bx-mono);font-size:11px;color:var(--bx-voile);margin:6px 0 0}
+.bx-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 24px}
+.bx-item{margin:0;min-width:0}
+.bx-cap{margin-top:14px}
+.bx-tag{font-family:var(--bx-mono);font-size:11px;line-height:1.4;text-transform:uppercase;color:var(--bx-ivoire);margin:0 0 8px;font-weight:500}
+.bx-tag span{color:var(--bx-voile);font-weight:400}
+.bx-cap dl{margin:0;display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 10px;font-size:13.5px;line-height:1.45;color:var(--bx-cire)}
+.bx-cap dt{font-family:var(--bx-mono);font-size:10px;text-transform:uppercase;color:var(--bx-voile);padding-top:3px}
+.bx-cap dd{margin:0}
+.bx-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.bx-fs-btn{font-family:var(--bx-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--bx-ivoire);background:none;border:1px solid var(--bx-ivoire);border-radius:0;height:30px;padding:0 12px;cursor:pointer}
+.bx-fs-btn:hover{background:var(--bx-ivoire);color:var(--bx-nuit)}
+.bx-hex{display:inline-flex;align-items:center;gap:8px;font-family:var(--bx-mono);font-size:10.5px;text-transform:uppercase;color:var(--bx-voile)}
+.bx-hex i{width:14px;height:14px;display:block;background:var(--sw)}
+.bx-hex input{width:92px;height:30px;font-family:var(--bx-mono);font-size:12px;text-transform:uppercase;color:var(--bx-ivoire);background:var(--bx-nuit);border:1px solid var(--bx-filet);padding:0 8px;border-radius:0}
+.bx-hex input:focus{outline:none;border-color:var(--bx-ivoire)}
+.bx-hex input.is-bad{border-color:var(--bx-ambre)}
+
+/* ================= LA STORY ================= */
+/* 9:16 → hauteur 177,78 cqw. Zone IG haute 0 → 24,9 · bandeau 106 → 140 · stickers 144 → 152,6 · réponse 161,8 → 172,8 */
+.bx-story{container-type:inline-size;position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:14px;background:var(--bx-nuit);isolation:isolate}
+.bx-frame{position:absolute;left:0;width:100cqw;overflow:hidden;z-index:0}
+.bx-frame img{position:absolute;top:0;left:0;max-width:none;height:auto;display:block}
+.bx-nb{filter:url(#bp-nb)}
+.bx-nb-studio{filter:url(#bp-nb-studio)}
+
+/* Le bandeau : identique partout */
+.bx-band{position:absolute;left:0;right:0;top:106cqw;height:34cqw;background:var(--bx-ivoire);color:var(--bx-nuit);padding:5cqw 6cqw 0;z-index:3}
+.bx-title{font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:8.4cqw;line-height:.88;letter-spacing:-.01em;margin:0;white-space:nowrap;max-width:76cqw;outline:none}
+.bx-sq{position:absolute;top:5.6cqw;right:6cqw;width:5.9cqw;height:5.9cqw;border-radius:28%;background:currentColor}
+.bx-info{position:absolute;left:6cqw;right:6cqw;bottom:4.4cqw;height:7cqw;display:flex;justify-content:space-between;align-items:center;gap:3cqw;font-family:var(--bx-mono);font-variation-settings:"wdth" 87.5;font-weight:400;font-size:2.6cqw;line-height:1;text-transform:uppercase;white-space:nowrap}
+.bx-info span{outline:none;overflow:hidden;text-overflow:ellipsis}
+.bx-dim{opacity:.62}
+.bx-btn{flex:none;height:7cqw;padding:0 3.2cqw;display:flex;align-items:center;background:var(--bx-ambre);color:var(--bx-nuit);font-weight:500;overflow:visible!important}
+
+/* Gabarit F : aplat pipetté + date géante + flyer posé sur le bandeau */
+.bx-story.is-aplat{background:var(--bx-aplat)}
+.bx-date{position:absolute;left:5cqw;top:26cqw;z-index:2;margin:0;font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:21cqw;line-height:.8;letter-spacing:-.02em;color:var(--bx-nuit);white-space:nowrap;outline:none}
+.bx-flyer{position:absolute;left:0;top:49.9cqw;width:100%;height:auto;display:block;z-index:1}
+
+/* Gabarit T : typo seule sur nuit */
+.bx-big{position:absolute;left:6cqw;right:6cqw;bottom:77.78cqw;z-index:2;margin:0;font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 300;text-transform:uppercase;font-size:14.6cqw;line-height:.88;letter-spacing:-.01em;color:var(--bx-ivoire);white-space:nowrap;outline:none}
+.bx-fig{position:absolute;left:1.5cqw;top:28cqw;z-index:2;margin:0;font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:68cqw;line-height:.8;letter-spacing:-.04em;color:var(--bx-ivoire);outline:none}
+.bx-fig-txt{position:absolute;left:6cqw;right:6cqw;bottom:77.78cqw;z-index:2;margin:0;font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 300;text-transform:uppercase;font-size:8cqw;line-height:.92;letter-spacing:-.01em;color:var(--bx-ivoire);outline:none}
+
+/* ================= INTERFACE INSTAGRAM ================= */
+.bx-ig{position:absolute;inset:0;z-index:5;pointer-events:none;display:none;color:#fff;font-family:var(--bx-text)}
+.bx-ui .bx-ig{display:block}
+.bx-ig-bars{position:absolute;top:2.6cqw;left:2.6cqw;right:2.6cqw;display:flex;gap:1cqw}
+.bx-ig-bars i{flex:1;height:.5cqw;background:rgba(255,255,255,.45);border-radius:1cqw}
+.bx-ig-bars i.on{background:#fff}
+.bx-ig-who{position:absolute;top:5.6cqw;left:3.4cqw;display:flex;align-items:center;gap:2.4cqw;font-size:3.4cqw;font-weight:600}
+.bx-ig-who i{width:8cqw;height:8cqw;border-radius:50%;border:.3cqw solid #fff;display:block;background:var(--bx-nuit) url(../monogrammes/relais-small.svg) center/78% no-repeat}
+.bx-ig-who em{font-style:normal;font-weight:400;opacity:.75}
+.bx-ig-x{position:absolute;top:6cqw;right:4cqw;font-size:6cqw;line-height:1;font-weight:300}
+.bx-ig-reply{position:absolute;left:3.4cqw;right:16cqw;bottom:5cqw;height:11cqw;border:.3cqw solid rgba(255,255,255,.85);border-radius:6cqw;display:flex;align-items:center;padding-left:5cqw;font-size:3.6cqw}
+.bx-ig-send{position:absolute;right:4cqw;bottom:7.4cqw;width:6.4cqw;height:6.4cqw;border:.3cqw solid #fff;border-radius:1cqw;transform:rotate(-20deg)}
+/* Rangée de stickers unique : 144 → 152,6 cqw, sous le bandeau. Lien à gauche, @mention à droite. */
+.bx-stk{position:absolute;top:144cqw;height:8.6cqw;display:inline-flex;align-items:center;border-radius:2.4cqw;background:#fff;font-size:3.4cqw;font-weight:700;white-space:nowrap}
+.bx-stk-link{left:6cqw;padding:0 3cqw 0 2.4cqw;gap:1.4cqw;color:#2F6AE6;text-transform:uppercase;letter-spacing:.01em}
+.bx-stk-link svg{width:4.2cqw;height:4.2cqw}
+.bx-stk-at{right:6cqw;padding:0 3cqw;color:#111;font-weight:600}
+
+[contenteditable]:focus{outline:1px dashed currentColor;outline-offset:2px}
+
+/* ---------- Plein écran ---------- */
+.bx-fs{position:fixed;inset:0;z-index:100;background:var(--bx-nuit);display:none;align-items:center;justify-content:center}
+.bx-fs.is-on{display:flex}
+.bx-fs .bx-story{width:min(100vw,calc(100vh * 9 / 16));border-radius:0}
+.bx-fs .bx-ig{display:none!important}
+.bx-fs-hint{position:fixed;left:16px;bottom:14px;font-family:var(--bx-mono);font-size:10.5px;text-transform:uppercase;color:var(--bx-voile);transition:opacity .4s}
+.bx-fs-hint.is-gone{opacity:0}
+body.bx-fs-lock{overflow:hidden}
+
+/* ---------- Fiche de production ---------- */
+.bx-prod{border-top:1px solid var(--bx-ivoire);padding-top:16px}
+.bx-prod-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:0 56px;margin-top:28px}
+.bx-steps,.bx-shoot{list-style:none;margin:0;padding:0;counter-reset:s}
+.bx-steps li,.bx-shoot li{counter-increment:s;display:grid;grid-template-columns:34px minmax(0,1fr);padding:12px 0;border-bottom:1px solid var(--bx-filet);font-size:14.5px;line-height:1.5;color:var(--bx-cire)}
+.bx-steps li::before,.bx-shoot li::before{content:counter(s,decimal-leading-zero);font-family:var(--bx-mono);font-size:11px;color:var(--bx-voile);padding-top:3px}
+.bx-steps b,.bx-shoot b,.bx-zoom b{color:var(--bx-ivoire);font-weight:600}
+.bx-sub{font-family:var(--bx-mono);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.05em;color:var(--bx-ivoire);margin:0 0 6px;padding-bottom:10px;border-bottom:1px solid var(--bx-ivoire)}
+.bx-zoom{margin:36px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--bx-ivoire)}
+.bx-zoom div{padding:14px 16px 14px 0;border-right:1px solid var(--bx-filet);font-size:14px;line-height:1.45;color:var(--bx-cire)}
+.bx-zoom div+div{padding-left:16px}
+.bx-zoom div:last-child{border-right:0}
+.bx-zoom strong{display:block;font-family:var(--bx-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:30px;line-height:1;color:var(--bx-ivoire);margin-bottom:6px;font-weight:400}
+
+@media (max-width:1020px){
+  .bx-head{grid-template-columns:minmax(0,1fr);gap:36px}
+  .bx-schema-wrap{position:static}
+  .bx-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .bx-dec,.bx-prod-grid{grid-template-columns:minmax(0,1fr)}
+  .bx-prod-grid>div+div{margin-top:36px}
+}
+@media (max-width:620px){
+  .bx-page{padding:32px 16px 64px}
+  .bx-grid{grid-template-columns:minmax(0,1fr);max-width:390px}
+  .bx-sec-head{grid-template-columns:minmax(0,1fr);gap:4px}
+  .bx-zoom{grid-template-columns:minmax(0,1fr)}
+  .bx-zoom div,.bx-zoom div+div{padding:12px 0;border-right:0;border-bottom:1px solid var(--bx-filet)}
+  .bx-bar{font-size:10px}
+}
+</style>
+</head>
+<body>
+<!-- Traitement photo unique de B, repris du labo photos : mélange R .5 · V .4 · B .1 (filtre rouge de A).
+     #bp-nb : toutes les photos. #bp-nb-studio : même mélange, blancs ramenés à 62 %, uniquement pour un fond studio clair. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="bp-nb" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values=".5 .4 .1 0 0  .5 .4 .1 0 0  .5 .4 .1 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues=".035 .07 .2 .35 .5 .64 .76 .84 .88"/>
+      <feFuncG type="table" tableValues=".035 .07 .2 .35 .5 .64 .76 .84 .88"/>
+      <feFuncB type="table" tableValues=".035 .07 .2 .35 .5 .64 .76 .84 .88"/>
+    </feComponentTransfer>
+  </filter>
+  <filter id="bp-nb-studio" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values=".5 .4 .1 0 0  .5 .4 .1 0 0  .5 .4 .1 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues=".035 .1 .25 .4 .5 .57 .61 .63 .64"/>
+      <feFuncG type="table" tableValues=".035 .1 .25 .4 .5 .57 .61 .63 .64"/>
+      <feFuncB type="table" tableValues=".035 .1 .25 .4 .5 .57 .61 .63 .64"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+<main class="bx-page">
+
+<!-- ======================= EN-TÊTE ======================= -->
+<header class="bx-head">
+  <div>
+    <p class="bx-kicker">Night Square · direction B · système final</p>
+    <h1 class="bx-h1">Système story B</h1>
+    <ol class="bx-rules">
+      <li><span><b>Plein écran, toujours.</b> L'image touche le haut de l'écran : photo, aplat pipetté ou nuit. Jamais une image posée au milieu du noir.</span></li>
+      <li><span><b>Le bandeau ivoire ne bouge jamais</b> : 106 → 140 cqw, nom en Anybody 900 sur deux lignes au plus, carré en haut à droite, ligne d'infos en Martian Mono. Le monogramme Relais vit dans l'avatar, jamais dans le bandeau.</span></li>
+      <li><span><b>Une rangée de stickers, 144 → 153 cqw</b>, sous le bandeau : sticker lien à gauche, @mention à droite. Même place sur les 9 stories.</span></li>
+      <li><span><b>L'action, c'est le sticker lien.</b> Pas de lien, alors un bouton ambre au bout de la ligne d'infos, avec une action qui marche sans lien : « Réponds TABLE ».</span></li>
+      <li><span><b>Cinq gabarits</b> : P plein cadre, H photo de 0 à 106 cqw, D diptyque de secours, F flyer sur aplat, T typo seule sur nuit. Ce qui est grand se pose sur le bandeau.</span></li>
+      <li><span><b>Photos : un seul filtre</b>, N&amp;B « filtre rouge » <code>#bp-nb</code>. Fond studio clair : <code>#bp-nb-studio</code>. Yeux à 50 cqw (38 → 66), menton au-dessus de 100 cqw.</span></li>
+      <li><span><b>Flyers partenaires</b> entiers, intacts, posés sur le bandeau. Le fond prend leur couleur dominante, pipetée, en aplat uni. Date géante en nuit.</span></li>
+      <li><span><b>Zoom au plus ×2</b> sur une photo ; au-delà de ×1,5, on vérifie à taille téléphone. Jamais de glow, de dégradé ni d'ombre portée.</span></li>
+    </ol>
+  </div>
+  <div class="bx-schema-wrap">
+    <div class="bx-g" role="img" aria-label="Schéma d'une story à taille réelle : zones Instagram, visage, bandeau, stickers, zones sûres">
+      <div class="ig" style="top:0;height:24.9cqw"></div>
+      <span class="lbl l" style="top:16cqw">Interface IG · 0 → 25 · 14 %</span>
+      <span class="lbl r" style="top:16cqw">ni yeux ni texte</span>
+      <div class="marg" style="left:6cqw"></div><div class="marg" style="right:6cqw"></div>
+      <div class="eyes"></div>
+      <div class="head"></div>
+      <div class="eyeline"></div>
+      <span class="lbl l" style="top:45.6cqw;color:var(--bx-ivoire)">Yeux · 50</span>
+      <span class="lbl r" style="top:39.4cqw">visage 38 → 66</span>
+      <span class="lbl l" style="top:27.4cqw">Date ou figure géante · 26</span>
+      <div class="chin"></div>
+      <span class="lbl r" style="top:96cqw">menton ≤ 100</span>
+      <span class="lbl l" style="top:96cqw">marge 6</span>
+      <div class="band"><span class="lbl">Bandeau · 106 → 140 · fixe</span><i></i></div>
+      <div class="ig" style="top:142.2cqw;bottom:0"></div>
+      <div class="pill" style="left:6cqw"><span class="lbl">Lien · 144 → 153</span></div>
+      <div class="pill" style="right:6cqw"><span class="lbl">@mention</span></div>
+      <div class="reply"></div>
+      <span class="lbl l" style="top:165.6cqw;left:8cqw">Réponse · 162 → 173</span>
+      <span class="lbl r" style="top:174.2cqw">Interface IG · 142 → 178 · 20 %</span>
+    </div>
+    <p class="bx-schema-cap">Taille réelle · 390 px de large · 1 cqw = 3,9 px à l'écran, 10,8 px à l'export 1080 × 1920</p>
+  </div>
+</header>
+
+<!-- ======================= DÉCISIONS ======================= -->
+<section class="bx-dec">
+  <div>
+    <h3>Décision 1 · Le pied du gabarit H</h3>
+    <p><b>Le bandeau ne descend pas.</b> Il tombe au même endroit à chaque tap, c'est ce qui fait la marque ; le déplacer pour un gabarit, c'est le perdre.</p>
+    <p><b>Le pied H n'est pas un vide : c'est la zone Instagram.</b> Il mesure 38 cqw, exactement les 20 % du bas qu'Instagram occupe, et il porte la rangée de stickers et la barre de réponse, rien d'autre. Sur une P, ces éléments flottent sur la photo ; sur une H, ils ont leur socle nuit. Même place, même lecture.</p>
+    <div class="bx-mini" aria-hidden="true">
+      <figure><div class="bx-m"><div class="ph" style="top:0;bottom:0"></div><div class="bd"></div><div class="ft"></div><div class="pl"></div><div class="rp"></div></div><figcaption>P · stickers sur la photo</figcaption></figure>
+      <figure><div class="bx-m"><div class="ph" style="top:0;height:112cqw"></div><div class="bd"></div><div class="ft"></div><div class="pl"></div><div class="rp"></div></div><figcaption>H · socle nuit</figcaption></figure>
+      <figure><div class="bx-m" style="background:#E95C2A"><div class="ph" style="top:49.9cqw;height:56.1cqw"></div><div class="bd"></div><div class="ft"></div><div class="pl"></div><div class="rp"></div></div><figcaption>F · socle aplat</figcaption></figure>
+    </div>
+    <p><b>Aucun bord de photo n'est visible.</b> La photo part du haut de l'écran, ou d'un fond prolongé à la couleur pipetée, et passe sous le bandeau jusqu'à 112 cqw : le bandeau est la seule couture. Sans bord, pas de « post posé ».</p>
+  </div>
+  <div>
+    <h3>Décision 2 · Bouton ambre contre sticker lien</h3>
+    <p><b>Une règle : il y a un sticker lien, il n'y a pas de bouton.</b> Le sticker est la seule chose cliquable ; un bouton dessiné à côté, c'est deux appels pour une seule action, et le moins utile des deux en ambre.</p>
+    <p><b>Pas de sticker lien, alors le bouton ambre revient</b>, au bout de la ligne d'infos, avec une action qui marche sans lien : « Réponds TABLE », « Écris-nous ». Cas réel : la story prise en direct du club, postée vite, sans lien. Sur ce système, c'est la seule story ambre sur 9.</p>
+    <p>Le bout de la ligne d'infos, libéré, prend une info secondaire en voile (60 %) : « Tables VIP », « Plus que 2 tables ».</p>
+  </div>
+</section>
+
+<div class="bx-bar">
+  <span>9 stories · 9:16 · textes modifiables</span>
+  <label class="bx-toggle"><input type="checkbox" id="bx-ui-toggle" checked> Interface Instagram</label>
+</div>
+
+<div id="bx-root" class="bx-ui">
+
+<!-- ======================= DJ ======================= -->
+<section class="bx-sec">
+  <div class="bx-sec-head"><p class="bx-num">01</p><div><h2 class="bx-h2">DJ</h2><p class="bx-lede">Portrait ou duo. On essaie <b>P</b> ; si le recadrage dépasse ×2 ou coupe une personne, <b>H</b>. Le diptyque D ne sert qu'en dernier recours.</p></div></div>
+  <div class="bx-grid">
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s1" data-link="nightsquare.org" data-at="@nom.artiste">
+        <div class="bx-frame bx-nb" style="top:0;height:112cqw;background:#6B8BA0"><img src="img/dj-portrait-gris.jpg" alt="Portrait d'artiste, studio" style="width:100cqw;top:16cqw"></div>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Nom<br>artiste</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Sam. 14 nov · Gate Club</span><span class="bx-dim" contenteditable="true">Tables VIP</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">H · fond prolongé 16 cqw <span>· portrait gris</span></p>
+        <dl><dt>Quand</dt><dd>Portrait vertical trop petit pour P (600 px : ×2,4) et sans air au-dessus de la tête.</dd>
+        <dt>Fournir</dt><dd>Photo + couleur du fond pipetée en haut du fichier (ici #6B8BA0), 16 cqw sous l'avatar. Zoom ×1,8, yeux à 47 cqw.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s2" data-link="nightsquare.org" data-at="@nom.artiste">
+        <div class="bx-frame bx-nb-studio" style="top:0;height:112cqw;background:#D5D3D3"><img src="img/dj-portrait-blanc.jpg" alt="Portrait d'artiste, fond blanc" style="width:100cqw;top:39.3cqw"></div>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Nom<br>artiste</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Ven. 20 nov · Gate Club</span><span class="bx-dim" contenteditable="true">Tables VIP</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">H · fond prolongé <span>· portrait blanc</span></p>
+        <dl><dt>Quand</dt><dd>Photo paysage sur fond uni. Le regard monte : on lui laisse 40 cqw d'air.</dd>
+        <dt>Fournir</dt><dd>Photo + couleur du fond pipetée en haut du fichier (ici #D5D3D3). Filtre studio. Zoom ×0,84.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s3" data-link="nightsquare.org" data-at="@nom.duo">
+        <div class="bx-frame bx-nb" style="top:0;height:177.78cqw"><img src="img/dj-duo-rouge.jpg" alt="Duo d'artistes, lumière rouge" style="width:155.56cqw;left:-35.56cqw"></div>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Nom<br>&amp; nom</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Sam. 28 nov · Gate Club</span><span class="bx-dim" contenteditable="true">Tables VIP</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">P · plein cadre <span>· duo rouge</span></p>
+        <dl><dt>Quand</dt><dd>Les deux visages tiennent dans le 9:16 sous ×2. Le cas idéal : on ne zoome pas plus.</dd>
+        <dt>Fournir</dt><dd>La photo couleur. Zoom ×1,2, yeux à 52 et 66 cqw.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s4" data-link="nightsquare.org" data-at="@nom.duo">
+        <div class="bx-frame bx-nb" style="top:0;height:112cqw;background:#27232F"><img src="img/dj-duo-nuit.jpg" alt="Duo d'artistes, extérieur de nuit" style="width:181.82cqw;left:-43.18cqw;top:12cqw"></div>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Nom<br>&amp; nom</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Sam. 28 nov · Gate Club</span><span class="bx-dim" contenteditable="true">Tables VIP</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">H · ciel prolongé <span>· duo nuit</span></p>
+        <dl><dt>Quand</dt><dd>Duo paysage, personnes aux deux bords : P en couperait une. On garde une seule image.</dd>
+        <dt>Fournir</dt><dd>Photo + couleur du ciel pipetée (ici #27232F). Zoom ×0,98.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ======================= EVENT ======================= -->
+<section class="bx-sec">
+  <div class="bx-sec-head"><p class="bx-num">02</p><div><h2 class="bx-h2">Event</h2><p class="bx-lede">Flyer partenaire : gabarit <b>F</b>, aplat pipeté, date géante, flyer entier sur le bandeau. Le soir même : la salle en <b>H</b>, même bandeau.</p></div></div>
+  <div class="bx-grid">
+
+    <figure class="bx-item">
+      <div class="bx-story is-aplat" id="bx-s5" style="--bx-aplat:#E95C2A" data-link="Réserve ta table" data-at="@atarashi.paris">
+        <p class="bx-date" contenteditable="true">21.11</p>
+        <img class="bx-flyer" src="img/flyer-atarashi.jpg" alt="Flyer Atarashi Paris">
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Atarashi<br>Paris</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Sam. 21 nov · Yoyo</span><span class="bx-dim" contenteditable="true">Tables VIP</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">F · flyer sur aplat <span>· Atarashi</span></p>
+        <dl><dt>Quand</dt><dd>Tout flyer partenaire paysage. Ni recadré, ni recoloré.</dd>
+        <dt>Fournir</dt><dd>Le flyer, la date, le code de sa couleur dominante, pipeté sur la plus grande zone unie.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button><label class="bx-hex"><i style="--sw:#E95C2A"></i>Aplat <input type="text" value="#E95C2A" maxlength="7" spellcheck="false" data-for="bx-s5" aria-label="Couleur de l'aplat, en hexadécimal"></label></div>
+      </figcaption>
+    </figure>
+
+    <figure class="bx-item">
+      <div class="bx-story is-aplat" id="bx-s6" style="--bx-aplat:#F14448" data-link="Réserve ta table" data-at="@bazar.bysasson">
+        <p class="bx-date" contenteditable="true">20.11</p>
+        <img class="bx-flyer" src="img/flyer-bazar.jpg" alt="Flyer Bâzâr by Sasson">
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Bâzâr<br>by Sasson</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Ven. 20 nov · Gate Club</span><span class="bx-dim" contenteditable="true">Plus que 2 tables</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">F · flyer sur aplat <span>· Bâzâr</span></p>
+        <dl><dt>Quand</dt><dd>Idem. Si le flyer n'a pas de couleur dominante, l'aplat est nuit.</dd>
+        <dt>Fournir</dt><dd>Le flyer, la date, le code couleur (ici le rouge du titre, #F14448).</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button><label class="bx-hex"><i style="--sw:#F14448"></i>Aplat <input type="text" value="#F14448" maxlength="7" spellcheck="false" data-for="bx-s6" aria-label="Couleur de l'aplat, en hexadécimal"></label></div>
+      </figcaption>
+    </figure>
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s7" data-at="@atarashi.paris" data-time="12 min">
+        <div class="bx-frame bx-nb" style="top:0;height:112cqw"><img src="img/foule-atarashi.jpg" alt="Foule en club, ce soir" style="width:125.55cqw;left:-13.27cqw"></div>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Atarashi<br>ce soir</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Yoyo · Palais de Tokyo</span><span class="bx-btn" contenteditable="true">Réponds TABLE</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">H · ce soir, en direct <span>· sans lien</span></p>
+        <dl><dt>Quand</dt><dd>Story postée depuis le club, le soir même. Pas de sticker lien : le bouton ambre revient, l'action passe par la réponse.</dd>
+        <dt>Fournir</dt><dd>Une photo de salle prise sur place. Zoom ×1,2.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ======================= PRODUIT ======================= -->
+<section class="bx-sec">
+  <div class="bx-sec-head"><p class="bx-num">03</p><div><h2 class="bx-h2">Produit</h2><p class="bx-lede">L'app, les tables, Encore. Gabarit <b>T</b> : typo seule sur nuit, une phrase ou un chiffre en géant au-dessus du bandeau. Pas de photo : la salle reste réservée aux events, qui ont besoin de preuves.</p></div></div>
+  <div class="bx-grid">
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s8" data-link="Ouvre l'app" data-at="">
+        <p class="bx-big" contenteditable="true">Il ne<br>manque<br>que<br>toi.</p>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Ta table<br>est prête.</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Night Square · l'app</span><span class="bx-dim" contenteditable="true">Ce soir, partout</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">T · phrase <span>· tables</span></p>
+        <dl><dt>Quand</dt><dd>Message produit court. L'accroche en grand, posée sur le bandeau ; le bandeau dit ce qu'on vend.</dd>
+        <dt>Fournir</dt><dd>Une accroche de 4 lignes au plus, 8 signes par ligne. Un titre de 2 lignes. Rien d'autre.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <figure class="bx-item">
+      <div class="bx-story" id="bx-s9" data-link="Ouvre Encore" data-at="">
+        <p class="bx-fig" contenteditable="true">2</p>
+        <p class="bx-fig-txt" contenteditable="true">Sorties pour<br>Ovation.</p>
+        <div class="bx-band"><h3 class="bx-title" contenteditable="true">Encore</h3><i class="bx-sq"></i><div class="bx-info"><span contenteditable="true">Plus que 2 sorties pour Ovation</span><span class="bx-dim" contenteditable="true">Niveau 3</span></div></div>
+      </div>
+      <figcaption class="bx-cap">
+        <p class="bx-tag">T · chiffre <span>· Encore</span></p>
+        <dl><dt>Quand</dt><dd>Un compteur : sorties, tables, places. Le chiffre géant, la phrase en clair dans la ligne d'infos.</dd>
+        <dt>Fournir</dt><dd>Un chiffre (un ou deux caractères), une phrase.</dd></dl>
+        <div class="bx-tools"><button class="bx-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+</div>
+
+<!-- ======================= FICHE DE PRODUCTION ======================= -->
+<section class="bx-prod">
+  <div class="bx-sec-head" style="border-top:0;padding-top:0;margin-bottom:0"><p class="bx-num">P</p><div><h2 class="bx-h2">Fiche de production</h2><p class="bx-lede">Pour l'équipe : une story en deux à cinq minutes, sans logiciel de design.</p></div></div>
+  <div class="bx-prod-grid">
+    <div>
+      <p class="bx-sub">Étapes</p>
+      <ol class="bx-steps">
+        <li><span><b>Choisir le gabarit.</b> Photo d'artiste : P, sinon H, sinon D. Flyer : F. Message produit : T.</span></li>
+        <li><span><b>Pipeter la couleur.</b> Flyer : la plus grande zone unie, tapée dans le champ « Aplat ». Photo H : la couleur du fond, en haut du fichier.</span></li>
+        <li><span><b>Taper les textes</b> directement sur la story : nom (2 lignes), date et lieu, info secondaire. Lien et @mention s'ajoutent dans Instagram.</span></li>
+        <li><span><b>Activer l'interface</b> et vérifier : rien sous l'avatar, rien sous la barre de réponse, sticker lien à gauche sous le bandeau.</span></li>
+        <li><span><b>Capturer.</b> Bouton « Plein écran » (l'interface disparaît), capture en 9:16, Échap pour revenir. Puis stickers posés dans Instagram, dans la rangée 144 → 153.</span></li>
+      </ol>
+    </div>
+    <div>
+      <p class="bx-sub">Règles de shooting · à envoyer aux artistes</p>
+      <ol class="bx-shoot">
+        <li><span><b>Verticale 9:16 obligatoire</b>, au moins 1 080 × 1 920 px. Le fichier d'origine, jamais une capture ou un export WhatsApp.</span></li>
+        <li><span><b>De l'air au-dessus de la tête</b> : 15 % de la hauteur. Yeux à environ 28 % du haut.</span></li>
+        <li><span><b>Plan taille</b>, mains visibles. Rien d'important entre 60 et 80 % de la hauteur : le bandeau le couvre.</span></li>
+        <li><span><b>En duo, serrés</b> : épaules qui se touchent, yeux à la même hauteur.</span></li>
+        <li><span><b>Fond uni, sombre ou moyen.</b> Pas de fond blanc.</span></li>
+        <li><span><b>En couleur</b> : on fait le N&amp;B. Lumière rouge, orange ou ambrée sur la peau : parfait. Pas de bleu ni de violet pur.</span></li>
+        <li><span><b>Net sur les yeux</b>, sans filtre ni vignettage. 10 % de marge sur les côtés pour les gestes.</span></li>
+      </ol>
+    </div>
+  </div>
+  <div class="bx-zoom">
+    <div><strong>×1,5</strong>Jusque-là : net. Zoom = 1 080 ÷ largeur de source visible, en px.</div>
+    <div><strong>×2</strong>Maximum absolu, en N&amp;B seulement. On regarde la story à taille téléphone.</div>
+    <div><strong>&gt; ×2</strong>Interdit. On passe en H, ou on redemande le fichier.</div>
+  </div>
+</section>
+
+</main>
+
+<div class="bx-fs" id="bx-fs" aria-modal="true" role="dialog" aria-label="Story en plein écran"><p class="bx-fs-hint">Échap pour fermer</p></div>
+
+<script>
+(function(){
+  var LINK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4l2.8-2.8M7.3 4.6l1.1-1.1a2.6 2.6 0 0 1 3.7 3.7l-1.1 1.1M8.7 11.4l-1.1 1.1a2.6 2.6 0 0 1-3.7-3.7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  var stories=[].slice.call(document.querySelectorAll('#bx-root .bx-story'));
+  stories.forEach(function(s,i){
+    var ig=document.createElement('div');ig.className='bx-ig';ig.setAttribute('aria-hidden','true');
+    var bars='';for(var k=0;k<stories.length;k++){bars+='<i'+(k<=i?' class="on"':'')+'></i>'}
+    var h='<div class="bx-ig-bars">'+bars+'</div><div class="bx-ig-who"><i></i>nightsquare <em>'+(s.dataset.time||'2 h')+'</em></div><div class="bx-ig-x">×</div>';
+    if(s.dataset.link){h+='<span class="bx-stk bx-stk-link">'+LINK+'<b>'+s.dataset.link+'</b></span>'}
+    if(s.dataset.at){h+='<span class="bx-stk bx-stk-at">'+s.dataset.at+'</span>'}
+    h+='<div class="bx-ig-reply">Envoyer un message</div><div class="bx-ig-send"></div>';
+    ig.innerHTML=h;s.appendChild(ig);
+  });
+
+  var t=document.getElementById('bx-ui-toggle'),root=document.getElementById('bx-root');
+  function ui(){root.classList.toggle('bx-ui',t.checked)}
+  t.addEventListener('change',ui);
+  if(/[?&]ui=0/.test(location.search)){t.checked=false}
+  ui();
+
+  /* Aplat : saisie hex */
+  [].forEach.call(document.querySelectorAll('.bx-hex input'),function(inp){
+    inp.addEventListener('input',function(){
+      var v=inp.value.trim();if(v&&v[0]!=='#')v='#'+v;
+      var ok=/^#[0-9a-f]{6}$/i.test(v);inp.classList.toggle('is-bad',!ok);
+      if(ok){document.getElementById(inp.dataset.for).style.setProperty('--bx-aplat',v);inp.parentNode.querySelector('i').style.setProperty('--sw',v)}
+    });
+  });
+
+  /* Plein écran : la story elle-même passe dans le calque (les textes modifiés suivent) */
+  var fs=document.getElementById('bx-fs'),hint=fs.querySelector('.bx-fs-hint'),cur=null,ph=null,timer;
+  function open(s){
+    ph=document.createComment('bx');s.parentNode.replaceChild(ph,s);fs.appendChild(s);cur=s;
+    fs.classList.add('is-on');document.body.classList.add('bx-fs-lock');
+    hint.classList.remove('is-gone');clearTimeout(timer);timer=setTimeout(function(){hint.classList.add('is-gone')},1400);
+  }
+  function close(){
+    if(!cur)return;ph.parentNode.replaceChild(cur,ph);cur=null;ph=null;
+    fs.classList.remove('is-on');document.body.classList.remove('bx-fs-lock');
+  }
+  [].forEach.call(document.querySelectorAll('.bx-fs-btn'),function(b){
+    b.addEventListener('click',function(){open(b.closest('.bx-item').querySelector('.bx-story'))});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  fs.addEventListener('click',function(e){if(e.target===fs)close()});
+  var m=/[?&]fs=(\d+)/.exec(location.search);if(m){open(document.getElementById('bx-s'+m[1]))}
+})();
+</script>
+</body>
+</html>

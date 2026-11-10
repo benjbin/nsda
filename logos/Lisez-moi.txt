@@ -1,0 +1,26 @@
+NIGHT SQUARE — NOUVELLE IDENTITÉ (Afterglow) · Kit logos
+
+01 Monogramme Relais
+   - couleur-fond-sombre : lettres ivoire, trace ambre (version principale)
+   - couleur-fond-clair  : lettres nuit, trace ambre inversée
+   - mono-ivoire / mono-nuit : une seule couleur (gravure, tampon, broderie)
+   - petit-format (16, 20, 32 px) : trace simplifiée pour les très petites tailles
+   SVG = vectoriel (impression, Illustrator, Figma) · PNG = fond transparent (2048 et 512 px)
+
+02 Wordmark — NIGHT SQUARE + carré arrondi et sa trace
+   - en ligne et empilé, ivoire (fond sombre) et nuit (fond clair)
+   - lettres vectorisées : aucune police à installer. PNG transparents 3000 px de large.
+
+03 Icône app et favicons — iOS / Android 1024, 180, 120, 60 ; favicons 16 et 32
+
+04 Construction — grille, trace, corrections optiques (ouvrir le .html dans un navigateur)
+
+COULEURS
+   Nuit #0B0908 · Ivoire #EFE6DA · Cire #CDBBA5 · Voile #ADA093 · Tabac #3A2A22
+   Ambre #B5683C · Échos de la trace (sur nuit) #D2A78B, #B5683C, #683D25
+
+TYPOGRAPHIES (Google Fonts, gratuites)
+   Anybody (titres, wordmark : largeur 150, graisses 900 et 280)
+   Hanken Grotesk (texte) · Martian Mono (infos, chiffres)
+
+Règle : ne jamais déformer, recolorer ni ajouter d'effet (ombre, lueur, dégradé).

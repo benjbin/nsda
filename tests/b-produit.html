@@ -1,0 +1,624 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stories produit B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Hanken+Grotesk:wght@300..700&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --pr-nuit:#0B0908;--pr-ivoire:#EFE6DA;--pr-cire:#CDBBA5;--pr-voile:#ADA093;--pr-ambre:#B5683C;--pr-tabac:#3A2A22;
+  --pr-page:#17110E;--pr-filet:#3A2A22;--pr-surf:#15100D;--pr-bezel:#1C1613;
+  --pr-display:"Anybody",system-ui,sans-serif;
+  --pr-text:"Hanken Grotesk",system-ui,sans-serif;
+  --pr-mono:"Martian Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--pr-page);color:var(--pr-ivoire);font-family:var(--pr-text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.pr-page{max-width:1240px;margin:0 auto;padding:56px 32px 96px}
+.pr-kicker{font-family:var(--pr-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--pr-voile);margin:0 0 18px}
+.pr-h1{font-family:var(--pr-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:clamp(34px,5vw,64px);line-height:.9;margin:0 0 24px;letter-spacing:-.01em}
+.pr-h2{font-family:var(--pr-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:clamp(22px,2.4vw,30px);line-height:.95;margin:0 0 8px}
+.pr-lede{font-size:15px;line-height:1.55;color:var(--pr-cire);margin:0;max-width:40em}
+.pr-lede b{color:var(--pr-ivoire);font-weight:600}
+
+/* ---------- En-tête ---------- */
+.pr-head{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;border-top:1px solid var(--pr-ivoire);padding-top:20px;margin-bottom:64px;align-items:start}
+.pr-idea{font-size:17px;line-height:1.5;color:var(--pr-cire);margin:0 0 32px;max-width:36em}
+.pr-idea b{color:var(--pr-ivoire);font-weight:600}
+.pr-rules{list-style:none;margin:0;padding:0;counter-reset:r}
+.pr-rules li{counter-increment:r;display:grid;grid-template-columns:34px minmax(0,1fr);padding:12px 0;border-bottom:1px solid var(--pr-filet);font-size:15px;line-height:1.45;color:var(--pr-cire)}
+.pr-rules li::before{content:counter(r,decimal-leading-zero);font-family:var(--pr-mono);font-size:11px;color:var(--pr-voile);padding-top:3px}
+.pr-rules b{color:var(--pr-ivoire);font-weight:600}
+.pr-schemas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pr-schemas figure{margin:0}
+.pr-schemas figcaption{font-family:var(--pr-mono);font-size:10px;line-height:1.45;text-transform:uppercase;color:var(--pr-voile);margin-top:8px}
+.pr-g{container-type:inline-size;position:relative;width:100%;aspect-ratio:9/16;border-radius:8px;background:var(--pr-nuit);overflow:hidden;outline:1px solid var(--pr-filet)}
+.pr-g>*{position:absolute}
+.pr-g .ig{left:0;right:0;border:1px dashed #6d625a}
+.pr-g .bd{left:0;right:0;top:106cqw;height:34cqw;background:var(--pr-ivoire)}
+.pr-g .pl{top:144cqw;height:8.6cqw;width:34cqw;left:6cqw;border:1px solid var(--pr-ivoire);border-radius:2.4cqw}
+.pr-g .ph{left:11cqw;width:78cqw;top:24.6cqw;height:100cqw;border:1.5px solid var(--pr-voile);border-radius:12cqw}
+.pr-g .ln{left:6cqw;height:5cqw;background:var(--pr-voile)}
+.pr-g .fr{left:6cqw;right:6cqw;top:80cqw;height:26cqw;border:1.5px solid var(--pr-cire);border-bottom:0}
+.pr-g .t{font-family:var(--pr-mono);font-size:5.4cqw;line-height:1.2;text-transform:uppercase;color:var(--pr-voile);white-space:nowrap}
+
+/* ---------- Barre ---------- */
+.pr-bar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;margin-bottom:40px;background:var(--pr-page);border-bottom:1px solid var(--pr-filet);font-family:var(--pr-mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--pr-voile)}
+.pr-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;color:var(--pr-ivoire);white-space:nowrap}
+.pr-toggle input{appearance:none;-webkit-appearance:none;width:34px;height:18px;border:1px solid var(--pr-ivoire);border-radius:9px;margin:0;position:relative;cursor:pointer;flex:none}
+.pr-toggle input::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--pr-ivoire);transition:transform .15s}
+.pr-toggle input:checked::after{transform:translateX(16px)}
+
+/* ---------- Sections ---------- */
+.pr-sec{margin:0 0 80px}
+.pr-sec-head{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;border-top:1px solid var(--pr-ivoire);padding-top:16px;margin-bottom:28px}
+.pr-num{font-family:var(--pr-mono);font-size:11px;color:var(--pr-voile);margin:6px 0 0}
+.pr-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px}
+.pr-item{margin:0;min-width:0}
+.pr-cap{margin-top:14px}
+.pr-tag{font-family:var(--pr-mono);font-size:11px;line-height:1.4;text-transform:uppercase;color:var(--pr-ivoire);margin:0 0 8px;font-weight:500}
+.pr-tag span{color:var(--pr-voile);font-weight:400}
+.pr-cap dl{margin:0;display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 10px;font-size:13.5px;line-height:1.45;color:var(--pr-cire)}
+.pr-cap dt{font-family:var(--pr-mono);font-size:10px;text-transform:uppercase;color:var(--pr-voile);padding-top:3px}
+.pr-cap dd{margin:0}
+.pr-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.pr-fs-btn{font-family:var(--pr-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--pr-ivoire);background:none;border:1px solid var(--pr-ivoire);border-radius:0;height:30px;padding:0 12px;cursor:pointer}
+.pr-fs-btn:hover{background:var(--pr-ivoire);color:var(--pr-nuit)}
+.pr-seq{display:flex;gap:10px;align-items:center;font-family:var(--pr-mono);font-size:10.5px;text-transform:uppercase;color:var(--pr-voile);margin:0 0 6px}
+.pr-seq b{color:var(--pr-ivoire);font-weight:500}
+
+/* ================= LA STORY (règles de b-final) ================= */
+/* 9:16 → 177,78 cqw. IG haute 0 → 24,9 · bandeau 106 → 140 · stickers 144 → 152,6 · réponse 161,8 → 172,8 */
+.pr-story{container-type:inline-size;position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:14px;background:var(--pr-nuit);isolation:isolate}
+.pr-band{position:absolute;left:0;right:0;top:106cqw;height:34cqw;background:var(--pr-ivoire);color:var(--pr-nuit);padding:5cqw 6cqw 0;z-index:3}
+.pr-title{font-family:var(--pr-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:8.4cqw;line-height:.88;letter-spacing:-.01em;margin:0;white-space:nowrap;max-width:76cqw;outline:none}
+.pr-sq{position:absolute;top:5.6cqw;right:6cqw;width:5.9cqw;height:5.9cqw;border-radius:28%;background:currentColor}
+.pr-info{position:absolute;left:6cqw;right:6cqw;bottom:4.4cqw;height:7cqw;display:flex;justify-content:space-between;align-items:center;gap:3cqw;font-family:var(--pr-mono);font-variation-settings:"wdth" 87.5;font-weight:400;font-size:2.6cqw;line-height:1;text-transform:uppercase;white-space:nowrap}
+.pr-info span{outline:none;overflow:hidden;text-overflow:ellipsis}
+.pr-dim{opacity:.62}
+
+/* ---------- Gabarit M : le téléphone, de face, à plat, coupé par le bandeau ---------- */
+.pr-ph{position:absolute;left:11cqw;width:78cqw;top:24.6cqw;height:87.4cqw;padding:1.7cqw 1.7cqw 0;background:var(--pr-bezel);border-radius:12.4cqw 12.4cqw 0 0;box-shadow:inset 0 0 0 .35cqw var(--pr-tabac);z-index:1}
+.pr-scr{container-type:inline-size;position:relative;height:100%;border-radius:10.7cqw 10.7cqw 0 0;background:var(--pr-nuit);overflow:hidden;color:var(--pr-ivoire);font-family:var(--pr-text)}
+/* M plein cadre : l'écran seul, bord à bord, zoom ×1,34 */
+.pr-full{container-type:inline-size;position:absolute;left:0;top:0;width:100cqw;height:106cqw;overflow:hidden;color:var(--pr-ivoire);font-family:var(--pr-text);z-index:1}
+.pr-full .pr-body{top:21cqw}
+
+/* ---------- Composants d'écran (unités = largeur de l'écran) ---------- */
+.pr-isl{position:absolute;top:2.6cqw;left:35cqw;width:30cqw;height:8.4cqw;border-radius:5cqw;background:#000}
+.pr-sb{position:absolute;top:3.6cqw;left:8.5cqw;right:7.5cqw;display:flex;justify-content:space-between;align-items:center;font-size:4.1cqw;font-weight:600;letter-spacing:.01em}
+.pr-sb i{display:flex;gap:.8cqw;align-items:flex-end}
+.pr-sb i b{display:block;width:.9cqw;background:var(--pr-ivoire);border-radius:.3cqw}
+.pr-sb i em{display:block;width:6cqw;height:3cqw;border:.35cqw solid var(--pr-voile);border-radius:.9cqw;margin-left:1.4cqw;position:relative}
+.pr-sb i em::after{content:"";position:absolute;inset:.4cqw 1.6cqw .4cqw .4cqw;background:var(--pr-ivoire);border-radius:.3cqw}
+.pr-body{position:absolute;top:14cqw;left:0;right:0;padding:0 5.5cqw}
+.pr-nav{display:flex;align-items:center;justify-content:space-between;height:9cqw;font-size:4.5cqw;font-weight:600}
+.pr-nav s{text-decoration:none;font-weight:300;font-size:7cqw;line-height:1;width:7cqw}
+.pr-nav u{text-decoration:none;width:7cqw;text-align:right;color:var(--pr-voile);font-weight:400}
+.pr-lab{font-family:var(--pr-mono);font-variation-settings:"wdth" 87.5;font-size:3.2cqw;line-height:1.25;text-transform:uppercase;letter-spacing:.03em;color:var(--pr-voile);margin:0}
+.pr-hd{font-family:var(--pr-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;line-height:.9;letter-spacing:-.01em;margin:0}
+.pr-row{display:flex;align-items:center;justify-content:space-between;gap:3cqw}
+.pr-card{background:var(--pr-surf);border:1px solid var(--pr-tabac);border-radius:3cqw}
+.pr-btn{display:flex;align-items:center;justify-content:center;gap:2cqw;height:12cqw;border-radius:2.4cqw;background:var(--pr-ivoire);color:var(--pr-nuit);font-size:4.4cqw;font-weight:600;white-space:nowrap}
+.pr-btn.is-ambre{background:var(--pr-ambre)}
+.pr-btn.is-line{background:none;color:var(--pr-ivoire);box-shadow:inset 0 0 0 1px var(--pr-voile)}
+.pr-chip{display:inline-flex;align-items:center;gap:1.4cqw;height:6.4cqw;padding:0 2.6cqw;border:1px solid var(--pr-tabac);border-radius:3.2cqw;font-family:var(--pr-mono);font-variation-settings:"wdth" 87.5;font-size:2.9cqw;text-transform:uppercase;color:var(--pr-cire);white-space:nowrap}
+.pr-chip.is-on{border-color:var(--pr-ivoire);color:var(--pr-ivoire)}
+.pr-dot{width:1.8cqw;height:1.8cqw;border-radius:50%;background:var(--pr-ivoire);display:inline-block}
+.pr-av{flex:none;width:8cqw;height:8cqw;border-radius:50%;background:var(--pr-tabac);display:flex;align-items:center;justify-content:center;font-size:3.6cqw;font-weight:600;color:var(--pr-ivoire)}
+.pr-av.is-me{background:var(--pr-ivoire);color:var(--pr-nuit)}
+.pr-qr{display:block;width:100%;height:auto;background:var(--pr-ivoire);padding:6%;border-radius:2.4cqw}
+.pr-thumb{display:block;object-fit:cover}
+
+/* ---------- Gabarit B : phrase + fragment posé sur le bandeau ---------- */
+.pr-say{position:absolute;left:6cqw;right:4cqw;top:27cqw;z-index:2;margin:0;font-family:var(--pr-display);font-variation-settings:"wdth" 150,"wght" 280;text-transform:uppercase;font-size:9cqw;line-height:.92;letter-spacing:-.01em;color:var(--pr-ivoire);outline:none}
+.pr-say.is-low{top:auto;bottom:calc(177.78cqw - 73cqw)}
+.pr-fig{position:absolute;left:5cqw;top:24cqw;z-index:2;margin:0;font-family:var(--pr-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:27cqw;line-height:.8;letter-spacing:-.03em;color:var(--pr-ivoire);white-space:nowrap;outline:none}
+.pr-frag{container-type:inline-size;position:absolute;left:6cqw;right:6cqw;bottom:71.78cqw;z-index:2;background:var(--pr-surf);border:1px solid var(--pr-tabac);border-bottom:0;border-radius:3cqw 3cqw 0 0;color:var(--pr-ivoire);font-family:var(--pr-text);padding:5cqw 5cqw 5.5cqw}
+.pr-frag.is-bare{background:none;border:0;padding:0 0 4cqw}
+
+[contenteditable]:focus{outline:1px dashed currentColor;outline-offset:2px}
+
+/* ================= INTERFACE INSTAGRAM ================= */
+.pr-ig{position:absolute;inset:0;z-index:5;pointer-events:none;display:none;color:#fff;font-family:var(--pr-text)}
+.pr-ui .pr-ig{display:block}
+.pr-ig-bars{position:absolute;top:2.6cqw;left:2.6cqw;right:2.6cqw;display:flex;gap:1cqw}
+.pr-ig-bars i{flex:1;height:.5cqw;background:rgba(255,255,255,.45);border-radius:1cqw}
+.pr-ig-bars i.on{background:#fff}
+.pr-ig-who{position:absolute;top:5.6cqw;left:3.4cqw;display:flex;align-items:center;gap:2.4cqw;font-size:3.4cqw;font-weight:600}
+.pr-ig-who i{width:8cqw;height:8cqw;border-radius:50%;border:.3cqw solid #fff;display:block;background:var(--pr-nuit) url(../monogrammes/relais-small.svg) center/78% no-repeat}
+.pr-ig-who em{font-style:normal;font-weight:400;opacity:.75}
+.pr-ig-x{position:absolute;top:6cqw;right:4cqw;font-size:6cqw;line-height:1;font-weight:300}
+.pr-ig-reply{position:absolute;left:3.4cqw;right:16cqw;bottom:5cqw;height:11cqw;border:.3cqw solid rgba(255,255,255,.85);border-radius:6cqw;display:flex;align-items:center;padding-left:5cqw;font-size:3.6cqw}
+.pr-ig-send{position:absolute;right:4cqw;bottom:7.4cqw;width:6.4cqw;height:6.4cqw;border:.3cqw solid #fff;border-radius:1cqw;transform:rotate(-20deg)}
+.pr-stk{position:absolute;top:144cqw;height:8.6cqw;display:inline-flex;align-items:center;border-radius:2.4cqw;background:#fff;font-size:3.4cqw;font-weight:700;white-space:nowrap}
+.pr-stk-link{left:6cqw;padding:0 3cqw 0 2.4cqw;gap:1.4cqw;color:#2F6AE6;text-transform:uppercase;letter-spacing:.01em}
+.pr-stk-link svg{width:4.2cqw;height:4.2cqw}
+.pr-stk-at{right:6cqw;padding:0 3cqw;color:#111;font-weight:600}
+
+/* ---------- Plein écran ---------- */
+.pr-fs{position:fixed;inset:0;z-index:100;background:var(--pr-nuit);display:none;align-items:center;justify-content:center}
+.pr-fs.is-on{display:flex}
+.pr-fs .pr-story{width:min(100vw,calc(100vh * 9 / 16));border-radius:0}
+.pr-fs .pr-ig{display:none!important}
+.pr-fs-hint{position:fixed;left:16px;bottom:14px;font-family:var(--pr-mono);font-size:10.5px;text-transform:uppercase;color:var(--pr-voile);transition:opacity .4s}
+.pr-fs-hint.is-gone{opacity:0}
+body.pr-fs-lock{overflow:hidden}
+
+@media (max-width:1020px){
+  .pr-head{grid-template-columns:minmax(0,1fr);gap:36px}
+  .pr-schemas{max-width:340px}
+  .pr-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+  .pr-page{padding:32px 16px 64px}
+  .pr-grid{grid-template-columns:minmax(0,1fr);max-width:390px}
+  .pr-sec-head{grid-template-columns:minmax(0,1fr);gap:4px}
+  .pr-bar{font-size:10px}
+}
+</style>
+</head>
+<body>
+<main class="pr-page">
+
+<!-- ======================= EN-TÊTE ======================= -->
+<header class="pr-head">
+  <div>
+    <p class="pr-kicker">Night Square · direction B · stories produit · en anglais</p>
+    <h1 class="pr-h1">Stories produit</h1>
+    <p class="pr-idea"><b>L'app parle d'elle-même, en anglais : soit on montre l'écran, soit on dit ce qu'il change à la nuit.</b> Deux gabarits, M et B, sur le même bandeau ivoire que les stories DJ et event, pour qu'on reconnaisse la marque au premier tap, avant même de lire.</p>
+    <ol class="pr-rules">
+      <li><span><b>M · mockup.</b> Un téléphone de face, à plat, sans reflet ni ombre, centré (11 → 89 cqw). Il entre sous l'avatar et passe sous le bandeau : on ne voit jamais son bas. Le bandeau reste la seule couture.</span></li>
+      <li><span><b>Une fonction, un écran.</b> Ce qui compte doit tenir dans le haut de l'écran visible (25 → 104 cqw). Le texte d'interface fait au moins 9 px à taille téléphone ; sinon, <b>M plein cadre</b> : l'écran seul, bord à bord, zoom ×1,34.</span></li>
+      <li><span><b>B · benefit.</b> Une phrase, pas une liste. Anybody 280 en capitales, 4 lignes au plus, sous la zone Instagram. Un chiffre géant peut la porter (Anybody 900).</span></li>
+      <li><span><b>Le fragment se pose sur le bandeau</b>, comme le flyer de F : une seule pièce d'interface réelle (une ligne, une puce, une notification), bord bas collé à 106 cqw.</span></li>
+      <li><span><b>Le bandeau nomme la fonction</b> en deux lignes de 9 signes au plus ; la ligne d'infos dit où on la trouve. Le sticker lien « Get the app » à gauche, 144 → 153 cqw.</span></li>
+      <li><span><b>Une touche ambre par story</b>, sur l'élément qu'on veut faire toucher : la table choisie, « Pay my share ». Les écrans gardent les vrais mots de l'app (<code>en.json</code>), aux couleurs Afterglow.</span></li>
+      <li><span><b>Jamais</b> de téléphone penché, de reflet, de halo, de flou ni de dégradé. Des données plausibles : vrais events, vrais prix en €, vrais numéros de table.</span></li>
+    </ol>
+  </div>
+  <div class="pr-schemas" aria-hidden="true">
+    <figure>
+      <div class="pr-g"><div class="ig" style="top:0;height:24.9cqw"></div><div class="ph"></div><div class="bd"></div><div class="pl"></div><span class="t" style="left:24cqw;top:60cqw">écran</span><span class="t" style="left:6cqw;top:110cqw;color:var(--pr-nuit)">fonction</span></div>
+      <figcaption>M · téléphone sous le bandeau</figcaption>
+    </figure>
+    <figure>
+      <div class="pr-g"><div class="ig" style="top:0;height:24.9cqw"></div><div class="ln" style="top:28cqw;width:70cqw"></div><div class="ln" style="top:36cqw;width:52cqw"></div><div class="ln" style="top:44cqw;width:62cqw"></div><div class="fr"></div><div class="bd"></div><div class="pl"></div><span class="t" style="left:10cqw;top:90cqw">fragment</span><span class="t" style="left:6cqw;top:110cqw;color:var(--pr-nuit)">fonction</span></div>
+      <figcaption>B · phrase + fragment posé</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="pr-bar">
+  <span>13 stories · 9:16 · textes modifiables</span>
+  <label class="pr-toggle"><input type="checkbox" id="pr-ui-toggle" checked> Interface Instagram</label>
+</div>
+
+<div id="pr-root" class="pr-ui">
+
+<!-- ======================= MOCKUP ======================= -->
+<section class="pr-sec">
+  <div class="pr-sec-head"><p class="pr-num">01</p><div><h2 class="pr-h2">Mockup</h2><p class="pr-lede">L'écran est le héros. <b>M</b> : le téléphone de face, coupé par le bandeau ; le titre nomme le geste en deux lignes, la ligne d'infos dit où le trouver.</p></div></div>
+  <div class="pr-grid">
+
+    <!-- M1 · salle 3D -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s1" data-link="Get the app">
+        <div class="pr-ph"><div class="pr-scr">
+          <div class="pr-isl"></div><div class="pr-sb"><span>23:41</span><i><b style="height:1.4cqw"></b><b style="height:2cqw"></b><b style="height:2.6cqw"></b><em></em></i></div>
+          <div class="pr-body">
+            <div class="pr-nav"><s>×</s><span>Yoyo · 3D room</span><u>☰</u></div>
+            <div style="display:flex;gap:2cqw;margin:2cqw 0 0"><span class="pr-chip is-on">6 guests</span><span class="pr-chip">VIP 1</span><span class="pr-chip">VIP 2</span></div>
+          </div>
+          <svg viewBox="0 0 100 48" style="position:absolute;left:-6cqw;top:31cqw;width:112cqw" aria-hidden="true">
+            <polygon points="9,1 91,1 99,47 1,47" fill="#15100D" stroke="#3A2A22" stroke-width=".4"/>
+            <polygon points="35,1 65,1 66,6.5 34,6.5" fill="#3A2A22"/><text x="50" y="5" text-anchor="middle" font-family="Martian Mono" font-size="2.6" fill="#ADA093">DJ</text>
+            <polygon points="31,10 69,10 73,28 27,28" fill="none" stroke="#ADA093" stroke-width=".3" stroke-dasharray="1 1"/>
+            <text x="50" y="20" text-anchor="middle" font-family="Martian Mono" font-size="2.4" fill="#ADA093" letter-spacing=".3">DANCEFLOOR</text>
+            <g fill="#3A2A22"><rect x="12" y="6" width="9" height="3.6"/><rect x="10.5" y="14" width="9.5" height="3.8"/><rect x="9" y="22" width="10" height="4"/><rect x="7.5" y="30.5" width="10.5" height="4.2"/>
+            <rect x="79" y="6" width="9" height="3.6"/><rect x="80" y="14" width="9.5" height="3.8"/><rect x="81" y="22" width="10" height="4"/><rect x="82" y="30.5" width="10.5" height="4.2"/>
+            <rect x="40" y="35" width="11" height="4.4"/><rect x="54" y="35" width="11" height="4.4"/><rect x="68" y="35" width="11" height="4.4"/></g>
+            <g fill="#241A15"><rect x="12" y="9.6" width="9" height="2.2"/><rect x="10.5" y="17.8" width="9.5" height="2.4"/><rect x="9" y="26" width="10" height="2.6"/><rect x="7.5" y="34.7" width="10.5" height="2.7"/>
+            <rect x="79" y="9.6" width="9" height="2.2"/><rect x="80" y="17.8" width="9.5" height="2.4"/><rect x="81" y="26" width="10" height="2.6"/><rect x="82" y="34.7" width="10.5" height="2.7"/>
+            <rect x="40" y="39.4" width="11" height="2.9"/><rect x="54" y="39.4" width="11" height="2.9"/><rect x="68" y="39.4" width="11" height="2.9"/></g>
+            <rect x="24" y="35" width="11" height="4.4" fill="#B5683C"/><rect x="24" y="39.4" width="11" height="2.9" fill="#7A4428"/>
+            <text x="29.5" y="32.6" text-anchor="middle" font-family="Hanken Grotesk" font-weight="700" font-size="3.6" fill="#EFE6DA">T9</text>
+            <text x="12" y="3.6" font-family="Martian Mono" font-size="2.4" fill="#ADA093">VIP 1</text>
+            <text x="88" y="3.6" text-anchor="end" font-family="Martian Mono" font-size="2.4" fill="#ADA093">VIP 2</text>
+          </svg>
+          <div class="pr-body" style="top:auto;bottom:auto;position:absolute;top:78.5cqw">
+            <div class="pr-card pr-row" style="padding:3.6cqw 3.6cqw 3.6cqw 4.4cqw">
+              <div><p class="pr-lab">VIP 1 · up to 6 pers.</p><p class="pr-hd" style="font-size:6.4cqw;margin:1.6cqw 0 1.4cqw">Table T9</p><p class="pr-lab" style="color:var(--pr-cire)">€600 per table</p></div>
+              <span class="pr-btn" style="width:24cqw">Book</span>
+            </div>
+          </div>
+        </div></div>
+        <div class="pr-band"><h3 class="pr-title">See it.<br>Book it.</h3><i class="pr-sq"></i><div class="pr-info"><span>3D room · Yoyo, Palais de Tokyo</span><span class="pr-dim">iOS · Android</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">M · téléphone <span>· salle 3D</span></p>
+        <dl><dt>Quand</dt><dd>La salle d'un club partenaire est en 3D dans l'app. La fonction la plus forte : à pousser à chaque nouvelle salle.</dd>
+        <dt>Fournir</dt><dd>Nom du club, zones réelles, une table libre (numéro, places, minimum). La table choisie est la seule touche ambre.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- M2 · split -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s2" data-link="Get the app">
+        <div class="pr-ph"><div class="pr-scr">
+          <div class="pr-isl"></div><div class="pr-sb"><span>23:41</span><i><b style="height:1.4cqw"></b><b style="height:2cqw"></b><b style="height:2.6cqw"></b><em></em></i></div>
+          <div class="pr-body">
+            <div class="pr-nav"><s>‹</s><span>Split payment</span><u></u></div>
+            <p class="pr-lab" style="margin-top:3cqw">Total to split · Table T9</p>
+            <div class="pr-row" style="align-items:flex-end;margin-top:1.6cqw"><p class="pr-hd" style="font-size:11cqw">€320</p><p class="pr-lab" style="text-align:right">Atarashi Paris<br>Sat 21 Nov</p></div>
+            <div style="margin-top:4cqw;border-top:1px solid var(--pr-tabac)">
+              <div class="pr-row" style="height:9cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av is-me">I</span>Inès (you)</span><span style="font-size:4.3cqw;font-weight:600">€80</span></div>
+              <div class="pr-row" style="height:9cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">M</span>Malik</span><span style="font-size:4.3cqw;color:var(--pr-cire)">€80</span></div>
+              <div class="pr-row" style="height:9cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">J</span>Jade</span><span style="font-size:4.3cqw;color:var(--pr-cire)">€80</span></div>
+              <div class="pr-row" style="height:9cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">S</span>Sacha</span><span style="font-size:4.3cqw;color:var(--pr-cire)">€80</span></div>
+            </div>
+            <p class="pr-lab" style="margin:2.4cqw 0 2.4cqw;color:var(--pr-cire)">✓ Shares balanced</p>
+            <span class="pr-btn is-ambre">Pay my share · €80</span>
+          </div>
+        </div></div>
+        <div class="pr-band"><h3 class="pr-title">Split<br>the tab.</h3><i class="pr-sq"></i><div class="pr-info"><span>Split payment · in the app</span><span class="pr-dim">iOS · Android</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">M · téléphone <span>· split</span></p>
+        <dl><dt>Quand</dt><dd>Avant un gros week-end, ou quand une table de groupe est mise en avant. Le geste se comprend sans légende.</dd>
+        <dt>Fournir</dt><dd>Un total réel (acompte + frais), 3 à 5 prénoms, des parts égales. « Pay my share » est la touche ambre.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- M3 · QR + Wallet -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s3" data-link="Get the app">
+        <div class="pr-ph"><div class="pr-scr">
+          <div class="pr-isl"></div><div class="pr-sb"><span>23:41</span><i><b style="height:1.4cqw"></b><b style="height:2cqw"></b><b style="height:2.6cqw"></b><em></em></i></div>
+          <div class="pr-body">
+            <div class="pr-nav"><s>‹</s><span>My ticket</span><u></u></div>
+            <div style="display:flex;gap:3.4cqw;align-items:center;margin-top:3.4cqw">
+              <img class="pr-thumb" src="img/flyer-atarashi.jpg" alt="" style="width:22cqw;height:12.4cqw;border-radius:1.6cqw">
+              <div><p class="pr-hd" style="font-size:4.8cqw">Atarashi Paris</p><p class="pr-lab" style="margin-top:1.6cqw;color:var(--pr-cire)">Sat 21 Nov · Table T9</p><p class="pr-lab" style="margin-top:1cqw">Guests 6 · <span style="color:var(--pr-ivoire)">● Confirmed</span></p></div>
+            </div>
+            <div style="width:44cqw;margin:5cqw auto 0"><svg class="pr-qr" data-qr="ns-t9-2111" aria-hidden="true"></svg></div>
+            <span class="pr-btn is-line" style="margin-top:4cqw"><svg viewBox="0 0 16 16" style="width:4.4cqw;height:4.4cqw" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 6.5h13" stroke="currentColor" stroke-width="1.3"/></svg>Add to Wallet</span>
+          </div>
+        </div></div>
+        <div class="pr-band"><h3 class="pr-title">Show it.<br>Walk in.</h3><i class="pr-sq"></i><div class="pr-info"><span>Entry QR · Apple Wallet</span><span class="pr-dim">iOS · Android</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">M · téléphone <span>· QR &amp; Wallet</span></p>
+        <dl><dt>Quand</dt><dd>La veille ou le jour d'un event complet : on rappelle que l'entrée tient dans le téléphone.</dd>
+        <dt>Fournir</dt><dd>Le flyer de l'event en vignette, une table et un nombre de personnes. Le QR est factice, généré par la page.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- M4 · member card -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s4" data-link="Get the app">
+        <div class="pr-ph"><div class="pr-scr">
+          <div class="pr-isl"></div><div class="pr-sb"><span>23:41</span><i><b style="height:1.4cqw"></b><b style="height:2cqw"></b><b style="height:2.6cqw"></b><em></em></i></div>
+          <div class="pr-body">
+            <div class="pr-nav"><s>‹</s><span>Member card</span><u></u></div>
+            <div style="position:relative;margin-top:4cqw;aspect-ratio:1.586;background:var(--pr-tabac);border-radius:4cqw;padding:5cqw">
+              <div class="pr-row" style="align-items:flex-start"><img src="../monogrammes/relais-small.svg" alt="" style="width:13cqw;height:13cqw;margin:-1.4cqw 0 0 -1.4cqw"><p class="pr-lab" style="text-align:right;color:var(--pr-cire)">Night Square<br>passport</p></div>
+              <p class="pr-hd" style="font-size:12cqw;position:absolute;left:5cqw;top:23cqw">Gold</p>
+              <div class="pr-row" style="position:absolute;left:5cqw;right:5cqw;bottom:4.6cqw;align-items:flex-end">
+                <div><p class="pr-lab" style="color:var(--pr-cire)">Holder</p><p style="margin:1cqw 0 0;font-size:4.4cqw;font-weight:600">Inès Moreau</p></div>
+                <p class="pr-lab" style="color:var(--pr-ivoire)">✓ Certified</p>
+              </div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:2cqw;margin-top:5cqw">
+              <div><i style="display:block;height:.8cqw;background:var(--pr-cire)"></i><p class="pr-lab" style="margin-top:2cqw;color:var(--pr-cire)">✓ Bronze</p></div>
+              <div><i style="display:block;height:.8cqw;background:var(--pr-cire)"></i><p class="pr-lab" style="margin-top:2cqw;color:var(--pr-cire)">✓ Silver</p></div>
+              <div><i style="display:block;height:.8cqw;background:var(--pr-ivoire)"></i><p class="pr-lab" style="margin-top:2cqw;color:var(--pr-ivoire)">Gold</p></div>
+              <div><i style="display:block;height:.8cqw;background:var(--pr-tabac)"></i><p class="pr-lab" style="margin-top:2cqw">Elite</p></div>
+            </div>
+            <p style="margin:3.4cqw 0 0;font-size:4cqw;line-height:1.4;color:var(--pr-cire)">Your member status is currently Gold.</p>
+          </div>
+        </div></div>
+        <div class="pr-band"><h3 class="pr-title">Your<br>passport.</h3><i class="pr-sq"></i><div class="pr-info"><span>Member card · Bronze to Elite</span><span class="pr-dim">iOS · Android</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">M · téléphone <span>· member card</span></p>
+        <dl><dt>Quand</dt><dd>Pour donner envie de créer un compte. Attention : les paliers sont encore « coming soon » dans l'app, ne rien promettre.</dd>
+        <dt>Fournir</dt><dd>Un prénom et un nom plausibles, un palier (Gold lit le mieux). Le monogramme est la seule couleur de la carte.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- M5 · event -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s5" data-link="Get the app" data-at="@atarashi.paris">
+        <div class="pr-ph"><div class="pr-scr">
+          <img class="pr-thumb" src="img/flyer-atarashi.jpg" alt="" style="position:absolute;left:0;top:12cqw;width:100cqw;height:56.2cqw">
+          <div class="pr-isl"></div><div class="pr-sb"><span>23:41</span><i><b style="height:1.4cqw"></b><b style="height:2cqw"></b><b style="height:2.6cqw"></b><em></em></i></div>
+          <div class="pr-body" style="top:72cqw">
+            <p class="pr-hd" style="font-size:7cqw">Atarashi Paris</p>
+            <p class="pr-lab" style="margin-top:2cqw;color:var(--pr-cire)">Sat 21 Nov · 23:00 · Yoyo</p>
+            <div style="display:grid;grid-template-columns:1.25fr 1fr;gap:2.4cqw;margin-top:3.4cqw">
+              <span class="pr-btn" style="font-size:4cqw">Book a table</span><span class="pr-btn is-line" style="font-size:4cqw">Buy a ticket</span>
+            </div>
+          </div>
+        </div></div>
+        <div class="pr-band"><h3 class="pr-title">Tonight,<br>sorted.</h3><i class="pr-sq"></i><div class="pr-info"><span>Table or ticket · one tap</span><span class="pr-dim">iOS · Android</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">M · téléphone <span>· fiche event</span></p>
+        <dl><dt>Quand</dt><dd>Un event partenaire déjà annoncé en F : cette story montre où on le réserve. À poster juste après la F.</dd>
+        <dt>Fournir</dt><dd>Le flyer entier en haut de l'écran, titre, date, heure, lieu, le prix d'appel de la table.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ======================= BENEFITS ======================= -->
+<section class="pr-sec">
+  <div class="pr-sec-head"><p class="pr-num">02</p><div><h2 class="pr-h2">Benefits</h2><p class="pr-lede">Un bénéfice par story. <b>B</b> : la phrase en grand, une pièce d'interface posée sur le bandeau comme preuve. Le bandeau nomme la fonction.</p></div></div>
+  <div class="pr-grid">
+
+    <!-- B1 · split -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s6" data-link="Get the app">
+        <p class="pr-say">Nobody<br>fronts<br>the bill.</p>
+        <div class="pr-frag">
+          <div class="pr-row" style="align-items:flex-end"><div><p class="pr-lab">You pay now</p><p class="pr-hd" style="font-size:13cqw;margin-top:2cqw">€80</p></div><p class="pr-lab" style="text-align:right">of €320 total<br>your friends pay the rest</p></div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.4cqw;margin-top:5cqw"><i style="height:2.4cqw;background:var(--pr-ambre)"></i><i style="height:2.4cqw;background:var(--pr-tabac)"></i><i style="height:2.4cqw;background:var(--pr-tabac)"></i><i style="height:2.4cqw;background:var(--pr-tabac)"></i></div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Your<br>share.</h3><i class="pr-sq"></i><div class="pr-info"><span>Split payment · Night Square</span><span class="pr-dim">nightsquare.org</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">B · fragment <span>· split</span></p>
+        <dl><dt>Quand</dt><dd>Le bénéfice du split, sans l'écran : pour les gens qui ont déjà vu M2.</dd>
+        <dt>Fournir</dt><dd>Une part, un total, le nombre d'amis (une barre par personne, la sienne en ambre).</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- B2 · QR -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s7" data-link="Get the app">
+        <p class="pr-say">Your<br>phone is<br>the guest<br>list.</p>
+        <div class="pr-frag">
+          <div style="display:grid;grid-template-columns:30cqw minmax(0,1fr);gap:5cqw;align-items:center">
+            <svg class="pr-qr" data-qr="ns-guest-2011" aria-hidden="true"></svg>
+            <div><span class="pr-chip is-on"><i class="pr-dot"></i>Confirmed</span><p class="pr-hd" style="font-size:5.4cqw;margin:4cqw 0 2cqw">Bâzâr<br>by Sasson</p><p class="pr-lab" style="color:var(--pr-cire)">Fri 20 Nov · Gate Club<br>Table T4 · Guests 5</p></div>
+          </div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">QR &amp;<br>Wallet.</h3><i class="pr-sq"></i><div class="pr-info"><span>Your entry, in the app</span><span class="pr-dim">nightsquare.org</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">B · fragment <span>· entrée</span></p>
+        <dl><dt>Quand</dt><dd>Le jour J, en fin d'après-midi : rassurer ceux qui ont réservé, convaincre les autres.</dd>
+        <dt>Fournir</dt><dd>Un event réel, une table, un nombre de personnes. Pas d'ambre : le QR suffit.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- B3 · follow DJ -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s8" data-link="Get the app">
+        <p class="pr-say">Hear it<br>before it<br>sells out.</p>
+        <div class="pr-frag" style="border-radius:4cqw 4cqw 0 0">
+          <div style="display:grid;grid-template-columns:11cqw minmax(0,1fr);gap:3.6cqw;align-items:start">
+            <span style="width:11cqw;height:11cqw;border-radius:2.6cqw;background:var(--pr-nuit) url(../monogrammes/relais-small.svg) center/80% no-repeat;box-shadow:inset 0 0 0 1px var(--pr-tabac)"></span>
+            <div>
+              <div class="pr-row"><p class="pr-lab">Night Square</p><p class="pr-lab">now</p></div>
+              <p style="margin:1.6cqw 0 1cqw;font-size:4.6cqw;font-weight:600;line-height:1.25">East End Dubs just got announced</p>
+              <p style="margin:0;font-size:4.2cqw;line-height:1.35;color:var(--pr-cire)">Atarashi Paris · Sat 21 Nov · Yoyo</p>
+            </div>
+          </div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Follow<br>your DJs.</h3><i class="pr-sq"></i><div class="pr-info"><span>DJ notifications · Follow</span><span class="pr-dim">nightsquare.org</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">B · fragment <span>· notification</span></p>
+        <dl><dt>Quand</dt><dd>Pour faire suivre des DJ. Le lendemain d'une story DJ, avec le même artiste dans la notification.</dd>
+        <dt>Fournir</dt><dd>Un artiste annoncé, son event, sa date. Texte de notif : 2 lignes au plus.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- B4 · deposit -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s9" data-link="Get the app">
+        <p class="pr-fig">20%</p>
+        <p class="pr-say" style="top:50cqw;font-size:7.4cqw">now. The rest<br>at the table.</p>
+        <div class="pr-frag">
+          <div style="display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--pr-tabac)">
+            <div style="padding:3.4cqw 3cqw 0 0;border-right:1px solid var(--pr-tabac)"><p class="pr-lab">Due now</p><p class="pr-hd" style="font-size:8cqw;margin-top:2.4cqw">€120</p><p class="pr-lab" style="margin-top:2cqw">+ fees · online</p></div>
+            <div style="padding:3.4cqw 0 0 5cqw"><p class="pr-lab">On site</p><p class="pr-hd" style="font-size:8cqw;margin-top:2.4cqw;color:var(--pr-cire)">€480</p><p class="pr-lab" style="margin-top:2cqw">on the night</p></div>
+          </div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Book<br>light.</h3><i class="pr-sq"></i><div class="pr-info"><span>Table €600 · deposit 20%</span><span class="pr-dim">nightsquare.org</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">B · chiffre + fragment <span>· acompte</span></p>
+        <dl><dt>Quand</dt><dd>Pour lever le frein du prix d'une table. Seulement sur un event en mode acompte 20 % (pas en frais fixes).</dd>
+        <dt>Fournir</dt><dd>Le minimum de la table ; l'acompte et le solde se calculent. Le chiffre : 4 signes au plus.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- B5 · search -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s10" data-link="Get the app">
+        <p class="pr-say">Tonight<br>is one<br>search<br>away.</p>
+        <div class="pr-frag">
+          <div class="pr-row" style="height:11cqw;padding:0 3.6cqw;border:1px solid var(--pr-voile);border-radius:2.4cqw;justify-content:flex-start"><svg viewBox="0 0 16 16" style="width:4.4cqw;height:4.4cqw;flex:none" aria-hidden="true"><circle cx="7" cy="7" r="4.6" fill="none" stroke="#ADA093" stroke-width="1.4"/><path d="M10.4 10.4l3.6 3.6" stroke="#ADA093" stroke-width="1.4"/></svg><span style="font-size:4.4cqw">Gate Club<span style="display:inline-block;width:.4cqw;height:5cqw;background:var(--pr-ivoire);vertical-align:-1cqw;margin-left:.6cqw"></span></span></div>
+          <div style="display:flex;gap:3.6cqw;align-items:center;margin-top:4cqw">
+            <img class="pr-thumb" src="img/flyer-bazar.jpg" alt="" style="width:24cqw;height:13.5cqw;border-radius:1.6cqw">
+            <div style="min-width:0"><p class="pr-hd" style="font-size:5cqw">Bâzâr by Sasson</p><p class="pr-lab" style="margin-top:1.8cqw;color:var(--pr-cire)">Fri 20 Nov · Gate Club</p></div>
+          </div>
+          <div style="margin-top:4cqw"><span class="pr-chip is-on">◎ View map</span></div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Search<br>&amp; map.</h3><i class="pr-sq"></i><div class="pr-info"><span>Event, DJ, club, city</span><span class="pr-dim">nightsquare.org</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-tag">B · fragment <span>· recherche</span></p>
+        <dl><dt>Quand</dt><dd>En semaine, quand il n'y a pas d'event à pousser : la story de fond qui rappelle que l'app sert tous les soirs.</dd>
+        <dt>Fournir</dt><dd>Une recherche (club ou DJ) et un résultat réel avec son flyer.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ======================= MINI-CAMPAGNE ======================= -->
+<section class="pr-sec">
+  <div class="pr-sec-head"><p class="pr-num">03</p><div><h2 class="pr-h2">Launch · Split payment</h2><p class="pr-lede">Trois stories qui se suivent, le jour du lancement. <b>1 · le problème</b> (B chiffre), <b>2 · l'écran</b> (M plein cadre), <b>3 · l'appel</b> (B). Même bandeau, même place : seule l'image change d'un tap à l'autre.</p></div></div>
+  <div class="pr-grid">
+
+    <!-- C1 -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s11" data-link="Get the app" data-time="2 min">
+        <p class="pr-fig" style="font-size:22cqw;top:26cqw">€320</p>
+        <p class="pr-say" style="top:50cqw;font-size:7.4cqw">on one card.<br>Again?</p>
+        <div class="pr-frag is-bare">
+          <div class="pr-row" style="height:10.4cqw;border-top:1px solid var(--pr-tabac);border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av is-me">I</span>Inès</span><span style="font-size:4.3cqw;font-weight:600">€320</span></div>
+          <div class="pr-row" style="height:10.4cqw;border-bottom:1px solid var(--pr-tabac);color:var(--pr-voile)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">M</span>Malik · “I'll pay you back”</span><span style="font-size:4.3cqw">€0</span></div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Not<br>anymore.</h3><i class="pr-sq"></i><div class="pr-info"><span>New · Split payment</span><span class="pr-dim">1 / 3</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-seq"><b>Story 1</b> → 2 → 3</p>
+        <p class="pr-tag">B · chiffre <span>· le problème</span></p>
+        <dl><dt>Quand</dt><dd>Ouvre le lancement. Le problème que tout le monde connaît, sans montrer l'app.</dd>
+        <dt>Fournir</dt><dd>Le même total que les stories 2 et 3. Pas d'ambre ici : il arrive avec la solution.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- C2 -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s12" data-link="Get the app" data-time="1 min">
+        <div class="pr-full">
+          <div class="pr-body" style="top:20cqw">
+            <p class="pr-lab">Split payment · Table T9</p>
+            <div class="pr-row" style="align-items:flex-end;margin-top:2cqw"><p class="pr-hd" style="font-size:13cqw">€320</p><p class="pr-lab" style="text-align:right">4 friends<br>€80 each</p></div>
+            <div style="margin-top:4cqw;border-top:1px solid var(--pr-tabac)">
+              <div class="pr-row" style="height:10cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av is-me">I</span>Inès (you)</span><span style="font-size:4.3cqw;font-weight:600">€80</span></div>
+              <div class="pr-row" style="height:10cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">M</span>Malik</span><span style="font-size:4.3cqw;color:var(--pr-cire)">€80</span></div>
+              <div class="pr-row" style="height:10cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">J</span>Jade</span><span style="font-size:4.3cqw;color:var(--pr-cire)">€80</span></div>
+              <div class="pr-row" style="height:10cqw;border-bottom:1px solid var(--pr-tabac)"><span style="display:flex;gap:3cqw;align-items:center;font-size:4.3cqw"><span class="pr-av">S</span>Sacha</span><span style="font-size:4.3cqw;color:var(--pr-cire)">€80</span></div>
+            </div>
+            <p class="pr-lab" style="margin-top:3cqw;color:var(--pr-cire)">You only pay your share. Your friends pay theirs separately.</p>
+          </div>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Split<br>payment.</h3><i class="pr-sq"></i><div class="pr-info"><span>Add friends · pay your share</span><span class="pr-dim">2 / 3</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-seq">1 → <b>Story 2</b> → 3</p>
+        <p class="pr-tag">M plein cadre <span>· l'écran seul</span></p>
+        <dl><dt>Quand</dt><dd>Quand l'écran doit se lire en entier à taille téléphone : pas de cadre, zoom ×1,34, bord à bord.</dd>
+        <dt>Fournir</dt><dd>Le haut de l'écran réel, sans barre d'état. 4 lignes de données au plus.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- C3 -->
+    <figure class="pr-item">
+      <div class="pr-story" id="pr-s13" data-link="Get the app" data-time="now">
+        <p class="pr-say" style="font-size:8.4cqw">Four<br>friends.<br>Four cards.<br>Zero IOUs.</p>
+        <div class="pr-frag is-bare">
+          <p class="pr-lab" style="margin-bottom:3cqw;color:var(--pr-cire)">✓ Shares balanced · Secured by Stripe</p>
+          <span class="pr-btn is-ambre" style="height:14cqw;font-size:5cqw">Pay my share · €80</span>
+        </div>
+        <div class="pr-band"><h3 class="pr-title">Out<br>now.</h3><i class="pr-sq"></i><div class="pr-info"><span>Split payment · Night Square</span><span class="pr-dim">3 / 3</span></div></div>
+      </div>
+      <figcaption class="pr-cap">
+        <p class="pr-seq">1 → 2 → <b>Story 3</b></p>
+        <p class="pr-tag">B · bouton <span>· l'appel</span></p>
+        <dl><dt>Quand</dt><dd>Ferme la série. Le seul ambre des trois stories : le bouton qu'on touchera dans l'app.</dd>
+        <dt>Fournir</dt><dd>Une phrase de 4 lignes, le libellé exact du bouton de l'app, le sticker lien.</dd></dl>
+        <div class="pr-tools"><button class="pr-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+</div>
+</main>
+
+<div class="pr-fs" id="pr-fs" aria-modal="true" role="dialog" aria-label="Story en plein écran"><p class="pr-fs-hint">Échap pour fermer</p></div>
+
+<script>
+(function(){
+  /* QR factice, déterministe : trois repères + modules pseudo-aléatoires */
+  [].forEach.call(document.querySelectorAll('svg[data-qr]'),function(svg){
+    var n=25,seed=0,s=svg.dataset.qr,i,x,y;for(i=0;i<s.length;i++)seed=(seed*31+s.charCodeAt(i))>>>0;
+    function rnd(){seed=(seed*1664525+1013904223)>>>0;return seed/4294967296}
+    function finder(x0,y0){return x0<=x&&x<x0+7&&y0<=y&&y<y0+7}
+    var d='';
+    for(y=0;y<n;y++)for(x=0;x<n;x++){
+      var on;
+      if(finder(0,0)||finder(n-7,0)||finder(0,n-7)){var fx=x<7?x:x-(n-7),fy=y<7?y:y-(n-7);on=(fx===0||fx===6||fy===0||fy===6||(fx>=2&&fx<=4&&fy>=2&&fy<=4))}
+      else if((x<8&&y<8)||(x>=n-8&&y<8)||(x<8&&y>=n-8))on=false;
+      else on=rnd()<.5;
+      if(on)d+='M'+x+' '+y+'h1v1h-1z';
+    }
+    svg.setAttribute('viewBox','0 0 '+n+' '+n);
+    svg.innerHTML='<path d="'+d+'" fill="#0B0908" shape-rendering="crispEdges"/>';
+  });
+
+  /* Textes modifiables : tout élément de texte « feuille » d'une story */
+  [].forEach.call(document.querySelectorAll('#pr-root .pr-story *'),function(el){
+    if(/^(svg|path|rect|polygon|text|g|circle|img|i|br)$/i.test(el.tagName))return;
+    if(el.closest('svg'))return;
+    var leaf=[].every.call(el.childNodes,function(c){return c.nodeType===3||c.tagName==='BR'});
+    if(leaf&&el.textContent.trim())el.setAttribute('contenteditable','true');
+  });
+
+  /* Interface Instagram : barres par section (la campagne compte 3) */
+  var LINK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4l2.8-2.8M7.3 4.6l1.1-1.1a2.6 2.6 0 0 1 3.7 3.7l-1.1 1.1M8.7 11.4l-1.1 1.1a2.6 2.6 0 0 1-3.7-3.7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  [].forEach.call(document.querySelectorAll('#pr-root .pr-sec'),function(sec){
+    var stories=[].slice.call(sec.querySelectorAll('.pr-story'));
+    stories.forEach(function(s,i){
+      var ig=document.createElement('div');ig.className='pr-ig';ig.setAttribute('aria-hidden','true');
+      var bars='';for(var k=0;k<stories.length;k++){bars+='<i'+(k<=i?' class="on"':'')+'></i>'}
+      var h='<div class="pr-ig-bars">'+bars+'</div><div class="pr-ig-who"><i></i>nightsquare <em>'+(s.dataset.time||'2 h')+'</em></div><div class="pr-ig-x">×</div>';
+      if(s.dataset.link){h+='<span class="pr-stk pr-stk-link">'+LINK+'<b>'+s.dataset.link+'</b></span>'}
+      if(s.dataset.at){h+='<span class="pr-stk pr-stk-at">'+s.dataset.at+'</span>'}
+      h+='<div class="pr-ig-reply">Send message</div><div class="pr-ig-send"></div>';
+      ig.innerHTML=h;s.appendChild(ig);
+    });
+  });
+  var t=document.getElementById('pr-ui-toggle'),root=document.getElementById('pr-root');
+  function ui(){root.classList.toggle('pr-ui',t.checked)}
+  t.addEventListener('change',ui);
+  if(/[?&]ui=0/.test(location.search)){t.checked=false}
+  ui();
+
+  /* Plein écran */
+  var fs=document.getElementById('pr-fs'),hint=fs.querySelector('.pr-fs-hint'),cur=null,ph=null,timer;
+  function open(s){
+    ph=document.createComment('pr');s.parentNode.replaceChild(ph,s);fs.appendChild(s);cur=s;
+    fs.classList.add('is-on');document.body.classList.add('pr-fs-lock');
+    hint.classList.remove('is-gone');clearTimeout(timer);timer=setTimeout(function(){hint.classList.add('is-gone')},1400);
+  }
+  function close(){
+    if(!cur)return;ph.parentNode.replaceChild(cur,ph);cur=null;ph=null;
+    fs.classList.remove('is-on');document.body.classList.remove('pr-fs-lock');
+  }
+  [].forEach.call(document.querySelectorAll('.pr-fs-btn'),function(b){
+    b.addEventListener('click',function(){open(b.closest('.pr-item').querySelector('.pr-story'))});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  fs.addEventListener('click',function(e){if(e.target===fs)close()});
+  var m=/[?&]fs=(\d+)/.exec(location.search);if(m){open(document.getElementById('pr-s'+m[1]))}
+})();
+</script>
+</body>
+</html>

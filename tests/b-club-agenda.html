@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Club et agenda B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Hanken+Grotesk:wght@300..700&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ca-nuit:#0B0908;--ca-ivoire:#EFE6DA;--ca-cire:#CDBBA5;--ca-voile:#ADA093;--ca-ambre:#B5683C;--ca-tabac:#3A2A22;
+  --ca-page:#17110E;--ca-filet:#3A2A22;--ca-surf:#15100D;
+  --ca-display:"Anybody",system-ui,sans-serif;
+  --ca-text:"Hanken Grotesk",system-ui,sans-serif;
+  --ca-mono:"Martian Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--ca-page);color:var(--ca-ivoire);font-family:var(--ca-text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.ca-page{max-width:1240px;margin:0 auto;padding:56px 32px 96px}
+.ca-kicker{font-family:var(--ca-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ca-voile);margin:0 0 18px}
+.ca-h1{font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:clamp(34px,5vw,64px);line-height:.9;margin:0 0 24px;letter-spacing:-.01em}
+.ca-h2{font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:clamp(22px,2.4vw,30px);line-height:.95;margin:0 0 8px}
+.ca-lede{font-size:15px;line-height:1.55;color:var(--ca-cire);margin:0;max-width:40em}
+.ca-lede b{color:var(--ca-ivoire);font-weight:600}
+
+/* ---------- En-tête ---------- */
+.ca-head{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:56px;border-top:1px solid var(--ca-ivoire);padding-top:20px;margin-bottom:64px;align-items:start}
+.ca-idea{font-size:17px;line-height:1.5;color:var(--ca-cire);margin:0 0 32px;max-width:36em}
+.ca-idea b{color:var(--ca-ivoire);font-weight:600}
+.ca-rules{list-style:none;margin:0;padding:0;counter-reset:r}
+.ca-rules li{counter-increment:r;display:grid;grid-template-columns:34px minmax(0,1fr);padding:12px 0;border-bottom:1px solid var(--ca-filet);font-size:15px;line-height:1.45;color:var(--ca-cire)}
+.ca-rules li::before{content:counter(r,decimal-leading-zero);font-family:var(--ca-mono);font-size:11px;color:var(--ca-voile);padding-top:3px}
+.ca-rules b{color:var(--ca-ivoire);font-weight:600}
+.ca-schemas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.ca-schemas figure{margin:0}
+.ca-schemas figcaption{font-family:var(--ca-mono);font-size:10px;line-height:1.45;text-transform:uppercase;color:var(--ca-voile);margin-top:8px}
+.ca-g{container-type:inline-size;position:relative;width:100%;aspect-ratio:9/16;border-radius:8px;background:var(--ca-nuit);overflow:hidden;outline:1px solid var(--ca-filet)}
+.ca-g>*{position:absolute}
+.ca-g .ig{left:0;right:0;border:1px dashed #6d625a}
+.ca-g .bd{left:0;right:0;top:106cqw;height:34cqw;background:var(--ca-ivoire)}
+.ca-g .pl{top:144cqw;height:8.6cqw;width:34cqw;left:6cqw;border:1px solid var(--ca-ivoire);border-radius:2.4cqw}
+.ca-g .rw{left:6cqw;right:6cqw;height:17cqw;border-top:1px solid var(--ca-voile)}
+.ca-g .rw b{position:absolute;left:0;top:4cqw;width:14cqw;height:9cqw;background:var(--ca-ivoire)}
+.ca-g .rw i{position:absolute;left:24cqw;top:5cqw;width:46cqw;height:4cqw;background:var(--ca-voile)}
+.ca-g .rw u{position:absolute;left:24cqw;top:11cqw;width:24cqw;height:2cqw;background:var(--ca-tabac)}
+.ca-g .room{left:6cqw;right:6cqw;top:28cqw;height:66cqw;border:1.5px solid var(--ca-voile)}
+.ca-g .tb{width:12cqw;height:7cqw;background:var(--ca-tabac)}
+.ca-g .tb.is-free{background:var(--ca-ambre)}
+.ca-g .t{font-family:var(--ca-mono);font-size:5.4cqw;line-height:1.2;text-transform:uppercase;color:var(--ca-voile);white-space:nowrap}
+
+/* ---------- Barre ---------- */
+.ca-bar{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px 0;margin-bottom:40px;background:var(--ca-page);border-bottom:1px solid var(--ca-filet);font-family:var(--ca-mono);font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ca-voile)}
+.ca-toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;color:var(--ca-ivoire);white-space:nowrap}
+.ca-toggle input{appearance:none;-webkit-appearance:none;width:34px;height:18px;border:1px solid var(--ca-ivoire);border-radius:9px;margin:0;position:relative;cursor:pointer;flex:none}
+.ca-toggle input::after{content:"";position:absolute;top:2px;left:2px;width:12px;height:12px;border-radius:50%;background:var(--ca-ivoire);transition:transform .15s}
+.ca-toggle input:checked::after{transform:translateX(16px)}
+
+/* ---------- Sections ---------- */
+.ca-sec{margin:0 0 80px}
+.ca-sec-head{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;border-top:1px solid var(--ca-ivoire);padding-top:16px;margin-bottom:28px}
+.ca-num{font-family:var(--ca-mono);font-size:11px;color:var(--ca-voile);margin:6px 0 0}
+.ca-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px 24px}
+.ca-grid.is-3{grid-template-columns:repeat(3,minmax(0,1fr));gap:48px 28px}
+.ca-item{margin:0;min-width:0}
+.ca-cap{margin-top:14px}
+.ca-tag{font-family:var(--ca-mono);font-size:11px;line-height:1.4;text-transform:uppercase;color:var(--ca-ivoire);margin:0 0 8px;font-weight:500}
+.ca-tag span{color:var(--ca-voile);font-weight:400}
+.ca-cap dl{margin:0;display:grid;grid-template-columns:62px minmax(0,1fr);gap:4px 10px;font-size:13.5px;line-height:1.45;color:var(--ca-cire)}
+.ca-cap dt{font-family:var(--ca-mono);font-size:10px;text-transform:uppercase;color:var(--ca-voile);padding-top:3px}
+.ca-cap dd{margin:0}
+.ca-tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:12px}
+.ca-fs-btn{font-family:var(--ca-mono);font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--ca-ivoire);background:none;border:1px solid var(--ca-ivoire);border-radius:0;height:30px;padding:0 12px;cursor:pointer}
+.ca-fs-btn:hover{background:var(--ca-ivoire);color:var(--ca-nuit)}
+.ca-seq{display:flex;gap:10px;align-items:center;font-family:var(--ca-mono);font-size:10.5px;text-transform:uppercase;color:var(--ca-voile);margin:0 0 6px}
+.ca-seq b{color:var(--ca-ivoire);font-weight:500}
+
+/* ================= LA STORY (règles de b-final) ================= */
+/* 9:16 → 177,78 cqw. IG haute 0 → 24,9 · bandeau 106 → 140 · stickers 144 → 152,6 · réponse 161,8 → 172,8 */
+.ca-story{container-type:inline-size;position:relative;width:100%;aspect-ratio:9/16;overflow:hidden;border-radius:14px;background:var(--ca-nuit);isolation:isolate}
+.ca-frame{position:absolute;left:0;width:100cqw;overflow:hidden;z-index:0}
+.ca-frame img{position:absolute;top:0;left:0;max-width:none;height:auto;display:block}
+.ca-nb{filter:url(#bp-nb)}
+
+/* Le bandeau : identique partout */
+.ca-band{position:absolute;left:0;right:0;top:106cqw;height:34cqw;background:var(--ca-ivoire);color:var(--ca-nuit);padding:5cqw 6cqw 0;z-index:3}
+.ca-title{font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;text-transform:uppercase;font-size:8.4cqw;line-height:.88;letter-spacing:-.01em;margin:0;white-space:nowrap;max-width:76cqw;outline:none}
+.ca-sq{position:absolute;top:5.6cqw;right:6cqw;width:5.9cqw;height:5.9cqw;border-radius:28%;background:currentColor}
+.ca-info{position:absolute;left:6cqw;right:6cqw;bottom:4.4cqw;height:7cqw;display:flex;justify-content:space-between;align-items:center;gap:3cqw;font-family:var(--ca-mono);font-variation-settings:"wdth" 87.5;font-weight:400;font-size:2.6cqw;line-height:1;text-transform:uppercase;white-space:nowrap}
+.ca-info span{outline:none;overflow:hidden;text-overflow:ellipsis}
+.ca-dim{opacity:.62}
+.ca-btn{flex:none;height:7cqw;padding:0 3.2cqw;display:flex;align-items:center;background:var(--ca-ambre);color:var(--ca-nuit);font-weight:500;overflow:visible!important}
+
+/* Gabarit F : aplat pipetté + date (ou « Ce soir ») + flyer posé sur le bandeau */
+.ca-story.is-aplat{background:var(--ca-aplat)}
+.ca-date{position:absolute;left:5cqw;top:26cqw;z-index:2;margin:0;font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:21cqw;line-height:.8;letter-spacing:-.02em;color:var(--ca-nuit);white-space:nowrap;outline:none}
+.ca-date.is-word{font-size:9.4cqw;line-height:.86;text-transform:uppercase;letter-spacing:-.01em}
+.ca-flyer{position:absolute;left:0;top:49.9cqw;width:100%;height:auto;display:block;z-index:1}
+
+/* Gabarit T : typo seule sur nuit */
+.ca-fig{position:absolute;left:1.5cqw;top:28cqw;z-index:2;margin:0;font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:68cqw;line-height:.8;letter-spacing:-.04em;color:var(--ca-ivoire);outline:none}
+.ca-fig-txt{position:absolute;left:6cqw;right:6cqw;bottom:77.78cqw;z-index:2;margin:0;font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 300;text-transform:uppercase;font-size:8cqw;line-height:.92;letter-spacing:-.01em;color:var(--ca-ivoire);outline:none}
+
+/* Phrase posée sur le bandeau (B et H) */
+.ca-say{position:absolute;left:6cqw;right:4cqw;bottom:calc(177.78cqw - 102cqw);z-index:2;margin:0;font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 300;text-transform:uppercase;font-size:8cqw;line-height:.92;letter-spacing:-.01em;color:var(--ca-ivoire);outline:none}
+.ca-say.is-photo{font-variation-settings:"wdth" 150,"wght" 560;font-size:7.4cqw}
+
+/* Gabarit B (repris de b-produit) : chiffre + fragment */
+.ca-bfig{position:absolute;left:5cqw;top:28cqw;z-index:2;margin:0;font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:17cqw;line-height:.8;letter-spacing:-.03em;color:var(--ca-ivoire);white-space:nowrap;outline:none}
+.ca-lab{font-family:var(--ca-mono);font-variation-settings:"wdth" 87.5;font-size:2.6cqw;line-height:1.25;text-transform:uppercase;letter-spacing:.03em;color:var(--ca-voile);margin:0;outline:none}
+.ca-frag{position:absolute;left:6cqw;right:6cqw;bottom:71.78cqw;z-index:2;padding:0 0 3cqw;color:var(--ca-ivoire)}
+.ca-kv{display:grid;grid-template-columns:24cqw minmax(0,1fr);align-items:baseline;gap:3cqw;padding:2.8cqw 0;border-top:1px solid var(--ca-tabac)}
+.ca-kv:last-child{border-bottom:1px solid var(--ca-tabac)}
+.ca-kv p:last-child{margin:0;font-size:4cqw;line-height:1.25;color:var(--ca-ivoire);outline:none}
+
+/* ---------- Gabarit A : agenda, grille typo sur nuit, posée sur le bandeau ---------- */
+.ca-ag{position:absolute;left:6cqw;right:6cqw;bottom:71.78cqw;z-index:2;padding-bottom:3.4cqw}
+.ca-ag-head{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:2.4cqw}
+.ca-ag-row{display:grid;grid-template-columns:21cqw minmax(0,1fr);align-items:center;gap:3cqw;padding:2.6cqw 0;border-top:1px solid var(--ca-voile)}
+.ca-ag-row:last-child{border-bottom:1px solid var(--ca-voile)}
+.ca-ag-d{display:flex;flex-direction:column;gap:1cqw}
+.ca-ag-n{margin:0;white-space:nowrap;font-family:var(--ca-display);font-variation-settings:"wdth" 150,"wght" 900;font-size:9.4cqw;line-height:.82;letter-spacing:-.03em;color:var(--ca-ivoire);outline:none}
+.ca-ag-e{margin:0 0 1cqw;padding-top:.6cqw;font-family:var(--ca-display);font-variation-settings:"wdth" 125,"wght" 800;text-transform:uppercase;font-size:5cqw;line-height:1.12;color:var(--ca-ivoire);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;outline:none}
+.ca-ag-row.is-past .ca-ag-n,.ca-ag-row.is-past .ca-ag-e{color:var(--ca-voile)}
+/* Variante « jours d'ouverture » : le jour en géant */
+.ca-ag.is-days .ca-ag-row{grid-template-columns:max-content minmax(0,1fr);gap:6cqw;padding:3.4cqw 0}
+.ca-ag.is-days .ca-ag-n{font-size:13cqw;text-transform:uppercase}
+.ca-ag.is-days .ca-ag-e{font-size:4.6cqw}
+
+/* ---------- Gabarit S : plan de salle, 2D à plat ---------- */
+.ca-plan{position:absolute;left:6cqw;width:88cqw;top:27cqw;height:auto;z-index:2;display:block}
+
+/* ---------- Week-end : deux flyers à droite, dates à gauche ---------- */
+.ca-wk-f{position:absolute;right:0;width:64cqw;height:auto;display:block;z-index:1}
+.ca-wk-d{position:absolute;left:6cqw;width:24cqw;z-index:2}
+.ca-wk-d .ca-ag-n{font-size:11.5cqw;margin:1.6cqw 0 2cqw}
+
+[contenteditable]:focus{outline:1px dashed currentColor;outline-offset:2px}
+
+/* ================= INTERFACE INSTAGRAM ================= */
+.ca-ig{position:absolute;inset:0;z-index:5;pointer-events:none;display:none;color:#fff;font-family:var(--ca-text)}
+.ca-ui .ca-ig{display:block}
+.ca-ig-bars{position:absolute;top:2.6cqw;left:2.6cqw;right:2.6cqw;display:flex;gap:1cqw}
+.ca-ig-bars i{flex:1;height:.5cqw;background:rgba(255,255,255,.45);border-radius:1cqw}
+.ca-ig-bars i.on{background:#fff}
+.ca-ig-who{position:absolute;top:5.6cqw;left:3.4cqw;display:flex;align-items:center;gap:2.4cqw;font-size:3.4cqw;font-weight:600}
+.ca-ig-who i{width:8cqw;height:8cqw;border-radius:50%;border:.3cqw solid #fff;display:block;background:var(--ca-nuit) url(../monogrammes/relais-small.svg) center/78% no-repeat}
+.ca-ig-who em{font-style:normal;font-weight:400;opacity:.75}
+.ca-ig-x{position:absolute;top:6cqw;right:4cqw;font-size:6cqw;line-height:1;font-weight:300}
+.ca-ig-reply{position:absolute;left:3.4cqw;right:16cqw;bottom:5cqw;height:11cqw;border:.3cqw solid rgba(255,255,255,.85);border-radius:6cqw;display:flex;align-items:center;padding-left:5cqw;font-size:3.6cqw}
+.ca-ig-send{position:absolute;right:4cqw;bottom:7.4cqw;width:6.4cqw;height:6.4cqw;border:.3cqw solid #fff;border-radius:1cqw;transform:rotate(-20deg)}
+.ca-stk{position:absolute;top:144cqw;height:8.6cqw;display:inline-flex;align-items:center;border-radius:2.4cqw;background:#fff;font-size:3.4cqw;font-weight:700;white-space:nowrap}
+.ca-stk-link{left:6cqw;padding:0 3cqw 0 2.4cqw;gap:1.4cqw;color:#2F6AE6;text-transform:uppercase;letter-spacing:.01em}
+.ca-stk-link svg{width:4.2cqw;height:4.2cqw}
+.ca-stk-at{right:6cqw;padding:0 3cqw;color:#111;font-weight:600}
+
+/* ---------- Plein écran ---------- */
+.ca-fs{position:fixed;inset:0;z-index:100;background:var(--ca-nuit);display:none;align-items:center;justify-content:center}
+.ca-fs.is-on{display:flex}
+.ca-fs .ca-story{width:min(100vw,calc(100vh * 9 / 16));border-radius:0}
+.ca-fs .ca-ig{display:none!important}
+.ca-fs-hint{position:fixed;left:16px;bottom:14px;font-family:var(--ca-mono);font-size:10.5px;text-transform:uppercase;color:var(--ca-voile);transition:opacity .4s}
+.ca-fs-hint.is-gone{opacity:0}
+body.ca-fs-lock{overflow:hidden}
+
+@media (max-width:1020px){
+  .ca-head{grid-template-columns:minmax(0,1fr);gap:36px}
+  .ca-schemas{max-width:340px}
+  .ca-grid,.ca-grid.is-3{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:620px){
+  .ca-page{padding:32px 16px 64px}
+  .ca-grid,.ca-grid.is-3{grid-template-columns:minmax(0,1fr);max-width:390px}
+  .ca-sec-head{grid-template-columns:minmax(0,1fr);gap:4px}
+  .ca-bar{font-size:10px}
+}
+</style>
+</head>
+<body>
+<!-- Traitement photo unique de B (repris de b-final) : mélange R .5 · V .4 · B .1 -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <filter id="bp-nb" color-interpolation-filters="sRGB">
+    <feColorMatrix type="matrix" values=".5 .4 .1 0 0  .5 .4 .1 0 0  .5 .4 .1 0 0  0 0 0 1 0"/>
+    <feComponentTransfer>
+      <feFuncR type="table" tableValues=".035 .07 .2 .35 .5 .64 .76 .84 .88"/>
+      <feFuncG type="table" tableValues=".035 .07 .2 .35 .5 .64 .76 .84 .88"/>
+      <feFuncB type="table" tableValues=".035 .07 .2 .35 .5 .64 .76 .84 .88"/>
+    </feComponentTransfer>
+  </filter>
+</svg>
+
+<main class="ca-page">
+
+<!-- ======================= EN-TÊTE ======================= -->
+<header class="ca-head">
+  <div>
+    <p class="ca-kicker">Night Square · direction B · stories club, ce soir, cette semaine</p>
+    <h1 class="ca-h1">Club &amp; agenda</h1>
+    <p class="ca-idea"><b>Trois domaines de plus, aucun nouveau look.</b> Les gabarits H, F, T et B de <code>b-final</code> et <code>b-produit</code> font l'essentiel ; deux gabarits s'ajoutent pour ce qu'une photo ne sait pas dire : <b>A</b>, une grille d'agenda, et <b>S</b>, un plan de salle. Le bandeau ivoire ne bouge pas.</p>
+    <ol class="ca-rules">
+      <li><span><b>A · agenda.</b> Une grille typo sur nuit, posée sur le bandeau (bas à 106 cqw). Une ligne par soirée : date en Anybody 900, event en capitales, club en Martian Mono. Filets voile, 5 lignes au plus, pas d'image.</span></li>
+      <li><span><b>S · salle.</b> Un plan 2D vu de dessus, à plat, au trait voile : cabine, piste, bar, entrée, tables numérotées. Table prise : tabac. Table libre : ambre, c'est la seule touche. Ni perspective, ni ombre.</span></li>
+      <li><span><b>Le bandeau dit le message</b> quand l'image est un plan ou une grille (« Plus que 2 tables », « Cette semaine ») ; il nomme le club ou l'event quand l'image est une photo ou un flyer.</span></li>
+      <li><span><b>Ce soir, trois temps, un compte qui baisse</b> : 4 tables le matin, 2 à l'ouverture, 1 à la fin. Seule la dernière perd le sticker lien et prend le bouton ambre « Réponds TABLE », comme la story H de <code>b-final</code>.</span></li>
+      <li><span><b>Pas de photo de club vide</b> : en attendant celle du club, la foule en N&amp;B <code>#bp-nb</code>, recadrée sans le nom d'un autre event. Les flyers restent entiers.</span></li>
+      <li><span><b>Récap sobre.</b> Pas de chiffres de fréquentation, pas de « record » : une photo, une phrase, le rendez-vous suivant.</span></li>
+    </ol>
+  </div>
+  <div class="ca-schemas" aria-hidden="true">
+    <figure>
+      <div class="ca-g"><div class="ig" style="top:0;height:24.9cqw"></div>
+        <div class="rw" style="top:36cqw"><b></b><i></i><u></u></div><div class="rw" style="top:53cqw"><b></b><i></i><u></u></div><div class="rw" style="top:70cqw"><b></b><i></i><u></u></div><div class="rw" style="top:87cqw;border-bottom:1px solid var(--ca-voile);height:16cqw"><b></b><i></i><u></u></div>
+        <div class="bd"></div><div class="pl"></div><span class="t" style="left:6cqw;top:110cqw;color:var(--ca-nuit)">message</span></div>
+      <figcaption>A · grille agenda sur le bandeau</figcaption>
+    </figure>
+    <figure>
+      <div class="ca-g"><div class="ig" style="top:0;height:24.9cqw"></div>
+        <div class="room"></div><div class="tb" style="left:10cqw;top:38cqw"></div><div class="tb" style="left:10cqw;top:50cqw"></div><div class="tb is-free" style="left:10cqw;top:62cqw"></div><div class="tb" style="right:10cqw;top:38cqw"></div><div class="tb" style="right:10cqw;top:50cqw"></div><div class="tb" style="right:10cqw;top:62cqw"></div><div class="tb is-free" style="left:44cqw;top:78cqw"></div>
+        <div class="bd"></div><div class="pl"></div><span class="t" style="left:6cqw;top:110cqw;color:var(--ca-nuit)">message</span></div>
+      <figcaption>S · plan de salle, à plat</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="ca-bar">
+  <span>10 stories · 9:16 · textes modifiables</span>
+  <label class="ca-toggle"><input type="checkbox" id="ca-ui-toggle" checked> Interface Instagram</label>
+</div>
+
+<div id="ca-root" class="ca-ui">
+
+<!-- ======================= CLUB ======================= -->
+<section class="ca-sec">
+  <div class="ca-sec-head"><p class="ca-num">01</p><div><h2 class="ca-h2">Club</h2><p class="ca-lede">Un club partenaire en quatre taps : <b>le lieu</b> (H), <b>les tables</b> (S), <b>les soirs</b> (A), <b>les infos</b> (B). Le bandeau porte le nom du club sur trois stories sur quatre ; sur le plan, il porte l'urgence.</p></div></div>
+  <div class="ca-grid">
+
+    <!-- C1 · le club -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s1" data-link="Réserve ta table" data-at="@gateclub.paris">
+        <div class="ca-frame ca-nb" style="top:0;height:112cqw"><img src="img/foule-atarashi.jpg" alt="Salle de club pleine, en noir et blanc" style="width:196cqw;left:-4cqw"></div>
+        <p class="ca-say is-photo">Ici, la<br>nuit prend<br>son temps.</p>
+        <div class="ca-band"><h3 class="ca-title">Gate<br>Club</h3><i class="ca-sq"></i><div class="ca-info"><span>Porte Maillot · Paris 17</span><span class="ca-dim">Jeu · Ven · Sam</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">H · lieu <span>· le club</span></p>
+        <dl><dt>Quand</dt><dd>Première story d'un nouveau partenaire, puis une fois par mois. L'ambiance en une phrase, posée sur le bandeau.</dd>
+        <dt>Fournir</dt><dd><b>À demander au club</b> : une photo de salle pleine, verticale, prise depuis la cabine ou le balcon, sans logo d'event. Ici, la foule Atarashi en attente, zoom ×1,96, recadrée pour cacher le nom.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- C2 · les tables -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s2" data-link="Réserve ta table" data-at="@gateclub.paris">
+        <svg class="ca-plan" viewBox="0 0 88 76" aria-label="Plan de salle : 2 tables libres sur 11">
+          <g font-family="Martian Mono, monospace" text-anchor="middle">
+            <rect x=".5" y=".5" width="87" height="66" fill="none" stroke="#ADA093" stroke-width=".35"/>
+            <path d="M.5 52v8" stroke="#0B0908" stroke-width="1.2"/>
+            <text x="3" y="58.6" font-size="2.2" fill="#ADA093" text-anchor="start" transform="rotate(-90 3 58.6)" dx="-1">Entrée</text>
+            <rect x="34" y=".5" width="20" height="7" fill="#3A2A22"/><text x="44" y="5" font-size="2.4" fill="#CDBBA5">Cabine</text>
+            <rect x="25" y="12" width="38" height="28" fill="none" stroke="#ADA093" stroke-width=".3" stroke-dasharray="1.2 1"/>
+            <text x="44" y="27" font-size="2.6" fill="#ADA093" letter-spacing=".4">PISTE</text>
+            <rect x="28" y="58" width="32" height="5" fill="#3A2A22"/><text x="44" y="61.6" font-size="2.4" fill="#CDBBA5">Bar</text>
+            <g font-size="2.6">
+              <rect x="5" y="10" width="13" height="7" fill="#3A2A22"/><text x="11.5" y="14.6" fill="#ADA093">T1</text>
+              <rect x="5" y="21" width="13" height="7" fill="#3A2A22"/><text x="11.5" y="25.6" fill="#ADA093">T2</text>
+              <rect x="5" y="32" width="13" height="7" fill="#B5683C"/><text x="11.5" y="36.6" fill="#0B0908" font-weight="700">T3</text>
+              <rect x="5" y="43" width="13" height="7" fill="#3A2A22"/><text x="11.5" y="47.6" fill="#ADA093">T4</text>
+              <rect x="70" y="10" width="13" height="7" fill="#3A2A22"/><text x="76.5" y="14.6" fill="#ADA093">T5</text>
+              <rect x="70" y="21" width="13" height="7" fill="#3A2A22"/><text x="76.5" y="25.6" fill="#ADA093">T6</text>
+              <rect x="70" y="32" width="13" height="7" fill="#3A2A22"/><text x="76.5" y="36.6" fill="#ADA093">T7</text>
+              <rect x="70" y="43" width="13" height="7" fill="#3A2A22"/><text x="76.5" y="47.6" fill="#ADA093">T8</text>
+              <rect x="25" y="45" width="11" height="7" fill="#3A2A22"/><text x="30.5" y="49.6" fill="#ADA093">T9</text>
+              <rect x="38.5" y="45" width="11" height="7" fill="#B5683C"/><text x="44" y="49.6" fill="#0B0908" font-weight="700">T10</text>
+              <rect x="52" y="45" width="11" height="7" fill="#3A2A22"/><text x="57.5" y="49.6" fill="#ADA093">T11</text>
+            </g>
+            <g font-size="2.4" text-anchor="start">
+              <rect x=".5" y="71" width="3" height="3" fill="#B5683C"/><text x="5.4" y="73.6" fill="#EFE6DA">Libre</text>
+              <rect x="22" y="71" width="3" height="3" fill="#3A2A22"/><text x="26.9" y="73.6" fill="#ADA093">Prise</text>
+              <text x="87.5" y="73.6" fill="#ADA093" text-anchor="end">Tables de 4 à 8</text>
+            </g>
+          </g>
+        </svg>
+        <div class="ca-band"><h3 class="ca-title">Plus que<br>2 tables</h3><i class="ca-sq"></i><div class="ca-info"><span>Samedi 21 nov · Gate Club</span><span class="ca-dim">T3 · T10</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">S · plan <span>· les tables</span></p>
+        <dl><dt>Quand</dt><dd>Mercredi ou jeudi avant un samedi qui se remplit. Le plan prouve le « plus que » : on voit ce qui est pris.</dd>
+        <dt>Fournir</dt><dd>Le plan réel du club (cabine, bar, entrée, numéros de tables) et l'état des tables pour la date. Ambre sur les libres uniquement.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- C3 · les soirs -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s3" data-link="Réserve ta table" data-at="@gateclub.paris">
+        <div class="ca-ag is-days">
+          <div class="ca-ag-head"><p class="ca-lab">Ouvert</p><p class="ca-lab">23:30 → 06:00</p></div>
+          <div class="ca-ag-row"><p class="ca-ag-n">Jeu</p><div><p class="ca-ag-e">Résidence</p><p class="ca-lab">NOM ARTISTE</p></div></div>
+          <div class="ca-ag-row"><p class="ca-ag-n">Ven</p><div><p class="ca-ag-e">Invités</p><p class="ca-lab">Collectifs partenaires</p></div></div>
+          <div class="ca-ag-row"><p class="ca-ag-n">Sam</p><div><p class="ca-ag-e">Résidence</p><p class="ca-lab">NOM ARTISTE</p></div></div>
+        </div>
+        <div class="ca-band"><h3 class="ca-title">Gate<br>Club</h3><i class="ca-sq"></i><div class="ca-info"><span>Jeudi, vendredi, samedi</span><span class="ca-dim">Porte Maillot</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">A · jours <span>· les soirs d'ouverture</span></p>
+        <dl><dt>Quand</dt><dd>Avec la story du club, ou en début de saison. Les jours se lisent avant les noms.</dd>
+        <dt>Fournir</dt><dd>Les soirs d'ouverture, l'horaire, le résident ou le format de chaque soir. Noms d'artistes validés par le club.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- C4 · infos pratiques -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s4" data-link="Itinéraire" data-at="@gateclub.paris">
+        <p class="ca-bfig">23:30</p>
+        <p class="ca-lab" style="position:absolute;left:6cqw;top:44cqw;z-index:2;color:var(--ca-cire)">Ouverture des portes</p>
+        <div class="ca-frag">
+          <div class="ca-kv"><p class="ca-lab">Dress code</p><p>Soigné, sombre. Pas de sportswear.</p></div>
+          <div class="ca-kv"><p class="ca-lab">Adresse</p><p>2 pl. de la Porte Maillot, 17e</p></div>
+          <div class="ca-kv"><p class="ca-lab">Métro</p><p>Porte Maillot · ligne 1</p></div>
+          <div class="ca-kv"><p class="ca-lab">Entrée</p><p>18 ans, pièce d'identité</p></div>
+        </div>
+        <div class="ca-band"><h3 class="ca-title">Gate<br>Club</h3><i class="ca-sq"></i><div class="ca-info"><span>Infos pratiques</span><span class="ca-dim">Jeu · Ven · Sam</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">B · chiffre + liste <span>· infos pratiques</span></p>
+        <dl><dt>Quand</dt><dd>À la fin de la série club, et le jour J pour ceux qui ont réservé. Elle répond aux trois questions qu'on reçoit en DM.</dd>
+        <dt>Fournir</dt><dd>L'heure d'ouverture, le dress code en une phrase, l'adresse, le métro, l'âge minimum. Quatre lignes au plus.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ======================= CE SOIR ======================= -->
+<section class="ca-sec">
+  <div class="ca-sec-head"><p class="ca-num">02</p><div><h2 class="ca-h2">Ce soir</h2><p class="ca-lede">Le jour même, posté vite. Trois stories, un compte qui baisse : <b>4 tables</b> le matin (F), <b>2</b> à l'ouverture (H), <b>la dernière</b> en fin de soirée (T). Même bandeau que la story H « Atarashi ce soir ».</p></div></div>
+  <div class="ca-grid is-3">
+
+    <!-- CS1 · le matin -->
+    <figure class="ca-item">
+      <div class="ca-story is-aplat" id="ca-s5" style="--ca-aplat:#E95C2A" data-link="Réserve ta table" data-at="@atarashi.paris" data-time="11:40">
+        <p class="ca-date is-word">Ce soir.<br>4 tables.</p>
+        <img class="ca-flyer" src="img/flyer-atarashi.jpg" alt="Flyer Atarashi Paris">
+        <div class="ca-band"><h3 class="ca-title">Atarashi<br>Paris</h3><i class="ca-sq"></i><div class="ca-info"><span>Yoyo · Palais de Tokyo · 23:00</span><span class="ca-dim">Tables restantes</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-seq"><b>Matin</b> → porte → fin</p>
+        <p class="ca-tag">F · ce soir <span>· le compte</span></p>
+        <dl><dt>Quand</dt><dd>Entre 11 h et 17 h, le jour J. La F de l'event, la date géante remplacée par « Ce soir » et le compte des tables.</dd>
+        <dt>Fournir</dt><dd>Le nombre de tables restantes au moment de poster. Le flyer et l'aplat sont ceux de la F déjà publiée.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- CS2 · la porte ouvre -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s6" data-link="Réserve ta table" data-at="@atarashi.paris" data-time="23:12">
+        <div class="ca-frame ca-nb" style="top:0;height:112cqw"><img src="img/foule-atarashi.jpg" alt="Foule en club, à l'ouverture" style="width:160cqw;left:-48cqw;top:-18cqw"></div>
+        <div class="ca-band"><h3 class="ca-title">Atarashi<br>ça ouvre</h3><i class="ca-sq"></i><div class="ca-info"><span>Yoyo · Palais de Tokyo</span><span class="ca-dim">Plus que 2 tables</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-seq">Matin → <b>porte</b> → fin</p>
+        <p class="ca-tag">H · en direct <span>· depuis le club</span></p>
+        <dl><dt>Quand</dt><dd>Dans la demi-heure qui suit l'ouverture, depuis la salle. Le lien est encore là : on peut réserver dans l'app.</dd>
+        <dt>Fournir</dt><dd>Une photo de salle prise sur place, horizontale ou verticale, foule de dos ou cabine. Zoom ×1,52.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- CS3 · dernière table -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s7" data-at="@atarashi.paris" data-time="1 min">
+        <p class="ca-fig">1</p>
+        <p class="ca-fig-txt">Dernière<br>table.</p>
+        <div class="ca-band"><h3 class="ca-title">Atarashi<br>ce soir</h3><i class="ca-sq"></i><div class="ca-info"><span>Yoyo · Palais de Tokyo</span><span class="ca-btn">Réponds TABLE</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-seq">Matin → porte → <b>fin</b></p>
+        <p class="ca-tag">T · chiffre <span>· dernière chance</span></p>
+        <dl><dt>Quand</dt><dd>Quand il reste une table, même tard. Pas de sticker lien : le bouton ambre, la réservation se fait en DM.</dd>
+        <dt>Fournir</dt><dd>Rien d'autre que le chiffre. Quelqu'un doit répondre aux DM dans les 10 minutes.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+<!-- ======================= CETTE SEMAINE ======================= -->
+<section class="ca-sec">
+  <div class="ca-sec-head"><p class="ca-num">03</p><div><h2 class="ca-h2">Cette semaine</h2><p class="ca-lede">L'agenda en <b>A</b> le lundi, le week-end en deux flyers le jeudi, la semaine passée en <b>H</b> le lundi suivant. Une soirée par ligne, lisible en trois secondes.</p></div></div>
+  <div class="ca-grid is-3">
+
+    <!-- W1 · agenda -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s8" data-link="Tout l'agenda" data-time="9 h">
+        <div class="ca-ag">
+          <div class="ca-ag-row"><div class="ca-ag-d"><p class="ca-lab">Jeu.</p><p class="ca-ag-n">19</p></div><div><p class="ca-ag-e">Résidence</p><p class="ca-lab">NOM ARTISTE · Gate Club</p></div></div>
+          <div class="ca-ag-row"><div class="ca-ag-d"><p class="ca-lab">Ven.</p><p class="ca-ag-n">20</p></div><div><p class="ca-ag-e">Bâzâr by Sasson</p><p class="ca-lab">Gate Club</p></div></div>
+          <div class="ca-ag-row"><div class="ca-ag-d"><p class="ca-lab">Sam.</p><p class="ca-ag-n">21</p></div><div><p class="ca-ag-e">Atarashi Paris</p><p class="ca-lab">Yoyo · Palais de Tokyo</p></div></div>
+          <div class="ca-ag-row"><div class="ca-ag-d"><p class="ca-lab">Dim.</p><p class="ca-ag-n">22</p></div><div><p class="ca-ag-e">Closing</p><p class="ca-lab">NOM ARTISTE · Gate Club</p></div></div>
+        </div>
+        <div class="ca-band"><h3 class="ca-title">Cette<br>semaine</h3><i class="ca-sq"></i><div class="ca-info"><span>16 → 22 nov · Paris</span><span class="ca-dim">4 soirées</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">A · agenda <span>· la semaine</span></p>
+        <dl><dt>Quand</dt><dd>Le lundi en fin de matinée. On la repartage le mercredi si l'agenda bouge.</dd>
+        <dt>Fournir</dt><dd>3 à 5 soirées : jour, date, nom de l'event (18 signes au plus), club. Pas d'image, pas d'ambre.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- W2 · week-end -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s9" data-link="Réserve ta table" data-time="2 h">
+        <img class="ca-wk-f" src="img/flyer-bazar.jpg" alt="Flyer Bâzâr by Sasson" style="top:30cqw">
+        <div class="ca-wk-d" style="top:30cqw"><p class="ca-lab">Ven.</p><p class="ca-ag-n">20</p><p class="ca-lab">Gate Club</p></div>
+        <img class="ca-wk-f" src="img/flyer-atarashi.jpg" alt="Flyer Atarashi Paris" style="top:70cqw">
+        <div class="ca-wk-d" style="top:70cqw"><p class="ca-lab">Sam.</p><p class="ca-ag-n">21</p><p class="ca-lab">Yoyo</p></div>
+        <div class="ca-band"><h3 class="ca-title">Ce<br>week-end</h3><i class="ca-sq"></i><div class="ca-info"><span>Ven. 20 · Sam. 21 nov</span><span class="ca-dim">Nos deux coups de cœur</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">F double <span>· le week-end</span></p>
+        <dl><dt>Quand</dt><dd>Le jeudi midi. Deux soirées, pas trois : au-delà, c'est l'agenda.</dd>
+        <dt>Fournir</dt><dd>Deux flyers paysage, entiers. Deux couleurs dominantes qui se battent : le fond reste nuit.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+    <!-- W3 · récap -->
+    <figure class="ca-item">
+      <div class="ca-story" id="ca-s10" data-at="@atarashi.paris" data-time="10 h">
+        <div class="ca-frame ca-nb" style="top:0;height:112cqw"><img src="img/foule-atarashi.jpg" alt="Foule en club, samedi dernier" style="width:132.7cqw;left:-16cqw"></div>
+        <p class="ca-say is-photo">Merci<br>d'être là.<br>On remet ça.</p>
+        <div class="ca-band"><h3 class="ca-title">Semaine<br>dernière</h3><i class="ca-sq"></i><div class="ca-info"><span>Atarashi · Yoyo · sam. 21 nov</span><span class="ca-dim">Prochaine : jeu. 26</span></div></div>
+      </div>
+      <figcaption class="ca-cap">
+        <p class="ca-tag">H · récap <span>· le lundi</span></p>
+        <dl><dt>Quand</dt><dd>Le lundi matin, avant l'agenda. Une seule soirée, la plus forte de la semaine. Aucun chiffre.</dd>
+        <dt>Fournir</dt><dd>La meilleure photo de foule de la semaine (crédit photographe en légende Instagram), une phrase, la date suivante.</dd></dl>
+        <div class="ca-tools"><button class="ca-fs-btn" type="button">Plein écran</button></div>
+      </figcaption>
+    </figure>
+
+  </div>
+</section>
+
+</div>
+</main>
+
+<div class="ca-fs" id="ca-fs" aria-modal="true" role="dialog" aria-label="Story en plein écran"><p class="ca-fs-hint">Échap pour fermer</p></div>
+
+<script>
+(function(){
+  /* Textes modifiables : tout élément de texte « feuille » d'une story */
+  [].forEach.call(document.querySelectorAll('#ca-root .ca-story *'),function(el){
+    if(/^(svg|path|rect|text|g|img|i|br)$/i.test(el.tagName))return;
+    if(el.closest('svg'))return;
+    var leaf=[].every.call(el.childNodes,function(c){return c.nodeType===3||c.tagName==='BR'});
+    if(leaf&&el.textContent.trim())el.setAttribute('contenteditable','true');
+  });
+
+  /* Interface Instagram : barres par section */
+  var LINK='<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6.6 9.4l2.8-2.8M7.3 4.6l1.1-1.1a2.6 2.6 0 0 1 3.7 3.7l-1.1 1.1M8.7 11.4l-1.1 1.1a2.6 2.6 0 0 1-3.7-3.7l1.1-1.1" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  [].forEach.call(document.querySelectorAll('#ca-root .ca-sec'),function(sec){
+    var stories=[].slice.call(sec.querySelectorAll('.ca-story'));
+    stories.forEach(function(s,i){
+      var ig=document.createElement('div');ig.className='ca-ig';ig.setAttribute('aria-hidden','true');
+      var bars='';for(var k=0;k<stories.length;k++){bars+='<i'+(k<=i?' class="on"':'')+'></i>'}
+      var h='<div class="ca-ig-bars">'+bars+'</div><div class="ca-ig-who"><i></i>nightsquare <em>'+(s.dataset.time||'2 h')+'</em></div><div class="ca-ig-x">×</div>';
+      if(s.dataset.link){h+='<span class="ca-stk ca-stk-link">'+LINK+'<b>'+s.dataset.link+'</b></span>'}
+      if(s.dataset.at){h+='<span class="ca-stk ca-stk-at">'+s.dataset.at+'</span>'}
+      h+='<div class="ca-ig-reply">Envoyer un message</div><div class="ca-ig-send"></div>';
+      ig.innerHTML=h;s.appendChild(ig);
+    });
+  });
+  var t=document.getElementById('ca-ui-toggle'),root=document.getElementById('ca-root');
+  function ui(){root.classList.toggle('ca-ui',t.checked)}
+  t.addEventListener('change',ui);
+  if(/[?&]ui=0/.test(location.search)){t.checked=false}
+  ui();
+
+  /* Plein écran */
+  var fs=document.getElementById('ca-fs'),hint=fs.querySelector('.ca-fs-hint'),cur=null,ph=null,timer;
+  function open(s){
+    ph=document.createComment('ca');s.parentNode.replaceChild(ph,s);fs.appendChild(s);cur=s;
+    fs.classList.add('is-on');document.body.classList.add('ca-fs-lock');
+    hint.classList.remove('is-gone');clearTimeout(timer);timer=setTimeout(function(){hint.classList.add('is-gone')},1400);
+  }
+  function close(){
+    if(!cur)return;ph.parentNode.replaceChild(cur,ph);cur=null;ph=null;
+    fs.classList.remove('is-on');document.body.classList.remove('ca-fs-lock');
+  }
+  [].forEach.call(document.querySelectorAll('.ca-fs-btn'),function(b){
+    b.addEventListener('click',function(){open(b.closest('.ca-item').querySelector('.ca-story'))});
+  });
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+  fs.addEventListener('click',function(e){if(e.target===fs)close()});
+  var m=/[?&]fs=(\d+)/.exec(location.search);if(m){open(document.getElementById('ca-s'+m[1]))}
+})();
+</script>
+</body>
+</html>
