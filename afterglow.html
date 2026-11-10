@@ -908,6 +908,16 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 #ag-f .chip:hover{color:var(--lait);box-shadow:none}
 #ag-f .chip[aria-pressed="true"]{background:none;color:var(--lait);font-variation-settings:"wdth" 150,"wght" 800}
 #ag-f .chip[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;background:var(--lueur)}
+.s-prod-lede{font-size:17px;line-height:1.55;color:var(--voile);max-width:52ch;margin:-8px 0 44px}
+.s-prod-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.s-prod-col{margin:0;display:flex;flex-direction:column;align-items:center;gap:28px}
+.s-prod-ph{width:236px;height:491px;position:relative;pointer-events:none}
+.s-prod-ph .phone{position:absolute;left:0;top:0;transform:scale(.63);transform-origin:0 0}
+.s-prod-col figcaption{display:flex;flex-direction:column;gap:8px;max-width:320px;text-align:center;align-items:center}
+.s-prod-col figcaption b{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 800;font-size:19px;font-weight:400;color:var(--lait);white-space:nowrap}
+.s-prod-col figcaption span:last-child{font-size:14px;line-height:1.5;color:var(--voile)}
+.s-prod-cta{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:52px;flex-wrap:wrap}
+@media (max-width:760px){.s-prod-grid{grid-template-columns:minmax(0,1fr)}}
 .ag-more{display:flex;justify-content:center;margin-top:48px}
 .ag-h-r{display:flex;align-items:center;gap:18px;white-space:nowrap;flex-shrink:0}
 .s-top-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:36px;align-items:stretch}
@@ -2940,6 +2950,105 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             <div class="ag-more"><span class="btn btn-ligne">Tout l'agenda →</span></div>
           </div>
 
+          <div class="s-sec s-prod">
+            <div class="s-sec-h"><h3>L'app <em>en trois gestes</em></h3></div>
+            <p class="s-prod-lede">Night Square, c'est ta nuit dans la poche : tu trouves, tu réserves, tu entres. Sans appeler personne, sans file d'attente.</p>
+            <div class="s-prod-grid">
+              <figure class="s-prod-col">
+                <div class="s-prod-ph" aria-hidden="true"><div class="phone">
+          <div class="ph-status"><span>22:47</span><span class="isl"></span><span>5G</span></div>
+          <div class="ph-body">
+            <div class="app-pad">
+              <div class="ex-top"><div class="city"><small>Lun. 9 nov · cette semaine</small>Paris</div><span class="av-btn">LM</span></div>
+              <div class="ph-chips"><span class="chip on">Tout</span><span class="chip">Tables VIP</span><span class="chip">Billets</span><span class="chip">Ce week-end</span><span class="chip">Techno</span></div>
+              <div class="ph-feat lum lum-atarashi"><div class="over"><div style="display:flex;justify-content:space-between"><span class="badge b-plein"><i></i>À la une</span><svg class="i" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><use href="#i-favori"/></svg></div><div><h4>Atarashi<br>Paris</h4><p>Sam. 21 nov · Yoyo, Palais de Tokyo</p></div></div></div>
+              <div class="rows ph-list">
+                <div class="erow"><span class="dd">11.11<small>Mer.</small></span><span><h4>Deflowerworld</h4><p>Billets dès 25 €</p></span><svg class="i" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-billet"/></svg></div>
+                <div class="erow"><span class="dd">14.11<small>Sam.</small></span><span><h4>Montrouge Gate Club</h4><p>Tables dès 600 €</p></span><svg class="i" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-table"/></svg></div>
+                <div class="erow"><span class="dd">28.11<small>Sam.</small></span><span><h4>Reznik</h4><p>Lieu révélé 24 h avant</p></span><svg class="i" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-lieu"/></svg></div>
+              </div>
+            </div>
+            <div class="tabbar">
+              <span class="on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-carte"/></svg>Explorer</span>
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-billet"/></svg>Billets</span>
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-favori"/></svg>Favoris</span>
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-groupe"/></svg>Profil</span>
+            </div>
+          </div>
+          <div class="ph-home"></div>
+        </div></div>
+                <figcaption><span class="mono lueur">01</span><b>Trouve ta soirée</b><span>Les soirées de ta ville, ce soir et toute la semaine. Une seule à la une, le reste en lignes claires.</span></figcaption>
+              </figure>
+              <figure class="s-prod-col">
+                <div class="s-prod-ph" aria-hidden="true"><div class="phone">
+          <div class="ph-status"><span>22:48</span><span class="isl"></span><span>5G</span></div>
+          <div class="ph-body">
+            <div class="app-pad">
+              <div class="d-head"><span class="bk" aria-hidden="true">‹</span><div><h4>Atarashi Paris</h4><p>Yoyo, Palais de Tokyo · sam. 21 nov</p></div></div>
+              <div class="steps"><span class="on">1 · Table</span><span>2 · Invités</span><span>3 · Paiement</span></div>
+              <div class="plan">
+                <svg viewBox="0 0 320 250">
+                  <defs><filter x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7"/></filter>
+                  <radialGradient cx="50%" cy="40%" r="70%"><stop offset="0" style="stop-color:var(--halo);stop-opacity:.22"/><stop offset="1" style="stop-color:var(--halo);stop-opacity:0"/></radialGradient></defs>
+                  <rect x="110" y="10" width="100" height="24" rx="12" style="fill:var(--lueur)"/>
+                  <text x="160" y="26" text-anchor="middle" font-family="Martian Mono, monospace" font-size="8.5" letter-spacing="1.2" style="fill:var(--nuit)">CABINE DJ</text>
+                  <rect x="88" y="48" width="144" height="104" rx="18" fill="url(#pl-p)" stroke-dasharray="3 4" stroke-linecap="round" style="stroke:color-mix(in srgb,var(--lait) 16%,transparent)"/>
+                  <text x="160" y="105" text-anchor="middle" font-family="Anybody, sans-serif" font-size="14" font-weight="800" letter-spacing="3" style="fill:color-mix(in srgb,var(--lait) 40%,transparent)">PISTE</text>
+                  <g class="tb" data-id="T1" data-name="Bord de piste" data-sub="Côté bar" data-cap="4" data-price="600"><circle class="glo" cx="44" cy="64" r="20" filter="url(#pl-g)"/><circle class="shape" cx="44" cy="64" r="20"/><text x="44" y="67">T1</text></g>
+                  <g class="tb off" data-id="T2" aria-disabled="true"><circle class="shape" cx="44" cy="112" r="20"/><text x="44" y="115">T2</text></g>
+                  <g class="tb" data-id="T3" data-name="Bord de piste" data-sub="Côté entrée" data-cap="4" data-price="600"><circle class="glo" cx="44" cy="160" r="20" filter="url(#pl-g)"/><circle class="shape" cx="44" cy="160" r="20"/><text x="44" y="163">T3</text></g>
+                  <g class="tb prem" data-id="T7" data-name="Loge cabine" data-sub="À côté du DJ" data-cap="8" data-price="2000"><circle class="glo" cx="276" cy="64" r="20" filter="url(#pl-g)"/><circle class="shape" cx="276" cy="64" r="20"/><text x="276" y="67">T7</text></g>
+                  <g class="tb off" data-id="T8" aria-disabled="true"><circle class="shape" cx="276" cy="112" r="20"/><text x="276" y="115">T8</text></g>
+                  <g class="tb" data-id="T9" data-name="Mezzanine" data-sub="Vue sur la piste" data-cap="10" data-price="2500"><circle class="glo" cx="276" cy="160" r="20" filter="url(#pl-g)"/><circle class="shape" cx="276" cy="160" r="20"/><text x="276" y="163">T9</text></g>
+                  <g class="tb off" data-id="T4" aria-disabled="true"><rect class="shape" x="62" y="192" width="52" height="34" rx="10"/><text x="88" y="212">T4</text></g>
+                  <g class="tb sel" data-id="T5" data-name="Carré piste" data-sub="Face cabine" data-cap="6" data-price="1200"><rect class="glo" x="128" y="186" width="64" height="44" rx="12" filter="url(#pl-g)"/><rect class="shape" x="128" y="186" width="64" height="44" rx="12"/><text x="160" y="211">T5</text></g>
+                  <g class="tb prem" data-id="T6" data-name="Carré premium" data-sub="Bord de piste, côté cabine" data-cap="8" data-price="1800"><rect class="glo" x="206" y="192" width="52" height="34" rx="10" filter="url(#pl-g)"/><rect class="shape" x="206" y="192" width="52" height="34" rx="10"/><text x="232" y="212">T6</text></g>
+                  <text x="160" y="246" text-anchor="middle" font-family="Martian Mono, monospace" font-size="7.5" letter-spacing="1.5" style="fill:color-mix(in srgb,var(--lait) 35%,transparent)">ENTRÉE ↓</text>
+                </svg>
+              </div>
+              <div class="legend"><span><i style="background:var(--actif)"></i>Sélection</span><span><i style="box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 60%,transparent)"></i>Libre</span><span><i style="box-shadow:inset 0 0 0 1.5px var(--lueur)"></i>Premium</span><span><i style="background:var(--creux);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 20%,transparent)"></i>Réservée</span></div>
+              <div class="selbox" aria-live="polite">
+                <div class="r">
+                  <div><h5>Table T5 · Carré piste</h5><p class="sb">Face cabine · jusqu'à 6 pers.</p></div>
+                  <div class="stp" data-min="1" data-max="6"><button type="button" data-d="-1">−</button><output>6</output><button type="button" data-d="1">+</button></div>
+                </div>
+                <div class="pz"><div><small>Minimum de consommation</small><b>1 200 €</b></div><div class="ac"><small>Acompte 30 %</small><span>360 €</span></div></div>
+              </div>
+            </div>
+            <div class="ph-cta">
+              <button class="btn btn-signature" type="button"><span>Réserver T5</span><span>360 € →</span></button>
+              <p>Solde sur place · annulation gratuite jusqu'à 48 h</p>
+            </div>
+          </div>
+          <div class="ph-home"></div>
+        </div></div>
+                <figcaption><span class="mono lueur">02</span><b>Choisis ta table</b><span>Le plan de la salle, à plat. Tu vois les tables libres, la place, le prix. Tu choisis, tu partages la note.</span></figcaption>
+              </figure>
+              <figure class="s-prod-col">
+                <div class="s-prod-ph" aria-hidden="true"><div class="phone">
+          <div class="ph-status"><span>22:49</span><span class="isl"></span><span>5G</span></div>
+          <div class="ph-body">
+            <div class="conf">
+              <p class="ok-t"><i aria-hidden="true">✓</i>Paiement accepté</p>
+              <h4>C'est<br>noté.</h4>
+              <p>T5 t'attend samedi dès 23:30. Ton QR est aussi dans Wallet.</p>
+              <div class="pass">
+                <div class="ps-top"><span class="wm"><span class="w1">Night</span><span class="w2">Square</span><i class="sq"></i></span><span class="voile">Table VIP</span></div>
+                <div class="strip lum lum-atarashi"><b>Atarashi Paris</b></div>
+                <div class="flds"><div><small>Date</small><b>Sam. 21 nov</b></div><div><small>Table</small><b>T5 · 6 pers.</b></div><div><small>Ouverture</small><b>23:30</b></div></div>
+                <div class="qrw"><svg class="q" viewBox="0 0 25 25"><use href="#qr"/></svg><p><b>NS-ATR-2111-T5</b>Yoyo · Palais de Tokyo<br>13, av. du Président-Wilson</p></div>
+              </div>
+              <div class="wallet"><svg width="22" height="16" viewBox="0 0 22 16" aria-hidden="true"><rect width="22" height="16" rx="3" style="fill:var(--lait)"/><rect y="4" width="22" height="2.5" style="fill:var(--halo)"/><rect y="7.5" width="22" height="2.5" style="fill:var(--lueur)"/></svg>Ajouter à Apple Wallet</div>
+            </div>
+          </div>
+          <div class="ph-home"></div>
+        </div></div>
+                <figcaption><span class="mono lueur">03</span><b>Entre en un scan</b><span>Ton pass arrive dans le Wallet. À la porte, un QR, et ta table t'attend.</span></figcaption>
+              </figure>
+            </div>
+            <div class="s-prod-cta"><span class="btn btn-signature">Télécharger l'app</span><span class="mono voile">Gratuit · iOS et Android</span></div>
+          </div>
+
           <div class="s-sec">
             <div class="s-sec-h"><h3>Les DJs <em>du mois</em></h3><span class="btn btn-texte">Tous les artistes</span></div>
             <div class="djs">
@@ -3877,7 +3986,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 
   /* ---------- 10. Plan de salle ---------- */
   (function(){
-    var tables = $$('.plan .tb:not(.off)');
+    var tables = $$('.plan .tb:not(.off)').filter(function(t){ return !t.closest('.s-prod'); });
     var stp = $('#sel-stp'), g = $('#sel-g');
     if (!tables.length || !stp || !g) return;
     var name = $('#sel-name'), sub = $('#sel-sub'), price = $('#sel-p'), ac = $('#sel-a'), cta = $('#sel-cta');
