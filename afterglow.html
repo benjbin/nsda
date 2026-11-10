@@ -908,13 +908,6 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 #ag-f .chip:hover{color:var(--lait);box-shadow:none}
 #ag-f .chip[aria-pressed="true"]{background:none;color:var(--lait);font-variation-settings:"wdth" 150,"wght" 800}
 #ag-f .chip[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;background:var(--lueur)}
-#ag-f .ag-vip{margin-left:auto;gap:10px;font-family:var(--f-mono);font-variation-settings:normal;font-size:11px;letter-spacing:.1em}
-#ag-f .ag-vip[aria-pressed="true"]{font-variation-settings:normal}
-#ag-f .ag-vip[aria-pressed="true"]::after{display:none}
-.ag-sw{width:30px;height:18px;border-radius:9px;box-shadow:inset 0 0 0 1px var(--filet-fort);position:relative;transition:background var(--t-mesure) var(--e-allumage)}
-.ag-sw::before{content:"";position:absolute;left:3px;top:3px;width:12px;height:12px;border-radius:50%;background:var(--voile);transition:transform var(--t-mesure) var(--e-allumage)}
-.ag-vip[aria-pressed="true"] .ag-sw{background:var(--lueur);box-shadow:none}
-.ag-vip[aria-pressed="true"] .ag-sw::before{transform:translateX(12px);background:var(--nuit)}
 .ag-h-r{display:flex;align-items:center;gap:18px;white-space:nowrap;flex-shrink:0}
 .s-top-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:36px;align-items:stretch}
 .s-top-media{position:relative;aspect-ratio:677/380;border-radius:20px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--filet)}
@@ -2933,7 +2926,6 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
               <button class="chip" type="button" data-city="dubai" aria-pressed="false">Dubaï</button>
               <button class="chip" type="button" data-city="londres" aria-pressed="false">Londres</button>
               <button class="chip" type="button" data-city="ny" aria-pressed="false">New York</button>
-              <button class="chip ag-vip" type="button" data-vip="1" aria-pressed="false"><span class="ag-sw" aria-hidden="true"></span>Tables VIP</button>
             </div>
             <div class="ag-grid" id="ag-list">
               <a class="ag-card" href="#site" data-city="paris" data-vip="0"><span class="ag-media ag-typo"><b>Deflower<br>world</b><span class="btn btn-sm ag-btn">Billets</span></span><span class="ag-body"><span class="ag-meta mono"><span class="lait">Mer. 11 nov</span> · 23:00 · Deflower · Paris</span><h4>Deflowerworld</h4></span></a>
