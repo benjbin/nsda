@@ -908,6 +908,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 #ag-f .chip:hover{color:var(--lait);box-shadow:none}
 #ag-f .chip[aria-pressed="true"]{background:none;color:var(--lait);font-variation-settings:"wdth" 150,"wght" 800}
 #ag-f .chip[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;background:var(--lueur)}
+.ag-more{display:flex;justify-content:center;margin-top:48px}
 .ag-h-r{display:flex;align-items:center;gap:18px;white-space:nowrap;flex-shrink:0}
 .s-top-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:36px;align-items:stretch}
 .s-top-media{position:relative;aspect-ratio:677/380;border-radius:20px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--filet)}
@@ -2919,7 +2920,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           </div>
 
           <div class="s-sec">
-            <div class="s-sec-h"><h3>Agenda <em>de la semaine</em></h3><span class="ag-h-r"><span class="btn btn-ligne btn-sm">Tout l'agenda →</span></span></div>
+            <div class="s-sec-h"><h3>Agenda <em>de la semaine</em></h3></div>
             <div class="s-filters" id="ag-f" role="group" aria-label="Filtrer l'agenda">
               <button class="chip" type="button" data-city="all" aria-pressed="true">Toutes</button>
               <button class="chip" type="button" data-city="paris" aria-pressed="false">Paris</button>
@@ -2936,6 +2937,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
               <a class="ag-card" href="#site" data-city="ny" data-vip="1"><span class="ag-media ag-nb"><img src="tests/img/dj-portrait-blanc.jpg" alt="" loading="lazy"><span class="btn btn-sm ag-btn">Réserver</span></span><span class="ag-body"><span class="ag-meta mono"><span class="lait">Sam. 28 nov</span> · 23:00 · New York</span><h4>Adriatique</h4></span></a>
             </div>
             <p class="s-empty" id="ag-empty" hidden>Rien pour ce filtre cette semaine. On te prévient dès qu'une date tombe.</p>
+            <div class="ag-more"><span class="btn btn-ligne">Tout l'agenda →</span></div>
           </div>
 
           <div class="s-sec">
