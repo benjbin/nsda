@@ -903,6 +903,34 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .s-filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
 .s-agenda .erow[hidden]{display:none}
 .ag-h-r{display:flex;align-items:center;gap:18px}
+.s-top-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:36px;align-items:end}
+.s-top-media{position:relative;aspect-ratio:677/380;border-radius:20px;overflow:hidden;box-shadow:inset 0 0 0 1px var(--filet)}
+.s-top-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.s-top-media .ag-date{left:16px;top:16px;font-size:26px;min-width:60px}
+.s-top-info{display:flex;flex-direction:column;gap:14px;padding-bottom:4px}
+.s-top-info h4{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 900;font-size:52px;line-height:.86;color:var(--lait)}
+.s-top-pitch{font-size:15px;line-height:1.5;color:var(--voile);max-width:36ch}
+.s-top-facts{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:22px;margin-top:6px;padding-top:14px;border-top:1px solid var(--filet)}
+.s-top-facts dt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--voile)}
+.s-top-facts dd{margin:4px 0 0;font-size:14px;color:var(--lait)}
+.s-top-row{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-top:22px}
+.s-top-card{border-radius:18px;padding:18px;box-shadow:inset 0 0 0 1px var(--filet);display:flex;flex-direction:column;gap:12px}
+.s-top-card>.mono{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase}
+.s-top-lu{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+.s-top-lu li{display:grid;grid-template-columns:52px minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:8px 0;border-top:1px solid var(--filet)}
+.s-top-lu .h{font-family:var(--f-mono);font-size:11px;color:var(--lueur)}
+.s-top-lu b{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 800;font-size:15px;font-weight:400}
+.s-top-lu li>span:last-child{font-size:12px;color:var(--voile)}
+.s-top-tables{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:6px}
+.s-top-tables i{aspect-ratio:1;border-radius:28%;background:var(--lueur)}
+.s-top-tables i.pris{background:transparent;box-shadow:inset 0 0 0 1px var(--filet-fort)}
+.s-top-note{font-size:12.5px;color:var(--voile);margin-top:auto}
+.s-top-f{display:flex;align-items:baseline;justify-content:space-between;gap:10px;font-size:14px;padding-bottom:8px;border-bottom:1px solid var(--filet)}
+.s-top-f s{color:var(--voile);font-size:12px;margin-left:auto}
+.s-top-f em{font-style:normal;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--voile)}
+.s-top-f b{font-size:13px;font-weight:400}
+.s-top-cta{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto}
+@media (max-width:760px){.s-top-grid,.s-top-row{grid-template-columns:minmax(0,1fr)}.s-top-info h4{font-size:38px}}
 .ag-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:34px 22px;margin-top:6px}
 .ag-card{display:flex;flex-direction:column;gap:14px;text-decoration:none;color:inherit;min-width:0}
 .ag-card[hidden]{display:none}
@@ -2879,6 +2907,40 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             </div>
           </div>
 
+          <div class="s-sec s-top" aria-label="Top event">
+            <div class="s-sec-h"><h3>Top <em>event</em></h3><span class="ag-h-r"><span class="mono voile">La soirée de la semaine</span></span></div>
+            <div class="s-top-grid">
+              <div class="s-top-media"><img src="tests/img/flyer-atarashi.jpg" alt="Flyer Atarashi Paris, sam. 21 nov, Yoyo · Palais de Tokyo"><span class="ag-date"><small>Sam</small>21<small>Nov</small></span></div>
+              <div class="s-top-info">
+                <p class="ag-meta mono">Yoyo · Palais de Tokyo · Paris 16e</p>
+                <h4>Atarashi Paris</h4>
+                <p class="s-top-pitch">La nuit japonaise du Palais de Tokyo. Trois artistes, une seule piste, et les tables tout autour.</p>
+                <dl class="s-top-facts"><div><dt>Porte</dt><dd>23:30 → 06:00</dd></div><div><dt>Entrée</dt><dd>18 ans et +</dd></div><div><dt>Dans</dt><dd>11 jours</dd></div></dl>
+              </div>
+            </div>
+            <div class="s-top-row">
+              <div class="s-top-card">
+                <p class="mono voile">Line-up</p>
+                <ol class="s-top-lu">
+                  <li><span class="h">23:30</span><b>Niv Yefet</b><span>Warm-up</span></li>
+                  <li><span class="h">01:30</span><b>Ramyen</b><span>Live</span></li>
+                  <li><span class="h">03:30</span><b>East End Dubs</b><span>Closing</span></li>
+                </ol>
+              </div>
+              <div class="s-top-card">
+                <p class="mono voile">Tables · <span class="lueur">4 libres sur 18</span></p>
+                <div class="s-top-tables" aria-hidden="true"><i class="pris"></i><i class="pris"></i><i class="pris"></i><i></i><i class="pris"></i><i class="pris"></i><i class="pris"></i><i class="pris"></i><i></i><i class="pris"></i><i class="pris"></i><i></i><i class="pris"></i><i class="pris"></i><i class="pris"></i><i></i><i class="pris"></i><i class="pris"></i></div>
+                <p class="s-top-note">Table 4 à 10 pers. · plan de salle · bouteille au choix</p>
+              </div>
+              <div class="s-top-card s-top-buy">
+                <div class="s-top-f"><span>Billet Early</span><s class="mono">25 €</s><em class="mono">Épuisé</em></div>
+                <div class="s-top-f"><span>Billet</span><b class="mono">35 €</b></div>
+                <div class="s-top-f"><span>Table VIP</span><b class="mono lueur">dès 600 €</b></div>
+                <div class="s-top-cta"><span class="btn btn-signature btn-sm">Réserver une table</span><span class="btn btn-ligne btn-sm">Billets</span></div>
+              </div>
+            </div>
+          </div>
+
           <div class="s-sec">
             <div class="s-sec-h"><h3>Agenda <em>de la semaine</em></h3><span class="ag-h-r"><span class="mono voile">9 → 29 nov</span><span class="btn btn-ligne btn-sm">Tout l'agenda →</span></span></div>
             <div class="s-filters" id="ag-f" role="group" aria-label="Filtrer l'agenda">
@@ -2890,7 +2952,6 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
               <button class="chip" type="button" data-vip="1" aria-pressed="false" style="margin-left:12px">Tables VIP</button>
             </div>
             <div class="ag-grid" id="ag-list">
-              <a class="ag-card une" href="#site" data-city="paris" data-vip="1"><span class="ag-media"><img src="tests/img/flyer-atarashi.jpg" alt="" loading="lazy"><span class="ag-date"><small>Sam</small>21<small>Nov</small></span></span><span class="ag-body"><span class="badge b-lueur"><i></i>4 tables restantes</span><span class="ag-meta mono">À la une · 23:30 · Yoyo · Palais de Tokyo</span><h4>Atarashi Paris</h4><p class="ag-lu">East End Dubs, Ramyen, Niv Yefet. La nuit japonaise du Palais de Tokyo, tables autour de la piste.</p><span class="ag-foot"><span class="pr">Tables dès 600 €</span><span class="btn btn-signature btn-sm">Réserver</span></span></span></a>
               <a class="ag-card" href="#site" data-city="paris" data-vip="0"><span class="ag-media ag-typo"><b>Deflower<br>world</b><span class="ag-date"><small>Mer</small>11<small>Nov</small></span></span><span class="ag-body"><span class="ag-meta mono">23:00 · Deflower · Paris</span><h4>Deflowerworld</h4><span class="ag-foot"><span class="pr">Billets dès 25 €</span><span class="btn btn-ligne btn-sm">Billets</span></span></span></a>
               <a class="ag-card" href="#site" data-city="paris" data-vip="0"><span class="ag-media ag-nb"><img src="tests/img/dj-portrait-gris.jpg" alt="" loading="lazy"><span class="ag-date"><small>Sam</small>14<small>Nov</small></span></span><span class="ag-body"><span class="ag-meta mono">23:30 · Mobby · Paris</span><h4>Marten Lou</h4><span class="ag-foot"><span class="pr">Billets dès 20 €</span><span class="btn btn-ligne btn-sm">Billets</span></span></span></a>
               <a class="ag-card" href="#site" data-city="dubai" data-vip="1"><span class="ag-media ag-nb"><img src="tests/img/dj-duo-nuit.jpg" alt="" loading="lazy"><span class="ag-date"><small>Sam</small>14<small>Nov</small></span></span><span class="ag-body"><span class="ag-meta mono">22:00 · Dubaï</span><h4>Hugel</h4><span class="ag-foot"><span class="pr">Tables dès 1 500 €</span><span class="btn btn-ligne btn-sm">Réserver</span></span></span></a>
