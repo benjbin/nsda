@@ -914,7 +914,11 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .s-top-pitch{font-size:15px;line-height:1.5;color:var(--voile);max-width:36ch}
 .s-top-facts{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));justify-content:start;gap:16px 40px;margin-top:6px;padding-top:14px;border-top:1px solid var(--filet)}
 .s-top-facts dt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--voile)}
-.s-top-facts dd{margin:4px 0 0;font-size:14px;color:var(--lait)}
+.s-top-facts>div{display:flex;align-items:center;gap:10px}
+.s-top-facts dt{display:flex;color:var(--lait)}
+.s-top-facts dt .i{width:20px;height:20px}
+.s-top-facts .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.s-top-facts dd{margin:0;font-size:14px;color:var(--lait)}
 .s-top-cta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
 .s-top-cta .pr{font-size:12px;flex-basis:100%}
 @media (max-width:760px){.s-top-grid{grid-template-columns:minmax(0,1fr)}.s-top-info h4{font-size:38px}}
@@ -2901,7 +2905,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
               <div class="s-top-info">
                                 <h4>Atarashi Paris</h4>
                 <p class="s-top-pitch">La nuit japonaise du Palais de Tokyo. Trois artistes, une seule piste, et les tables tout autour.</p>
-                <dl class="s-top-facts"><div><dt>Date</dt><dd>Sam. 21 nov</dd></div><div><dt>Lieu</dt><dd>Yoyo · Palais de Tokyo</dd></div><div><dt>Porte</dt><dd>23:30 → 06:00</dd></div><div><dt>Dans</dt><dd>11 jours</dd></div></dl>
+                <dl class="s-top-facts"><div><dt><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-calendrier"/></svg><span class="sr">Date</span></dt><dd>Sam. 21 nov</dd></div><div><dt><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-lieu"/></svg><span class="sr">Lieu</span></dt><dd>Yoyo · Palais de Tokyo</dd></div><div><dt><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-horloge"/></svg><span class="sr">Porte</span></dt><dd>23:30 → 06:00</dd></div><div><dt><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-notif"/></svg><span class="sr">Dans</span></dt><dd>Dans 11 jours</dd></div></dl>
                 <div class="s-top-cta"><span class="btn btn-signature">Réserver · à partir de 600 €</span></div>
               </div>
             </div>
