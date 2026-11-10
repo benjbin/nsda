@@ -882,6 +882,17 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .store b{display:block;font-size:15px;font-weight:600}
 .store svg{width:22px;height:22px}
 .s-app .qr-s{width:96px;height:96px;background:var(--lait);padding:8px;border-radius:var(--r-s)}
+.s-cta{position:relative;overflow:hidden;background:var(--g-alcove);padding:64px 40px 56px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.s-cta-k{color:var(--lait);margin-bottom:16px}
+.s-cta h3{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 900;font-size:64px;line-height:.82}
+.s-cta-p{margin-top:18px;max-width:46ch;color:var(--lait)}
+.s-cta-search{width:100%;max-width:880px;text-align:left;margin-top:32px}
+.s-cta-f{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.s-cta .store{background:var(--nuit);border-radius:14px;padding:10px 18px 10px 14px;box-shadow:inset 0 0 0 1px var(--filet-fort);text-align:left;min-width:178px}
+.s-cta .store b{font-size:17px;letter-spacing:-.01em}
+.s-cta .store svg{width:26px;height:26px}
+.s-cta-or{color:var(--lait);opacity:.75;margin-left:10px}
+.s-cta .qr-s{width:64px;height:64px;background:var(--lait);padding:6px;border-radius:12px}
 .mini-phone{justify-self:center;width:230px;height:300px;border-radius:var(--r-xl);background:var(--nuit);box-shadow:0 0 0 6px var(--creux),0 0 0 7px var(--filet-fort);margin-bottom:-48px;padding:18px 14px;overflow:hidden;display:flex;flex-direction:column;gap:10px}
 .partners{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--f-display);text-transform:uppercase;color:var(--voile)}
 .partners span{font-size:22px;line-height:1}
@@ -2814,22 +2825,21 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             </div>
           </div>
 
-          <div class="s-app">
-            <div>
-              <p class="mono" style="color:var(--lait);margin-bottom:14px">L'app Night Square</p>
-              <h3>Ta nuit<br>dans la poche.</h3>
-              <p>Plan de salle en direct, QR dans Wallet, concierge joignable jusqu'à 6 h. Et tes sorties qui comptent : à la troisième, on retient ta table.</p>
-              <div class="stores">
-                <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C6.9 7.4 5.4 8.4 4.6 9.9c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 2.9 2.4s1.6-.8 3-.8 1.8.8 3 .8 2-1.2 2.8-2.3c.9-1.3 1.2-2.6 1.3-2.7-.1 0-2.4-.9-2.4-4.3zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" style="fill:var(--lait)"/></svg><span>Télécharger sur<b>App Store</b></span></span>
-                <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9-8.5zM14.2 13.2l2.3 2.2-9.8 5.6zM14.2 10.8 6.7 3l9.8 5.6zM17.7 9.3l2.7 1.6c.8.5.8 1.7 0 2.2l-2.7 1.6-2.5-2.4z" style="fill:var(--lait)"/></svg><span>Disponible sur<b>Google Play</b></span></span>
-                <svg class="qr-s" viewBox="0 0 25 25" aria-label="QR code de téléchargement (factice)"><use href="#qr"/></svg>
-              </div>
+          <div class="s-cta">
+            <p class="mono s-cta-k">L'app Night Square</p>
+            <h3>Ta nuit<br>dans la poche.</h3>
+            <p class="s-cta-p">Cherche, réserve, entre par QR. Le plan de salle en direct et ta table gardée en mémoire, dans l'app.</p>
+            <div class="search s-cta-search">
+              <div><small>Ville</small><b>Paris</b></div>
+              <div><small>Quand</small><b>Ce soir</b></div>
+              <div><small>Je cherche</small><b>Une table · 4 pers.</b></div>
+              <span class="btn btn-signature">Rechercher <span class="ar">→</span></span>
             </div>
-            <div class="mini-phone" aria-hidden="true">
-              <span class="mono voile">Paris · ce soir</span>
-              <span style="font-family:var(--f-display);text-transform:uppercase;font-variation-settings:'wdth' 150,'wght' 900;font-size:26px;line-height:.85">Atarashi</span>
-              <div class="lum lum-atarashi" style="height:120px;border-radius:var(--r-s)"></div>
-              <span class="btn btn-signature btn-sm" style="width:100%">Réserver T5</span>
+            <div class="s-cta-f">
+              <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C6.9 7.4 5.4 8.4 4.6 9.9c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 2.9 2.4s1.6-.8 3-.8 1.8.8 3 .8 2-1.2 2.8-2.3c.9-1.3 1.2-2.6 1.3-2.7-.1 0-2.4-.9-2.4-4.3zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" style="fill:var(--lait)"/></svg><span>Télécharger dans<b>l'App Store</b></span></span>
+              <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9-8.5zM14.2 13.2l2.3 2.2-9.8 5.6zM14.2 10.8 6.7 3l9.8 5.6zM17.7 9.3l2.7 1.6c.8.5.8 1.7 0 2.2l-2.7 1.6-2.5-2.4z" style="fill:var(--lait)"/></svg><span>Disponible sur<b>Google Play</b></span></span>
+              <span class="s-cta-or mono">ou scanne</span>
+              <svg class="qr-s" viewBox="0 0 25 25" aria-label="QR code de téléchargement (factice)"><use href="#qr"/></svg>
             </div>
           </div>
 
