@@ -852,9 +852,15 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .s-hero h2 .a{font-variation-settings:"wdth" 150,"wght" 900}
 .s-hero h2 .b{font-variation-settings:"wdth" 54,"wght" 260;color:var(--poudre)}
 .s-hero h2 .c{font-variation-settings:"wdth" 150,"wght" 900;text-shadow:var(--trace-halo);padding-left:.14em}
-.s-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,380px);gap:0 40px;align-items:end}
-.s-hero-grid>div:first-child{grid-column:1/-1}
-.s-hero-grid>div:last-child{grid-column:2;margin-top:6px}
+.s-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 248px;gap:0 56px;align-items:center}
+.s-hero h2{font-size:80px}
+.s-hero-ph{width:248px;height:515px;position:relative}
+.s-hero-ph .phone{position:absolute;left:0;top:0;transform:scale(.66);transform-origin:0 0}
+.s-stores{display:flex;align-items:center;gap:12px;margin-top:28px;flex-wrap:wrap}
+.s-stores .store{background:var(--nuit);border-radius:14px;padding:10px 18px 10px 14px;box-shadow:inset 0 0 0 1px var(--filet-fort);min-width:178px}
+.s-stores .store b{font-size:17px;letter-spacing:-.01em}
+.s-stores .store svg{width:26px;height:26px}
+.s-stores-n{color:var(--voile);margin-left:6px}
 .s-hero .lede{margin-top:22px;font-size:18px;color:var(--voile);max-width:42ch}
 .search{margin-top:28px;display:grid;grid-template-columns:1fr 1fr 1fr auto;background:var(--salon-haut);border-radius:var(--r-pill);padding:6px;box-shadow:var(--l2)}
 .search div{padding:8px 18px;border-left:1px solid var(--filet);display:flex;flex-direction:column;gap:2px}
@@ -882,17 +888,6 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .store b{display:block;font-size:15px;font-weight:600}
 .store svg{width:22px;height:22px}
 .s-app .qr-s{width:96px;height:96px;background:var(--lait);padding:8px;border-radius:var(--r-s)}
-.s-cta{position:relative;overflow:hidden;background:var(--g-alcove);padding:64px 40px 56px;display:flex;flex-direction:column;align-items:center;text-align:center}
-.s-cta-k{color:var(--lait);margin-bottom:16px}
-.s-cta h3{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 900;font-size:64px;line-height:.82}
-.s-cta-p{margin-top:18px;max-width:46ch;color:var(--lait)}
-.s-cta-search{width:100%;max-width:880px;text-align:left;margin-top:32px}
-.s-cta-f{display:flex;align-items:center;justify-content:center;gap:12px;margin-top:28px;flex-wrap:wrap}
-.s-cta .store{background:var(--nuit);border-radius:14px;padding:10px 18px 10px 14px;box-shadow:inset 0 0 0 1px var(--filet-fort);text-align:left;min-width:178px}
-.s-cta .store b{font-size:17px;letter-spacing:-.01em}
-.s-cta .store svg{width:26px;height:26px}
-.s-cta-or{color:var(--lait);opacity:.75;margin-left:10px}
-.s-cta .qr-s{width:64px;height:64px;background:var(--lait);padding:6px;border-radius:12px}
 .mini-phone{justify-self:center;width:230px;height:300px;border-radius:var(--r-xl);background:var(--nuit);box-shadow:0 0 0 6px var(--creux),0 0 0 7px var(--filet-fort);margin-bottom:-48px;padding:18px 14px;overflow:hidden;display:flex;flex-direction:column;gap:10px}
 .partners{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;font-family:var(--f-display);text-transform:uppercase;color:var(--voile)}
 .partners span{font-size:22px;line-height:1}
@@ -2760,7 +2755,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <div>
         <p class="eyebrow"><span>Applications · site</span><span>nightsquare.org</span></p>
         <h2 class="sh-title" id="t-site">L'accueil, <em>puis la soirée</em></h2>
-        <p class="sh-lead">Le hero porte l'accroche et une recherche en une ligne. L'agenda est filtrable (essayez), les DJs sont traités en duotone, la section app passe en dégradé Alcôve. Sur petit écran, la maquette défile dans son cadre.</p>
+        <p class="sh-lead">Le hero porte l'accroche, l'app (l'écran Explorer, à plat) avec les boutons App Store et Google Play, puis la recherche en une ligne. L'agenda est filtrable (essayez), les DJs sont traités en duotone. Sur petit écran, la maquette défile dans son cadre.</p>
       </div>
     </header>
 
@@ -2775,12 +2770,39 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           </div>
           <div class="s-hero">
             <div class="s-hero-grid">
-              <div>
+              <div class="s-hero-txt">
                 <span class="badge b-lueur"><i></i>32 soirées ce week-end</span>
                 <h2 style="margin-top:22px"><span class="a">Ce soir,</span><span class="b">et tous</span><span class="c">les autres.</span></h2>
-              </div>
-              <div>
                 <p class="lede">Tables VIP et billets dans les clubs qui comptent, de Paris à New York. Réserve en trente secondes, entre par QR, reviens quand tu veux : on garde ta table en mémoire.</p>
+                <div class="s-stores">
+                  <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C6.9 7.4 5.4 8.4 4.6 9.9c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 2.9 2.4s1.6-.8 3-.8 1.8.8 3 .8 2-1.2 2.8-2.3c.9-1.3 1.2-2.6 1.3-2.7-.1 0-2.4-.9-2.4-4.3zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" style="fill:var(--lait)"/></svg><span>Télécharger dans<b>l'App Store</b></span></span>
+              <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9-8.5zM14.2 13.2l2.3 2.2-9.8 5.6zM14.2 10.8 6.7 3l9.8 5.6zM17.7 9.3l2.7 1.6c.8.5.8 1.7 0 2.2l-2.7 1.6-2.5-2.4z" style="fill:var(--lait)"/></svg><span>Disponible sur<b>Google Play</b></span></span>
+                  <span class="s-stores-n mono">Gratuit · iOS et Android</span>
+                </div>
+              </div>
+              <div class="s-hero-ph" aria-hidden="true">
+                <div class="phone">
+          <div class="ph-status"><span>22:47</span><span class="isl"></span><span>5G</span></div>
+          <div class="ph-body">
+            <div class="app-pad">
+              <div class="ex-top"><div class="city"><small>Lun. 9 nov · cette semaine</small>Paris</div><span class="av-btn">LM</span></div>
+              <div class="ph-chips"><span class="chip on">Tout</span><span class="chip">Tables VIP</span><span class="chip">Billets</span><span class="chip">Ce week-end</span><span class="chip">Techno</span></div>
+              <div class="ph-feat lum lum-atarashi"><div class="over"><div style="display:flex;justify-content:space-between"><span class="badge b-plein"><i></i>À la une</span><svg class="i" viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><use href="#i-favori"/></svg></div><div><h4>Atarashi<br>Paris</h4><p>Sam. 21 nov · Yoyo, Palais de Tokyo</p></div></div></div>
+              <div class="rows ph-list">
+                <div class="erow"><span class="dd">11.11<small>Mer.</small></span><span><h4>Deflowerworld</h4><p>Billets dès 25 €</p></span><svg class="i" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-billet"/></svg></div>
+                <div class="erow"><span class="dd">14.11<small>Sam.</small></span><span><h4>Montrouge Gate Club</h4><p>Tables dès 600 €</p></span><svg class="i" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-table"/></svg></div>
+                <div class="erow"><span class="dd">28.11<small>Sam.</small></span><span><h4>Reznik</h4><p>Lieu révélé 24 h avant</p></span><svg class="i" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><use href="#i-lieu"/></svg></div>
+              </div>
+            </div>
+            <div class="tabbar">
+              <span class="on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-carte"/></svg>Explorer</span>
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-billet"/></svg>Billets</span>
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-favori"/></svg>Favoris</span>
+              <span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-groupe"/></svg>Profil</span>
+            </div>
+          </div>
+          <div class="ph-home"></div>
+        </div>
               </div>
             </div>
             <div class="search">
@@ -2822,24 +2844,6 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
               <div class="dj lum lum-marten"><svg class="sil" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><ellipse cx="50" cy="42" rx="15" ry="17" style="fill:var(--nuit)"/><path d="M10 100c3-24 20-36 40-36s37 12 40 36z" style="fill:var(--nuit)"/><path d="M64 36a15 17 0 0 1 0 12" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".8" style="stroke:var(--poudre)"/></svg><div class="nm">Marten Lou<small>Sam. 14 nov · Mobby</small></div></div>
               <div class="dj lum lum-francis"><svg class="sil" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><ellipse cx="50" cy="40" rx="15" ry="18" style="fill:var(--nuit)"/><path d="M12 100c2-26 20-38 38-38s36 12 38 38z" style="fill:var(--nuit)"/><path d="M36 34a15 18 0 0 1 0 14" stroke-width="1.5" fill="none" stroke-linecap="round" opacity=".8" style="stroke:var(--halo)"/></svg><div class="nm">Francis Mercier<small>Sam. 21 nov · Londres</small></div></div>
               <div class="dj lum lum-adri"><svg class="sil" viewBox="0 0 100 100" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><ellipse cx="38" cy="44" rx="12" ry="15" style="fill:var(--nuit)"/><ellipse cx="64" cy="42" rx="12" ry="15" style="fill:var(--nuit)"/><path d="M4 100c2-22 16-34 34-34 8 0 14 2 18 6 4-4 10-6 18-6 18 0 26 12 26 34z" style="fill:var(--nuit)"/></svg><div class="nm">Adriatique<small>Sam. 28 nov · New York</small></div></div>
-            </div>
-          </div>
-
-          <div class="s-cta">
-            <p class="mono s-cta-k">L'app Night Square</p>
-            <h3>Ta nuit<br>dans la poche.</h3>
-            <p class="s-cta-p">Cherche, réserve, entre par QR. Le plan de salle en direct et ta table gardée en mémoire, dans l'app.</p>
-            <div class="search s-cta-search">
-              <div><small>Ville</small><b>Paris</b></div>
-              <div><small>Quand</small><b>Ce soir</b></div>
-              <div><small>Je cherche</small><b>Une table · 4 pers.</b></div>
-              <span class="btn btn-signature">Rechercher <span class="ar">→</span></span>
-            </div>
-            <div class="s-cta-f">
-              <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.3 1.9-3.4 2-3.5-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.8-3-.8C6.9 7.4 5.4 8.4 4.6 9.9c-1.7 2.9-.4 7.2 1.2 9.6.8 1.2 1.7 2.4 2.9 2.4s1.6-.8 3-.8 1.8.8 3 .8 2-1.2 2.8-2.3c.9-1.3 1.2-2.6 1.3-2.7-.1 0-2.4-.9-2.4-4.3zM14.2 5.8c.6-.8 1.1-1.8 1-2.8-.9 0-2 .6-2.7 1.4-.6.7-1.1 1.7-1 2.7 1 .1 2-.5 2.7-1.3z" style="fill:var(--lait)"/></svg><span>Télécharger dans<b>l'App Store</b></span></span>
-              <span class="store"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3.5v17l9-8.5zM14.2 13.2l2.3 2.2-9.8 5.6zM14.2 10.8 6.7 3l9.8 5.6zM17.7 9.3l2.7 1.6c.8.5.8 1.7 0 2.2l-2.7 1.6-2.5-2.4z" style="fill:var(--lait)"/></svg><span>Disponible sur<b>Google Play</b></span></span>
-              <span class="s-cta-or mono">ou scanne</span>
-              <svg class="qr-s" viewBox="0 0 25 25" aria-label="QR code de téléchargement (factice)"><use href="#qr"/></svg>
             </div>
           </div>
 
