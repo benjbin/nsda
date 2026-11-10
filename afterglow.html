@@ -908,16 +908,49 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 #ag-f .chip:hover{color:var(--lait);box-shadow:none}
 #ag-f .chip[aria-pressed="true"]{background:none;color:var(--lait);font-variation-settings:"wdth" 150,"wght" 800}
 #ag-f .chip[aria-pressed="true"]::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;border-radius:2px;background:var(--lueur)}
-.s-prod-lede{font-size:17px;line-height:1.55;color:var(--voile);max-width:52ch;margin:-8px 0 44px}
-.s-prod-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
-.s-prod-col{margin:0;display:flex;flex-direction:column;align-items:center;gap:28px}
-.s-prod-ph{width:236px;height:491px;position:relative;pointer-events:none}
-.s-prod-ph .phone{position:absolute;left:0;top:0;transform:scale(.63);transform-origin:0 0}
-.s-prod-col figcaption{display:flex;flex-direction:column;gap:8px;max-width:320px;text-align:center;align-items:center}
-.s-prod-col figcaption b{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 800;font-size:19px;font-weight:400;color:var(--lait);white-space:nowrap}
-.s-prod-col figcaption span:last-child{font-size:14px;line-height:1.5;color:var(--voile)}
-.s-prod-cta{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:52px;flex-wrap:wrap}
-@media (max-width:760px){.s-prod-grid{grid-template-columns:minmax(0,1fr)}}
+.s-prod-lede{font-size:17px;line-height:1.55;color:var(--voile);max-width:52ch;margin:-8px 0 48px}
+.fl-grid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:72px;align-items:center}
+.fl-steps{list-style:none;margin:0;padding:0;position:relative}
+.fl-steps::before{content:"";position:absolute;left:6px;top:10px;bottom:10px;width:1px;background:var(--filet-fort)}
+.fl-step{appearance:none;border:0;background:none;cursor:pointer;text-align:left;color:inherit;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 18px;padding:18px 0 18px 34px;position:relative;width:100%}
+.fl-step::before{content:"";position:absolute;left:0;top:23px;width:13px;height:13px;border-radius:28%;background:var(--nuit);box-shadow:inset 0 0 0 1px var(--filet-fort);transition:background .35s var(--e-allumage)}
+.fl-t{font-size:11px;color:var(--voile);padding-top:4px;grid-row:span 2}
+.fl-step b{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 300;font-size:21px;font-weight:400;line-height:1.05;color:var(--voile);transition:color .35s var(--e-allumage)}
+.fl-d{font-size:14px;line-height:1.5;color:var(--voile);max-width:46ch;max-height:0;overflow:hidden;opacity:0;transition:max-height .35s var(--e-allumage),opacity .35s var(--e-allumage)}
+.fl-step:hover b{color:var(--lait)}
+.fl-step[aria-pressed="true"]::before{background:var(--lueur);box-shadow:none}
+.fl-step[aria-pressed="true"] .fl-t{color:var(--lueur)}
+.fl-step[aria-pressed="true"] b{color:var(--lait);font-variation-settings:"wdth" 150,"wght" 800}
+.fl-step[aria-pressed="true"] .fl-d{max-height:80px;opacity:1}
+.fl-phone{width:300px;height:624px;position:relative}
+.fl-ph{position:absolute;inset:0;opacity:0;transition:opacity .5s var(--e-allumage);pointer-events:none}
+.fl-ph.on{opacity:1}
+.fl-ph .phone{position:absolute;left:0;top:0;transform:scale(.8);transform-origin:0 0}
+.fl-scr{padding:14px 22px 18px;display:flex;flex-direction:column;gap:12px;height:100%}
+.fl-scr h4{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 900;font-size:38px;line-height:.86;color:var(--lait)}
+.fl-k{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--voile)}
+.fl-tot{display:flex;align-items:baseline;gap:12px;margin-top:6px}
+.fl-tot b{font-family:var(--f-display);font-variation-settings:"wdth" 150,"wght" 800;font-size:30px;font-weight:400}
+.fl-tot span{font-size:13px;color:var(--voile)}
+.fl-bar{height:6px;border-radius:3px;background:var(--filet)}
+.fl-bar i{display:block;height:100%;border-radius:3px;background:var(--lueur)}
+.fl-list{list-style:none;margin:4px 0 0;padding:0}
+.fl-list li{display:grid;grid-template-columns:34px minmax(0,1fr) auto 78px;gap:10px;align-items:center;padding:9px 0;border-top:1px solid var(--filet);font-size:14px}
+.fl-list i{width:30px;height:30px;border-radius:28%;display:grid;place-items:center;font-style:normal;font-family:var(--f-mono);font-size:10px;background:var(--filet);color:var(--lait)}
+.fl-list b{font-weight:500}
+.fl-list em{font-style:normal;font-family:var(--f-mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile);text-align:right}
+.fl-list em.ok{color:var(--lueur)}
+.fl-btn{align-self:flex-start;margin-top:auto}
+.fl-ok{display:flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--lueur)}
+.fl-ok i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;background:var(--lueur);color:var(--nuit);font-size:11px}
+.fl-card{border-radius:16px;padding:14px;box-shadow:inset 0 0 0 1px var(--filet);display:flex;flex-direction:column;gap:4px}
+.fl-card b{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 800;font-size:18px;font-weight:400}
+.fl-card span{font-size:13px;color:var(--voile)}
+.fl-tl{list-style:none;margin:6px 0 0;padding:0}
+.fl-tl li{display:grid;grid-template-columns:54px 1fr;gap:8px;padding:8px 0;border-top:1px solid var(--filet);font-size:13.5px}
+.fl-tl span{font-family:var(--f-mono);font-size:11px;color:var(--lueur)}
+.s-prod-cta{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:60px;flex-wrap:wrap}
+@media (max-width:760px){.fl-grid{grid-template-columns:minmax(0,1fr)}.fl-phone{margin:0 auto}}
 .ag-more{display:flex;justify-content:center;margin-top:48px}
 .ag-h-r{display:flex;align-items:center;gap:18px;white-space:nowrap;flex-shrink:0}
 .s-top-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:36px;align-items:stretch}
@@ -2951,11 +2984,11 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           </div>
 
           <div class="s-sec s-prod">
-            <div class="s-sec-h"><h3>L'app <em>en trois gestes</em></h3></div>
-            <p class="s-prod-lede">Night Square, c'est ta nuit dans la poche : tu trouves, tu réserves, tu entres. Sans appeler personne, sans file d'attente.</p>
-            <div class="s-prod-grid">
-              <figure class="s-prod-col">
-                <div class="s-prod-ph" aria-hidden="true"><div class="phone">
+            <div class="s-sec-h"><h3>Ta résa <em>de A à Z</em></h3></div>
+            <p class="s-prod-lede">De la soirée repérée mardi au bureau à la table qui t'attend samedi soir. Cinq moments, une seule app.</p>
+            <div class="fl-grid">
+              <ol class="fl-steps" id="fl-steps"><li><button type="button" class="fl-step" data-i="0" aria-pressed="true"><span class="fl-t mono">Mar. 14:02</span><b>Tu trouves ta soirée</b><span class="fl-d">Atarashi samedi, au Palais de Tokyo. Tu vois le line-up, l'ambiance et ce qu'il reste comme tables.</span></button></li><li><button type="button" class="fl-step" data-i="1" aria-pressed="false"><span class="fl-t mono">Mar. 14:04</span><b>Tu choisis ta table</b><span class="fl-d">Le plan de la salle, à plat. T5, face cabine, 6 personnes : tu sais exactement où tu seras.</span></button></li><li><button type="button" class="fl-step" data-i="2" aria-pressed="false"><span class="fl-t mono">Mar. 14:05</span><b>Tu partages la note</b><span class="fl-d">Un lien dans le groupe, chacun paie sa part. La table est bloquée dès le premier paiement.</span></button></li><li><button type="button" class="fl-step" data-i="3" aria-pressed="false"><span class="fl-t mono">Mar. 14:06</span><b>Ton pass arrive</b><span class="fl-d">Confirmation immédiate. Le QR est dans ton Wallet, avec l'heure et l'adresse.</span></button></li><li><button type="button" class="fl-step" data-i="4" aria-pressed="false"><span class="fl-t mono">Sam. 23:41</span><b>Tu entres, ta table t'attend</b><span class="fl-d">Un scan à la porte, pas de liste, pas d'attente. Ton hôte t'emmène à ta table, la bouteille suit.</span></button></li></ol>
+              <div class="fl-phone" aria-hidden="true"><div class="fl-ph on" data-i="0"><div class="phone">
           <div class="ph-status"><span>22:47</span><span class="isl"></span><span>5G</span></div>
           <div class="ph-body">
             <div class="app-pad">
@@ -2976,11 +3009,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             </div>
           </div>
           <div class="ph-home"></div>
-        </div></div>
-                <figcaption><span class="mono lueur">01</span><b>Trouve ta soirée</b><span>Les soirées de ta ville, ce soir et toute la semaine. Une seule à la une, le reste en lignes claires.</span></figcaption>
-              </figure>
-              <figure class="s-prod-col">
-                <div class="s-prod-ph" aria-hidden="true"><div class="phone">
+        </div></div><div class="fl-ph" data-i="1"><div class="phone">
           <div class="ph-status"><span>22:48</span><span class="isl"></span><span>5G</span></div>
           <div class="ph-body">
             <div class="app-pad">
@@ -3021,11 +3050,11 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             </div>
           </div>
           <div class="ph-home"></div>
-        </div></div>
-                <figcaption><span class="mono lueur">02</span><b>Choisis ta table</b><span>Le plan de la salle, à plat. Tu vois les tables libres, la place, le prix. Tu choisis, tu partages la note.</span></figcaption>
-              </figure>
-              <figure class="s-prod-col">
-                <div class="s-prod-ph" aria-hidden="true"><div class="phone">
+        </div></div><div class="fl-ph" data-i="2"><div class="phone"><div class="ph-status"><span>14:05</span><span class="isl"></span><span>5G</span></div><div class="ph-body"><div class="fl-scr"><p class="fl-k">Table T5 · Atarashi Paris</p><h4>On partage<br>la note.</h4>
+<div class="fl-tot"><b>1 200 €</b><span>÷ 6 · 200 € chacun</span></div>
+<div class="fl-bar"><i style="width:66%"></i></div><p class="fl-k">4 sur 6 ont payé · la table est bloquée</p>
+<ul class="fl-list"><li><i>LB</i><span>Toi</span><b>200 €</b><em class="ok">Payé</em></li><li><i>SA</i><span>Sarah</span><b>200 €</b><em class="ok">Payé</em></li><li><i>MK</i><span>Malik</span><b>200 €</b><em class="ok">Payé</em></li><li><i>JO</i><span>Jo</span><b>200 €</b><em class="ok">Payé</em></li><li><i>IN</i><span>Inès</span><b>200 €</b><em class="">En attente</em></li><li><i>HU</i><span>Hugo</span><b>200 €</b><em class="">En attente</em></li></ul>
+<span class="btn btn-ligne btn-sm fl-btn">Relancer Inès et Hugo</span></div></div><div class="ph-home"></div></div></div><div class="fl-ph" data-i="3"><div class="phone">
           <div class="ph-status"><span>22:49</span><span class="isl"></span><span>5G</span></div>
           <div class="ph-body">
             <div class="conf">
@@ -3042,9 +3071,10 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             </div>
           </div>
           <div class="ph-home"></div>
-        </div></div>
-                <figcaption><span class="mono lueur">03</span><b>Entre en un scan</b><span>Ton pass arrive dans le Wallet. À la porte, un QR, et ta table t'attend.</span></figcaption>
-              </figure>
+        </div></div><div class="fl-ph" data-i="4"><div class="phone"><div class="ph-status"><span>23:41</span><span class="isl"></span><span>5G</span></div><div class="ph-body"><div class="fl-scr"><p class="fl-ok"><i>✓</i>Scanné · porte B · 23:41</p><h4>Bienvenue,<br>Lucas.</h4>
+<div class="fl-card"><p class="fl-k">Ta table</p><b>T5 · Carré piste</b><span>Face cabine · 6 pers.</span></div>
+<div class="fl-card"><p class="fl-k">Ton hôte ce soir</p><b>Inès</b><span>Elle t'accompagne jusqu'à la table.</span></div>
+<ol class="fl-tl"><li><span>00:00</span>Ta bouteille arrive</li><li><span>01:30</span>Ramyen · live</li><li><span>03:30</span>East End Dubs · closing</li></ol></div></div><div class="ph-home"></div></div></div></div>
             </div>
             <div class="s-prod-cta"><span class="btn btn-signature">Télécharger l'app</span><span class="mono voile">Gratuit · iOS et Android</span></div>
           </div>
@@ -3984,6 +4014,19 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     });
   })();
 
+
+  /* ---------- Site : déroulé d'une résa ---------- */
+  (function(){
+    var list = document.getElementById('fl-steps'); if (!list) return;
+    var btns = [].slice.call(list.querySelectorAll('.fl-step'));
+    var phs = [].slice.call(document.querySelectorAll('.fl-phone .fl-ph'));
+    var cur = 0, timer = null;
+    function go(i){ cur = i; btns.forEach(function(b, k){ b.setAttribute('aria-pressed', k === i ? 'true' : 'false'); }); phs.forEach(function(p, k){ p.classList.toggle('on', k === i); }); }
+    btns.forEach(function(b, k){ b.addEventListener('click', function(){ clearInterval(timer); timer = null; go(k); }); });
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      timer = setInterval(function(){ go((cur + 1) % btns.length); }, 4500);
+    }
+  })();
   /* ---------- 10. Plan de salle ---------- */
   (function(){
     var tables = $$('.plan .tb:not(.off)').filter(function(t){ return !t.closest('.s-prod'); });
