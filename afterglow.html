@@ -912,7 +912,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 .s-top-info .s-top-cta{margin-top:6px}
 .s-top-info h4{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 900;font-size:52px;line-height:.86;color:var(--lait)}
 .s-top-pitch{font-size:15px;line-height:1.5;color:var(--voile);max-width:36ch}
-.s-top-facts{display:grid;grid-template-columns:repeat(2,auto);justify-content:start;gap:22px;margin-top:6px;padding-top:14px;border-top:1px solid var(--filet)}
+.s-top-facts{display:grid;grid-template-columns:repeat(2,minmax(0,max-content));justify-content:start;gap:16px 40px;margin-top:6px;padding-top:14px;border-top:1px solid var(--filet)}
 .s-top-facts dt{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--voile)}
 .s-top-facts dd{margin:4px 0 0;font-size:14px;color:var(--lait)}
 .s-top-cta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:8px}
@@ -2899,10 +2899,9 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             <div class="s-top-grid">
               <div class="s-top-media"><img src="tests/img/flyer-atarashi.jpg" alt="Flyer Atarashi Paris, sam. 21 nov, Yoyo · Palais de Tokyo"></div>
               <div class="s-top-info">
-                <p class="ag-meta mono">Sam. 21 nov · Yoyo · Palais de Tokyo</p>
-                <h4>Atarashi Paris</h4>
+                                <h4>Atarashi Paris</h4>
                 <p class="s-top-pitch">La nuit japonaise du Palais de Tokyo. Trois artistes, une seule piste, et les tables tout autour.</p>
-                <dl class="s-top-facts"><div><dt>Porte</dt><dd>23:30 → 06:00</dd></div><div><dt>Dans</dt><dd>11 jours</dd></div></dl>
+                <dl class="s-top-facts"><div><dt>Date</dt><dd>Sam. 21 nov</dd></div><div><dt>Lieu</dt><dd>Yoyo · Palais de Tokyo</dd></div><div><dt>Porte</dt><dd>23:30 → 06:00</dd></div><div><dt>Dans</dt><dd>11 jours</dd></div></dl>
                 <div class="s-top-cta"><span class="btn btn-signature">Réserver · à partir de 600 €</span></div>
               </div>
             </div>
