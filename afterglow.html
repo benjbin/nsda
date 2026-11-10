@@ -470,6 +470,18 @@ svg{display:block}
 .s15-rules .n{font-family:var(--f-mono);font-size:10.5px;color:var(--lueur);letter-spacing:.1em;display:block;margin-bottom:10px}
 .s15-dl{margin-top:16px;display:inline-flex}
 @media (max-width:760px){.s15-grid,.s15-icons,.s15-rules{grid-template-columns:minmax(0,1fr)}}
+.s16-f{margin:0 0 28px}
+.s16-cap{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--voile);display:flex;justify-content:space-between;gap:10px;margin-bottom:10px}
+.s16-mock{position:relative;border-radius:var(--r-l);box-shadow:inset 0 0 0 1px var(--filet)}
+.s16-mock>img{display:block;width:100%;height:auto;border-radius:var(--r-l);outline:1px solid var(--filet-fort);outline-offset:-1px}
+.s16-mock.pr{margin-bottom:56px}
+.s16-mock.pg{margin-bottom:60px}
+.s16-av{position:absolute;display:block;border-radius:50%;overflow:hidden;box-shadow:0 0 0 5px var(--fond,var(--nuit)),0 0 0 6px var(--filet-fort);width:19%;aspect-ratio:1;left:3%;bottom:-24%}
+.s16-av img{display:block;width:100%;height:100%}
+.s16-av.sq{border-radius:14%;width:10.5%;left:2.2%;bottom:-38%}
+.s16-f figcaption{font-size:14px;color:var(--voile);max-width:none;padding-left:25%}
+.s16-f.pgf figcaption{padding-left:15%}
+
 </style>
 <style>
 /* =========================================================
@@ -1861,6 +1873,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <li><a href="#bilan"><span class="n">13</span><span class="t">Bilan</span><span class="p">Déploiement</span></a></li>
       <li><a href="#social"><span class="n">14</span><span class="t">Réseaux sociaux</span><span class="p">Stories · système B</span></a></li>
       <li><a href="#sous-marques"><span class="n">15</span><span class="t">Sous-marques</span><span class="p">Pro · Partners</span></a></li>
+      <li><a href="#linkedin"><span class="n">16</span><span class="t">LinkedIn</span><span class="p">Bannières</span></a></li>
     </ol>
   </div>
 </section>
@@ -3701,6 +3714,47 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <div><span class="n">03</span><b>Le nom dans l'icône</b>Les trois icônes sont sur nuit. Pro et Partners ont le Relais plus petit et leur nom dessous, en ambre. Aucune autre couleur.</div>
     </div>
     <a class="lk s15-dl" href="https://github.com/benjbin/nsda/tree/main/monogrammes/sous-marques" target="_blank" rel="noopener">Les fichiers Pro et Partners · SVG →</a>
+  </div>
+</section>
+
+<!-- =====================================================
+     16 LINKEDIN
+     ===================================================== -->
+<section class="sec" id="linkedin" aria-labelledby="t-linkedin">
+  <div class="wrap">
+    <header class="sh">
+      <div class="sh-num" aria-hidden="true">16</div>
+      <div>
+        <p class="eyebrow"><span>LinkedIn</span><span>Profil · page entreprise</span></p>
+        <h2 class="sh-title" id="t-linkedin">LinkedIn, <em>de&nbsp;jour</em></h2>
+        <p class="sh-lead">Deux bannières aux dimensions exactes de LinkedIn : <b>1584 × 396</b> pour le profil de l'équipe, <b>1128 × 191</b> pour la page Night Square. Fond nuit, wordmark, la signature en deux graisses. Tout le texte reste à droite : à gauche, LinkedIn pose la photo ou le logo.</p>
+      </div>
+    </header>
+
+    <figure class="s16-f">
+      <div class="s16-cap mono"><span>Profil perso · fondateurs, équipe</span><span>1584 × 396 px</span></div>
+      <div class="s16-mock pr">
+        <img src="linkedin/linkedin-profil-1584x396.png" alt="Bannière LinkedIn profil Night Square : Ce soir, et tous les autres.">
+        <span class="s16-av"><img src="monogrammes/final/relais-appicon.svg" alt=""></span>
+      </div>
+      <figcaption>La photo de profil recouvre le bas gauche : le texte commence après.</figcaption>
+    </figure>
+
+    <figure class="s16-f pgf">
+      <div class="s16-cap mono"><span>Page entreprise · Night Square</span><span>1128 × 191 px</span></div>
+      <div class="s16-mock pg">
+        <img src="linkedin/linkedin-page-1128x191.png" alt="Bannière LinkedIn page entreprise Night Square">
+        <span class="s16-av sq"><img src="monogrammes/final/relais-appicon.svg" alt=""></span>
+      </div>
+      <figcaption>Le logo de la page, c'est l'icône Relais (400 × 400). Il déborde sous la bannière, à gauche.</figcaption>
+    </figure>
+
+    <div class="s15-rules">
+      <div><span class="n">01</span><b>Les bonnes dimensions</b>Profil 1584 × 396, page 1128 × 191. On exporte aussi en @2x pour les écrans Retina, LinkedIn redimensionne.</div>
+      <div><span class="n">02</span><b>Le texte à droite</b>Le tiers gauche est couvert par la photo ou le logo, et rogné sur mobile. On n'y met que le Relais en filigrane.</div>
+      <div><span class="n">03</span><b>Rien de plus</b>Pas de date, pas d'événement, pas de prix : la bannière reste en place des mois. Les soirées passent dans les posts.</div>
+    </div>
+    <a class="lk s15-dl" href="https://github.com/benjbin/nsda/tree/main/linkedin" target="_blank" rel="noopener">Les bannières LinkedIn · SVG et PNG →</a>
   </div>
 </section>
 </main>
