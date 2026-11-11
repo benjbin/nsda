@@ -779,6 +779,37 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
    09 COMPOSANTS
    ========================================================= */
 .board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.badge.st-resa,.badge.pa-attente{background:transparent;box-shadow:inset 0 0 0 1px var(--filet-fort)}
+.badge.st-resa i{background:transparent;box-shadow:inset 0 0 0 1.5px var(--voile)}
+.badge.st-arrive,.badge.pa-partiel{background:color-mix(in srgb,var(--lueur) 14%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lueur) 55%,transparent)}
+.badge.st-arrive i,.badge.pa-partiel i{background:var(--lueur)}
+.badge.st-arrive,.badge.pa-partiel{color:var(--lueur)}
+.badge.st-installe,.badge.pa-paye{color:var(--valide);background:color-mix(in srgb,var(--valide) 18%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--valide) 70%,transparent)}
+.badge.st-installe i,.badge.pa-paye i{background:var(--valide)}
+.badge.st-parti,.badge.pa-rembourse{background:transparent;color:var(--cendre);box-shadow:inset 0 0 0 1px var(--filet)}
+.badge.st-parti i,.badge.pa-rembourse i{background:var(--cendre)}
+.badge.st-refuse,.badge.pa-refuse{color:var(--nuit);background:var(--erreur);box-shadow:none}
+.badge.st-refuse i,.badge.pa-refuse i{background:var(--nuit);border-radius:2px}
+.badge.pa-attente i{background:var(--poudre)}
+.pro-flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px 6px;padding-bottom:16px;border-bottom:1px solid var(--filet)}
+.pro-flow li{display:flex;align-items:center;gap:6px}
+.pro-flow li+li::before{content:"→";color:var(--cendre);font-size:13px}
+.pro-leg li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--filet);font-size:14px;color:var(--voile)}
+.pro-leg li:last-child{border-bottom:0}
+.pro-leg .badge{justify-self:start}
+.pro-tw{overflow-x:auto}
+.pro-t{width:100%;border-collapse:collapse;font-size:15px;min-width:560px}
+.pro-t th{text-align:left;font-family:var(--f-mono);font-size:10px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--voile);padding:0 12px 10px 0}
+.pro-t td{padding:12px 12px 12px 0;border-top:1px solid var(--filet);vertical-align:middle}
+.pro-t td b{font-weight:600}
+.pro-t td.mono{font-size:13px;color:var(--voile)}
+.pro-t tr[data-s="3"] td:first-child,.pro-t tr[data-s="3"] td.mono{color:var(--cendre)}
+.pro-st{appearance:none;border:0;background:none;padding:0;cursor:pointer;border-radius:var(--r-pill)}
+.pro-st:hover .badge{filter:brightness(1.15)}
+.pro-st:focus-visible{outline:2px solid var(--lait);outline-offset:3px}
+.pro-st[disabled]{cursor:default}
+.pro-sum{margin-top:14px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile)}
+@media (max-width:760px){.pro-leg li{grid-template-columns:minmax(0,1fr);gap:6px}}
 .seg{position:relative;display:grid;grid-template-columns:repeat(var(--n),minmax(0,1fr));padding:4px;border-radius:var(--r-pill);background:var(--creux,var(--nuit));box-shadow:inset 0 0 0 1px var(--filet);isolation:isolate}
 .seg-ind{position:absolute;z-index:-1;top:4px;bottom:4px;left:4px;width:calc((100% - 8px) / var(--n));border-radius:var(--r-pill);background:var(--btn-fond,var(--lait));transform:translateX(calc(var(--i) * 100%));transition:transform .35s var(--e-allumage)}
 .seg button{appearance:none;border:0;background:none;cursor:pointer;height:40px;padding:0 14px;border-radius:var(--r-pill);display:flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-size:14px;font-weight:600;color:var(--voile);white-space:nowrap;transition:color .35s var(--e-allumage)}
@@ -1899,6 +1930,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <li><a href="#social"><span class="n">14</span><span class="t">Réseaux sociaux</span><span class="p">Stories · système B</span></a></li>
       <li><a href="#sous-marques"><span class="n">15</span><span class="t">Sous-marques</span><span class="p">Pro · Partners</span></a></li>
       <li><a href="#linkedin"><span class="n">16</span><span class="t">LinkedIn</span><span class="p">Bannières</span></a></li>
+      <li><a href="#composants-pro"><span class="n">17</span><span class="t">Composants Pro</span><span class="p">Statut · paiement</span></a></li>
     </ol>
   </div>
 </section>
@@ -3812,6 +3844,51 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     <a class="lk s15-dl" href="https://github.com/benjbin/nsda/tree/main/linkedin" target="_blank" rel="noopener">Les bannières LinkedIn · SVG et PNG →</a>
   </div>
 </section>
+
+<!-- =====================================================
+     17 COMPOSANTS PRO
+     ===================================================== -->
+<section class="sec" id="composants-pro" aria-labelledby="t-cpro">
+  <div class="wrap">
+    <header class="sh">
+      <div class="sh-num" aria-hidden="true">17</div>
+      <div>
+        <p class="eyebrow"><span>Composants Pro</span><span>Statut · paiement</span></p>
+        <h2 class="sh-title" id="t-cpro">Toute la nuit, <em>en un coup d'œil</em></h2>
+        <p class="sh-lead">Dans Night Square Pro, chaque résa porte deux badges : <b>où en est le client</b> (le statut) et <b>où en est l'argent</b> (le paiement). Mêmes badges que l'app client, mais une couleur par état, lisible de loin, dans le noir, à la porte.</p>
+      </div>
+    </header>
+
+    <div class="board">
+      <div class="cell c-6">
+        <p class="mono"><span>Statut</span><b>Le parcours du client</b></p>
+        <ol class="pro-flow" aria-label="Ordre des statuts"><li><span class="badge st-resa"><i></i>Réservé</span></li><li><span class="badge st-arrive"><i></i>Arrivé</span></li><li><span class="badge st-installe"><i></i>Installé</span></li><li><span class="badge st-parti"><i></i>Parti</span></li></ol>
+        <ul class="pro-leg"><li><span class="badge st-resa"><i></i>Réservé</span><span>La résa existe, le client n'est pas encore là.</span></li><li><span class="badge st-arrive"><i></i>Arrivé</span><span>Scanné à la porte. Il attend son hôte.</span></li><li><span class="badge st-installe"><i></i>Installé</span><span>Assis à sa table, la bouteille peut partir.</span></li><li><span class="badge st-parti"><i></i>Parti</span><span>La table est libre, on peut la redonner.</span></li><li><span class="badge st-refuse"><i></i>Refusé</span><span>Refusé à la porte. Toujours avec une raison.</span></li></ul>
+      </div>
+      <div class="cell c-6">
+        <p class="mono"><span>Paiement</span><b>Où en est l'argent</b></p>
+        <ul class="pro-leg"><li><span class="badge pa-paye"><i></i>Payé</span><span>Tout est réglé, minimum compris.</span></li><li><span class="badge pa-partiel"><i></i>Partiel · 4/6</span><span>La note est partagée, certains n'ont pas payé.</span></li><li><span class="badge pa-attente"><i></i>En attente</span><span>Rien de reçu. La table n'est pas bloquée.</span></li><li><span class="badge pa-refuse"><i></i>Refusé</span><span>La banque a dit non. On relance le client.</span></li><li><span class="badge pa-rembourse"><i></i>Remboursé</span><span>Annulé dans les délais, l'argent est rendu.</span></li></ul>
+      </div>
+
+      <div class="cell c-12">
+        <p class="mono"><span>Ce soir · Yoyo · 6 tables</span><b>Cliquez un statut pour le faire avancer</b></p>
+        <div class="pro-tw">
+          <table class="pro-t">
+            <thead><tr><th>Client</th><th>Table</th><th>Pers.</th><th>Statut</th><th>Paiement</th></tr></thead>
+            <tbody id="pro-t"><tr data-s="1"><td><b>Lucas B.</b></td><td class="mono">T5</td><td class="mono">6</td><td><button type="button" class="pro-st" aria-label="Changer le statut de Lucas B."><span class="badge st-arrive"><i></i>Arrivé</span></button></td><td><span class="badge pa-paye"><i></i>Payé</span></td></tr><tr data-s="2"><td><b>Sarah A.</b></td><td class="mono">T2</td><td class="mono">4</td><td><button type="button" class="pro-st" aria-label="Changer le statut de Sarah A."><span class="badge st-installe"><i></i>Installé</span></button></td><td><span class="badge pa-paye"><i></i>Payé</span></td></tr><tr data-s="0"><td><b>Malik K.</b></td><td class="mono">T8</td><td class="mono">8</td><td><button type="button" class="pro-st" aria-label="Changer le statut de Malik K."><span class="badge st-resa"><i></i>Réservé</span></button></td><td><span class="badge pa-partiel"><i></i>Partiel · 5/8</span></td></tr><tr data-s="0"><td><b>Inès D.</b></td><td class="mono">T11</td><td class="mono">4</td><td><button type="button" class="pro-st" aria-label="Changer le statut de Inès D."><span class="badge st-resa"><i></i>Réservé</span></button></td><td><span class="badge pa-attente"><i></i>En attente</span></td></tr><tr data-s="3"><td><b>Hugo R.</b></td><td class="mono">T3</td><td class="mono">6</td><td><button type="button" class="pro-st" aria-label="Changer le statut de Hugo R."><span class="badge st-parti"><i></i>Parti</span></button></td><td><span class="badge pa-paye"><i></i>Payé</span></td></tr><tr data-s="4"><td><b>Jo M.</b></td><td class="mono">T7</td><td class="mono">5</td><td><button type="button" class="pro-st" aria-label="Changer le statut de Jo M."><span class="badge st-refuse"><i></i>Refusé</span></button></td><td><span class="badge pa-refuse"><i></i>Refusé</span></td></tr></tbody>
+          </table>
+        </div>
+        <p class="pro-sum mono" id="pro-sum" aria-live="polite"></p>
+      </div>
+    </div>
+
+    <div class="s15-rules">
+      <div><span class="n">01</span><b>Deux badges, toujours</b>Statut d'abord, paiement ensuite, sur la même ligne. On ne fusionne jamais les deux : un client peut être installé sans avoir tout payé.</div>
+      <div><span class="n">02</span><b>Une couleur, un sens</b>Ambre : en cours. Lichen : c'est bon. Brique : problème. Gris : terminé. Le texte reste toujours écrit, la couleur ne suffit pas seule.</div>
+      <div><span class="n">03</span><b>Le statut avance, il ne recule pas</b>Réservé, arrivé, installé, parti. Refusé sort du parcours et se justifie : tenue, âge, comportement, liste complète.</div>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="end">
@@ -4189,6 +4266,24 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
         });
       });
     });
+  })();
+
+  /* ---------- 17. Pro : statuts ---------- */
+  (function(){
+    var tb = document.getElementById('pro-t'); if (!tb) return;
+    var ST = [['st-resa','Réservé'],['st-arrive','Arrivé'],['st-installe','Installé'],['st-parti','Parti'],['st-refuse','Refusé']];
+    var sum = document.getElementById('pro-sum');
+    function recount(){
+      var c = [0,0,0,0,0]; $$('tr', tb).forEach(function(r){ c[+r.getAttribute('data-s')]++; });
+      sum.textContent = c[2] + ' installés · ' + c[1] + ' à la porte · ' + c[0] + ' attendus · ' + c[3] + ' partis · ' + c[4] + ' refusé' + (c[4] > 1 ? 's' : '');
+    }
+    $$('tr', tb).forEach(function(r){
+      var b = $('.pro-st', r);
+      function paint(){ var k = +r.getAttribute('data-s'); b.innerHTML = '<span class="badge ' + ST[k][0] + '"><i></i>' + ST[k][1] + '</span>'; b.disabled = k >= 3; }
+      paint();
+      b.addEventListener('click', function(){ var k = +r.getAttribute('data-s'); if (k < 3) { r.setAttribute('data-s', k + 1); paint(); recount(); } });
+    });
+    recount();
   })();
   /* ---------- 10. Plan de salle ---------- */
   (function(){
