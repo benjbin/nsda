@@ -779,6 +779,32 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
    09 COMPOSANTS
    ========================================================= */
 .board{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:16px}
+.tbx{display:grid;grid-template-columns:375px minmax(0,1fr);gap:40px;align-items:start}
+.tbx-ph{width:375px;border-radius:0 0 var(--r-xl,32px) var(--r-xl,32px);background:var(--nuit);box-shadow:inset 0 0 0 1px var(--filet);overflow:hidden}
+.tbx-scr{height:150px;padding:20px;display:flex;flex-direction:column;gap:10px}
+.tbx-scr span{height:14px;border-radius:var(--r-pill);background:var(--filet);width:70%}
+.tbx-scr span:nth-child(2){width:50%}.tbx-scr span:nth-child(3){width:84%;height:56px;border-radius:var(--r-m,16px)}
+.tbx-bar{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--filet);background:var(--nuit)}
+.tbx-bar button,.tbx-it{appearance:none;border:0;background:none;cursor:pointer;min-height:56px;padding:10px 0 6px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-family:var(--f-mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile);position:relative;transition:color .35s var(--e-allumage)}
+.tbx-bar svg,.tbx-it svg{width:24px;height:24px}
+.tbx-bar button::before,.tbx-it.on::before{content:"";position:absolute;top:-1px;left:30%;right:30%;height:2px;border-radius:var(--r-pill);background:var(--g-remanence);opacity:0;transition:opacity .35s var(--e-allumage)}
+.tbx-bar button[aria-selected="true"],.tbx-it.on{color:var(--lait)}
+.tbx-bar button[aria-selected="true"]::before,.tbx-it.on::before{opacity:1}
+.tbx-bar button:hover{color:var(--lait)}
+.tbx-bar button:active,.tbx-it.press{color:var(--poudre)}
+.tbx-it.press svg{transform:scale(.92)}
+.tbx-bar button:focus-visible,.tbx-it.focus{outline:2px solid var(--lait);outline-offset:-4px;border-radius:var(--r-s,10px)}
+.tbx-b{position:absolute;top:6px;left:calc(50% + 6px);min-width:16px;height:16px;padding:0 4px;border-radius:var(--r-pill);background:var(--lueur);color:var(--nuit);font-style:normal;font-size:9px;line-height:16px;letter-spacing:0;text-align:center}
+.tbx-home{display:block;width:134px;height:5px;border-radius:var(--r-pill);background:var(--lait);opacity:.8;margin:6px auto 8px}
+.tbx-states{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.tbx-states figure{margin:0;display:flex;flex-direction:column;gap:8px;align-items:stretch}
+.tbx-states .tbx-it{border-radius:var(--r-m,16px);box-shadow:inset 0 0 0 1px var(--filet);cursor:default;background:var(--nuit)}
+.tbx-states .tbx-it.on::before{top:0}
+.tbx-states figcaption{font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile);text-align:center}
+.tbx-rules{margin-top:22px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 24px}
+.tbx-rules li{font-size:14px;line-height:1.5;color:var(--voile);padding-top:12px;border-top:1px solid var(--filet)}
+.tbx-rules b{display:block;color:var(--lait);font-weight:600;margin-bottom:2px}
+@media (max-width:900px){.tbx{grid-template-columns:minmax(0,1fr)}.tbx-ph{width:100%;max-width:375px}.tbx-states{grid-template-columns:repeat(3,minmax(0,1fr))}.tbx-rules{grid-template-columns:minmax(0,1fr)}}
 /* Panneau : rayon = rayon d'une carte + marge, pour que les cartes posées dedans s'emboîtent */
 .cell{--pad:clamp(16px,2vw,24px);background:var(--nuit);border-radius:calc(var(--r-m) + var(--pad));box-shadow:inset 0 0 0 1px var(--filet);padding:var(--pad);min-width:0;display:flex;flex-direction:column;gap:16px}
 .cell>.mono:first-child{color:var(--voile);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -2894,6 +2920,27 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
         </div>
       </div>
 
+
+      <div class="cell c-12 tbx-cell">
+        <p class="mono"><span>Tab bar · app</span><b>4 onglets, jamais plus de 5 · cliquez-la</b></p>
+        <div class="tbx">
+          <div class="tbx-ph">
+            <div class="tbx-scr" aria-hidden="true"><span></span><span></span><span></span></div>
+            <nav class="tbx-bar" role="tablist" aria-label="Tab bar de démonstration" id="tbx"><button type="button" role="tab" aria-selected="true"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-carte"/></svg><span>Explorer</span></button><button type="button" role="tab" aria-selected="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-billet"/></svg><em class="tbx-b">2</em><span>Billets</span></button><button type="button" role="tab" aria-selected="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-favori"/></svg><span>Favoris</span></button><button type="button" role="tab" aria-selected="false"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-groupe"/></svg><span>Profil</span></button></nav>
+            <i class="tbx-home" aria-hidden="true"></i>
+          </div>
+          <div class="tbx-side">
+            <div class="tbx-states" aria-hidden="true"><figure><span class="tbx-it "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-billet"/></svg><span>Billets</span></span><figcaption>Repos</figcaption></figure><figure><span class="tbx-it on"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-carte"/></svg><span>Explorer</span></span><figcaption>Actif</figcaption></figure><figure><span class="tbx-it press"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-favori"/></svg><span>Favoris</span></span><figcaption>Pressé</figcaption></figure><figure><span class="tbx-it "><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-billet"/></svg><em class=tbx-b>2</em><span>Billets</span></span><figcaption>Badge</figcaption></figure><figure><span class="tbx-it focus"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-groupe"/></svg><span>Profil</span></span><figcaption>Focus clavier</figcaption></figure></div>
+            <ul class="tbx-rules">
+              <li><b>Actif</b>Icône et label en lait, la trace rémanente posée au-dessus. Rien d'autre ne change : pas de fond, pas de pastille.</li>
+              <li><b>Repos</b>Icône 24 px et label Martian 9 px en voile. Le label est toujours là, jamais d'icône seule.</li>
+              <li><b>Badge</b>Un chiffre sur fond lueur, seulement quand il y a une action à faire (un billet à ouvrir). Jamais de point rouge.</li>
+              <li><b>Zone tactile</b>Toute la largeur de l'onglet, 56 px de haut minimum. Fond nuit plein, un filet au-dessus, au-dessus de l'indicateur d'accueil.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <div class="cell c-12">
         <p class="mono"><span>Cartes événement · 3 variantes</span><b>Affiche · À la une · Ligne d'agenda</b></p>
         <div class="cards3">
@@ -4114,6 +4161,19 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     rz.querySelector('.rz-prev').addEventListener('click', function(){ go(cur - 1); });
     rz.querySelector('.rz-next').addEventListener('click', function(){ go(cur + 1); });
     go(0);
+  })();
+
+  /* ---------- Composants : tab bar ---------- */
+  (function(){
+    var bar = document.getElementById('tbx'); if (!bar) return;
+    var bs = [].slice.call(bar.querySelectorAll('button'));
+    bs.forEach(function(b, k){
+      b.addEventListener('click', function(){ bs.forEach(function(x){ x.setAttribute('aria-selected', x === b ? 'true' : 'false'); }); });
+      b.addEventListener('keydown', function(e){
+        var d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0; if (!d) return;
+        e.preventDefault(); var n = bs[(k + d + bs.length) % bs.length]; n.focus(); n.click();
+      });
+    });
   })();
   /* ---------- 10. Plan de salle ---------- */
   (function(){
