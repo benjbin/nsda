@@ -38,4 +38,4 @@ Les pages HTML s'ouvrent directement dans un navigateur (polices Google Fonts, a
 | Ambre | `#B5683C` |
 | Échos de la trace | `#D2A78B` · `#B5683C` · `#683D25` |
 
-**Typographies** — Anybody (titres), Hanken Grotesk (texte), Martian Mono (infos, chiffres).
+**Typographies** — Anybody (titres), Hanken Grotesk (texte), Archivo étroit (infos, heures, prix, tables).

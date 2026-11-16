@@ -9,7 +9,7 @@
 <script>try{var p=localStorage.getItem("ns-palette-v5");if(p==="lueur"||p==="velours")document.documentElement.setAttribute("data-palette",p);}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..500&family=Martian+Mono:wdth,wght@75..112.5,300..700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wdth,wght@50..150,100..900&family=Hanken+Grotesk:ital,wght@0,300..700;1,400..500&family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
 <style>
 /* =========================================================
    AFTERGLOW · TOKENS (v3 : deux palettes premium)
@@ -144,7 +144,8 @@
 
   --f-display:'Anybody','Arial Black','Helvetica Neue',Arial,sans-serif;
   --f-body:'Hanken Grotesk',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
-  --f-mono:'Martian Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  /* Utilitaire : Archivo étroit (remplace Martian Mono). Labels 13/600/wdth 68/+8 % capitales ; données 16/540/wdth 85/tabulaires ; montants 30/620/wdth 75. Jamais sous 12 px. */
+  --f-mono:'Archivo','Hanken Grotesk',system-ui,sans-serif;
 
   /* Grain argentique : fréquence haute (grain fin), deux octaves, faible opacité */
   --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 240 240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
@@ -206,7 +207,7 @@ svg{display:block}
 .wrap{max-width:1320px;margin:0 auto;padding-left:var(--gut);padding-right:var(--gut)}
 
 /* Utilitaires typographiques */
-.mono{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.35;font-variation-settings:"wdth" 100}
+.mono{font-family:var(--f-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.35;font-variation-settings:"wdth" 68;font-weight:600}
 .d{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 150,"wght" 900;line-height:.86;letter-spacing:-.01em}
 .trace{text-shadow:var(--trace-nette)}
 .trace-halo{text-shadow:var(--trace-halo)}
@@ -248,11 +249,11 @@ svg{display:block}
 .bnav{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--nuit) 94%,transparent);border-bottom:1px solid var(--filet)}
 .bnav .wrap{display:flex;align-items:center;gap:20px;height:var(--nav-h)}
 .bnav .home{display:flex;align-items:center;gap:10px;color:var(--lait);text-decoration:none;flex:none;font-family:var(--f-display);text-transform:uppercase;font-size:13px;font-variation-settings:"wdth" 150,"wght" 900;letter-spacing:.01em}
-.bnav .home small{font-family:var(--f-mono);font-size:10px;letter-spacing:.1em;color:var(--voile);font-variation-settings:"wdth" 100;font-weight:400}
+.bnav .home small{font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;color:var(--voile);font-variation-settings:"wdth" 85;font-weight:540}
 .bnav ol{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0;height:100%;align-items:stretch}
 .bnav ol::-webkit-scrollbar{display:none}
 .bnav li{flex:none;display:flex}
-.bnav a.lk{position:relative;display:flex;align-items:center;gap:6px;padding:0 10px;text-decoration:none;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile);white-space:nowrap;transition:color var(--t-court) var(--e-allumage)}
+.bnav a.lk{position:relative;display:flex;align-items:center;gap:6px;padding:0 10px;text-decoration:none;font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--voile);white-space:nowrap;transition:color var(--t-court) var(--e-allumage);font-variation-settings:"wdth" 68;font-weight:600}
 .bnav a.lk b{font-weight:400;color:var(--cendre)}
 .bnav a.lk::after{content:"";position:absolute;left:10px;right:10px;bottom:-1px;height:2px;background:var(--g-remanence);transform:scaleX(0);transform-origin:left;transition:transform var(--t-temps) var(--e-allumage);border-radius:var(--r-pill)}
 .bnav a.lk:hover{color:var(--lait)}
@@ -269,7 +270,7 @@ svg{display:block}
 .sh{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(16px,3vw,40px);margin-bottom:clamp(40px,6vw,88px);align-items:start}
 .sh-num{font-family:var(--f-display);font-variation-settings:"wdth" 50,"wght" 200;font-size:clamp(96px,13vw,200px);line-height:.72;color:var(--lueur);letter-spacing:-.02em;position:sticky;top:calc(var(--nav-h) + 24px)}
 .sec.lait .sh-num{color:var(--print-accent)}
-.eyebrow{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--lueur);margin-bottom:18px;display:flex;gap:14px;flex-wrap:wrap}
+.eyebrow{font-family:var(--f-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--lueur);margin-bottom:18px;display:flex;gap:14px;flex-wrap:wrap;font-variation-settings:"wdth" 68;font-weight:600}
 .eyebrow span+span{color:var(--voile)}
 .sec.lait .eyebrow{color:var(--print-accent)}
 .sec.lait .eyebrow span+span{color:var(--voile-jour)}
@@ -282,7 +283,7 @@ svg{display:block}
 .sec.lait .sh-lead b{color:var(--nuit)}
 .sub{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(16px,3vw,40px);margin-top:clamp(56px,7vw,104px)}
 .sub:first-of-type{margin-top:0}
-.sub-h{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--voile);padding-top:14px;border-top:1px solid var(--filet-fort);align-self:start}
+.sub-h{font-family:var(--f-mono);font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--voile);padding-top:14px;border-top:1px solid var(--filet-fort);align-self:start;font-variation-settings:"wdth" 68;font-weight:600}
 .sub-h b{display:block;color:var(--lait);font-weight:500;margin-bottom:6px}
 .sec.lait .sub-h{color:var(--voile-jour);border-color:color-mix(in srgb,var(--nuit) 25%,transparent)}
 .sec.lait .sub-h b{color:var(--nuit)}
@@ -295,12 +296,12 @@ svg{display:block}
 .toc-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:clamp(16px,3vw,40px)}
 .toc-side h2{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 50,"wght" 300;font-size:clamp(44px,5vw,72px);line-height:.85;color:var(--poudre)}
 .toc-side .colo{margin-top:28px;display:grid;gap:10px;font-size:13.5px;color:var(--voile);line-height:1.45}
-.toc-side .colo b{display:block;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--lait);font-weight:400}
+.toc-side .colo b{display:block;font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--lait);font-weight:600;font-variation-settings:"wdth" 68}
 .toc-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(7,auto);grid-auto-flow:column;column-gap:clamp(20px,3vw,48px)}
 .toc-list a{display:grid;grid-template-columns:44px minmax(0,1fr) auto;gap:12px;align-items:baseline;padding:16px 0 14px;border-top:1px solid var(--filet);text-decoration:none}
-.toc-list .n{font-family:var(--f-mono);font-size:11px;color:var(--lueur);letter-spacing:.06em}
+.toc-list .n{font-family:var(--f-mono);font-size:12.5px;color:var(--lueur);letter-spacing:.06em;font-variation-settings:"wdth" 85;font-weight:540}
 .toc-list .t{font-family:var(--f-display);text-transform:uppercase;font-size:clamp(20px,2.1vw,30px);line-height:1;font-variation-settings:"wdth" 100,"wght" 700;transition:font-variation-settings var(--t-temps) var(--e-allumage),color var(--t-court)}
-.toc-list .p{font-family:var(--f-mono);font-size:10.5px;color:var(--cendre);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+.toc-list .p{font-family:var(--f-mono);font-size:12px;color:var(--cendre);letter-spacing:0.06em;text-transform:uppercase;white-space:nowrap;font-variation-settings:"wdth" 68;font-weight:600}
 .toc-list a:hover .t,.toc-list a:focus-visible .t{font-variation-settings:"wdth" 150,"wght" 900;color:var(--lait);text-shadow:var(--trace-nette)}
 .toc-list a:hover .p{color:var(--lueur)}
 
@@ -316,27 +317,27 @@ svg{display:block}
 .value:nth-child(3){margin-top:96px;border-color:var(--poudre)}
 .value h3{font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 130,"wght" 800;font-size:clamp(22px,2.1vw,32px);line-height:.95;margin-bottom:12px}
 .value p{color:var(--voile);font-size:16px}
-.value .proof{margin-top:16px;font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;color:var(--lait);text-transform:uppercase;line-height:1.5}
+.value .proof{margin-top:16px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:0.06em;color:var(--lait);text-transform:uppercase;line-height:1.5;font-variation-settings:"wdth" 68;font-weight:600}
 .persona{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,3vw,48px);align-items:start}
 .persona blockquote{font-family:var(--f-display);font-variation-settings:"wdth" 70,"wght" 600;text-transform:uppercase;font-size:clamp(30px,3.6vw,52px);line-height:.95;color:var(--lait)}
 .persona blockquote+p{margin-top:16px;color:var(--voile);font-size:16px;max-width:44ch}
 .axes-p{display:grid;gap:16px}
-.axe{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr) minmax(0,1fr);gap:12px;align-items:center;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile)}
+.axe{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2.2fr) minmax(0,1fr);gap:12px;align-items:center;font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--voile);font-variation-settings:"wdth" 68;font-weight:600}
 .axe span:last-child{text-align:right}
 .axe .bar{position:relative;height:1px;background:var(--filet-fort)}
 .axe .bar i{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;background:var(--lait);transform:translate(-50%,-50%);box-shadow:-10px 0 0 -2px color-mix(in srgb,var(--halo) 80%,transparent),-18px 0 0 -3.5px color-mix(in srgb,var(--lueur) 60%,transparent),-24px 0 0 -4.5px color-mix(in srgb,var(--poudre) 40%,transparent)}
 .tov{width:100%;border-collapse:collapse;font-size:15.5px}
-.tov th{font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:400;text-align:left;padding:0 16px 12px 0;color:var(--voile)}
+.tov th{font-family:var(--f-mono);font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;font-weight:600;text-align:left;padding:0 16px 12px 0;color:var(--voile);font-variation-settings:"wdth" 68}
 .tov th:first-child{color:var(--valide)}
 .tov th:nth-child(2){color:var(--erreur)}
 .tov td{padding:16px 16px 16px 0;border-top:1px solid var(--filet);vertical-align:top;width:50%}
 .tov td:first-child{color:var(--lait)}
 .tov td:nth-child(2){color:var(--cendre)}
 .tov td s{text-decoration-color:color-mix(in srgb,var(--erreur) 70%,transparent);text-decoration-thickness:1px}
-.tov td small{display:block;margin-top:4px;font-family:var(--f-mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile);text-decoration:none}
+.tov td small{display:block;margin-top:4px;font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--voile);text-decoration:none;font-variation-settings:"wdth" 68;font-weight:600}
 .micro{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
 .mc{background:var(--salon);border-radius:var(--r-l);padding:20px;box-shadow:var(--l1);display:flex;flex-direction:column;gap:12px;min-width:0}
-.mc .k{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--lueur)}
+.mc .k{font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--lueur);font-variation-settings:"wdth" 68;font-weight:600}
 .mc p{font-size:15px;line-height:1.45}
 .mc .why{font-size:13px;color:var(--voile);margin-top:auto;padding-top:12px;border-top:1px solid var(--filet)}
 .mc-cta{grid-column:span 2}.mc-hi{grid-column:span 4}.mc-conf{grid-column:span 3}.mc-err{grid-column:span 3}.mc-wait{grid-column:span 2}.mc-push{grid-column:span 2}.mc-again{grid-column:span 2}.mc-miss{grid-column:span 2}.mc-mail{grid-column:span 4}
@@ -378,7 +379,7 @@ svg{display:block}
 .st-h{display:flex;justify-content:space-between;align-items:center;gap:8px}
 .st-h .mono{font-size:9.5px;color:var(--voile)}
 .st-n{margin-top:12px;font-family:var(--f-display);text-transform:uppercase;font-variation-settings:"wdth" 122,"wght" 900;font-size:50px;line-height:.82;text-shadow:var(--trace-nette);padding-left:.12em}
-.st-c{margin-top:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile)}
+.st-c{margin-top:8px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--voile);font-variation-settings:"wdth" 68;font-weight:600}
 .st-c b{color:var(--lait);font-weight:500}
 .st-meter{margin-top:12px;height:4px;border-radius:var(--r-pill);overflow:hidden;background:color-mix(in srgb,var(--lait) 10%,transparent);position:relative}
 .st-meter i{position:absolute;left:0;top:0;bottom:0;border-radius:var(--r-pill);background:var(--g-remanence)}
@@ -430,11 +431,11 @@ svg{display:block}
 .btn-texte:hover::after,.btn-texte.is-hover::after{transform:scaleX(1)}
 .btn-sm{padding:11px 16px;font-size:12px}
 .btn-lg{padding:20px 30px;font-size:16px}
-.chip{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:9px 15px;font-family:var(--f-mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--voile);background:transparent;box-shadow:inset 0 0 0 1px var(--filet-fort);white-space:nowrap;transition:background var(--t-court),color var(--t-court),box-shadow var(--t-temps) var(--e-allumage)}
+.chip{appearance:none;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:9px 15px;font-family:var(--f-mono);font-size:12.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--voile);background:transparent;box-shadow:inset 0 0 0 1px var(--filet-fort);white-space:nowrap;transition:background var(--t-court),color var(--t-court),box-shadow var(--t-temps) var(--e-allumage);font-variation-settings:"wdth" 68;font-weight:600}
 .chip:hover{color:var(--lait);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 50%,transparent)}
 .chip[aria-pressed="true"],.chip.on{color:var(--nuit);background:var(--lait);box-shadow:none}
 .chip .n{opacity:.6}
-.badge{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:6px 12px 6px 10px;font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;line-height:1.2;white-space:nowrap;color:var(--lait);background:color-mix(in srgb,var(--halo) 14%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--halo) 55%,transparent)}
+.badge{display:inline-flex;align-items:center;gap:8px;border-radius:var(--r-pill);padding:6px 12px 6px 10px;font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;line-height:1.2;white-space:nowrap;color:var(--lait);background:color-mix(in srgb,var(--halo) 14%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--halo) 55%,transparent);font-variation-settings:"wdth" 68;font-weight:600}
 .badge i{width:7px;height:7px;flex:none;border-radius:50%;background:var(--signature)}
 .badge.b-lueur{background:color-mix(in srgb,var(--lueur) 12%,transparent);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lueur) 50%,transparent)}
 .badge.b-lueur i{background:var(--lueur)}
@@ -454,7 +455,7 @@ svg{display:block}
 .s15-t{border-radius:var(--r-l);padding:22px;display:flex;flex-direction:column;gap:28px;min-height:230px;justify-content:space-between;box-shadow:inset 0 0 0 1px var(--filet)}
 .s15-t.dk{background:var(--v-nuit,#0B0908);color:#EFE6DA}
 .s15-t.lt{background:#EFE6DA;color:#0B0908}
-.s15-cap{font-family:var(--f-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;opacity:.8}
+.s15-cap{font-family:var(--f-mono);font-size:12px;letter-spacing:0.08em;text-transform:uppercase;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;opacity:.8;font-variation-settings:"wdth" 68;font-weight:600}
 .s15-t img{width:100%;max-width:560px;height:auto;display:block;margin:auto}
 .s15-t.st img{max-width:340px;margin:auto auto auto 0}
 .s15-t p{font-size:14px;line-height:1.5;max-width:46ch;opacity:.85}
@@ -467,7 +468,7 @@ svg{display:block}
 .s15-rules{margin-top:16px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .s15-rules div{border-radius:var(--r-l);background:var(--nuit);box-shadow:inset 0 0 0 1px var(--filet);padding:18px;font-size:14px;color:var(--voile)}
 .s15-rules b{display:block;color:var(--lait);font-weight:600;margin-bottom:4px}
-.s15-rules .n{font-family:var(--f-mono);font-size:10.5px;color:var(--lueur);letter-spacing:.1em;display:block;margin-bottom:10px}
+.s15-rules .n{font-family:var(--f-mono);font-size:12px;color:var(--lueur);letter-spacing:.1em;display:block;margin-bottom:10px;font-variation-settings:"wdth" 85;font-weight:540}
 .s15-dl{margin-top:16px;display:inline-flex}
 @media (max-width:760px){.s15-grid,.s15-icons,.s15-rules{grid-template-columns:minmax(0,1fr)}}
 .s16-f{margin:0 0 28px}
@@ -2226,7 +2227,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           <g fill="none" stroke-width=".35" stroke-dasharray="1.2 1.2" style="stroke:var(--valide)">
             <path d="M8 11.5h80M8 46.5h80M8 51h86M8 87h86"/>
           </g>
-          <g font-family="Martian Mono, monospace" font-size="2.9" letter-spacing=".15" style="fill:var(--valide)">
+          <g font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="2.9" letter-spacing=".15" style="fill:var(--valide)">
             <text x="74" y="10">N · CAP 35u</text>
             <text x="74" y="49.7">ESPACE 5u</text>
             <text x="0" y="97">S 52×36u · TRACE 17,5u · ÉCHOS 81·66·53 %</text>
@@ -2514,7 +2515,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     <header class="sh">
       <div class="sh-num" aria-hidden="true">04</div>
       <div>
-        <p class="eyebrow"><span>Typographie</span><span>Anybody · Hanken Grotesk · Martian Mono</span></p>
+        <p class="eyebrow"><span>Typographie</span><span>Anybody · Hanken Grotesk · Archivo étroit</span></p>
         <h2 class="sh-title" id="t-typo">Large, <em>étroite</em>, jamais tiède</h2>
         <p class="sh-lead">Anybody a deux axes, chasse (50 à 150) et graisse (100 à 900). La v1 les utilisait au milieu, ce qui donnait une voix tiède. La v2 joue <b>les extrêmes</b> : une ligne très large et noire, sa réponse très étroite et fine. C'est la respiration du système.</p>
       </div>
@@ -2538,7 +2539,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <div class="fams">
         <div class="fam"><div class="cap mono"><b>Display · Anybody</b><span>Titres, chiffres, affiches</span></div><p class="s3">Night <span>Square</span> 21.11</p></div>
         <div class="fam"><div class="cap mono"><b>Texte · Hanken Grotesk</b><span>300 à 700</span></div><p class="s1">Réserve ta table en trente secondes, entre par QR, et garde-la pour la prochaine fois.</p></div>
-        <div class="fam"><div class="cap mono"><b>Utilitaire · Martian Mono</b><span>Heures, prix, tables</span></div><p class="s2">SAM. 21 NOV · 23:30<br>T5 · 6 PERS. · 1 200 €</p></div>
+        <div class="fam"><div class="cap mono"><b>Utilitaire · Archivo étroit</b><span>Heures, prix, tables</span></div><p class="s2">SAM. 21 NOV · 23:30<br>T5 · 6 PERS. · 1 200 €</p></div>
       </div>
     </div>
 
@@ -2556,8 +2557,9 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             <tr><td>--t-lead</td><td><span class="smp" style="font-size:21px;line-height:1.4">Les clubs qui comptent, de Paris à New York.</span></td><td>21 · 1,40 · 0<br>Hanken 400</td></tr>
             <tr><td>--t-body</td><td><span class="smp" style="font-size:17px">Line-up complet, plan de salle et minimum de consommation.</span></td><td>17 · 1,55 · 0<br>Hanken 400</td></tr>
             <tr><td>--t-small</td><td><span class="smp" style="font-size:14px;color:var(--voile)">Annulation gratuite jusqu'à 48 h avant.</span></td><td>14 · 1,45 · 0<br>Hanken 400</td></tr>
-            <tr><td>--t-label</td><td><span class="smp mono">Paris · Billets · Tables</span></td><td>11,5 · 1,35 · +10 %<br>Martian 400, capitales</td></tr>
-            <tr><td>--t-data</td><td><span class="smp" style="font-family:var(--f-mono);font-size:13px;font-variant-numeric:tabular-nums">23:30 · T5 · 1 200 €</span></td><td>13 · 1,50 · +2 %<br>Martian 400, chiffres tabulaires</td></tr>
+            <tr><td>--t-label</td><td><span class="smp mono">Paris · Billets · Tables</span></td><td>13 · 1,30 · +8 %<br>Archivo 600, wdth 68, capitales</td></tr>
+            <tr><td>--t-data</td><td><span class="smp" style="font-family:var(--f-mono);font-size:14.5px;font-variant-numeric:tabular-nums;font-variation-settings:'wdth' 85;font-weight:540">23:30 · T5 · 1 200 €</span></td><td>16 · 1,50 · +1 %<br>Archivo 540, wdth 85, tabulaires</td></tr>
+            <tr><td>--t-num</td><td><span class="smp" style="font-family:var(--f-mono);font-size:30px;font-weight:620;font-variation-settings:'wdth' 75;font-variant-numeric:tabular-nums;line-height:1">1 280,40 £</span></td><td>30 · 1,0 · 0<br>Archivo 620, wdth 75, montants</td></tr>
           </tbody>
         </table>
       </div>
@@ -2569,8 +2571,8 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
         <ol class="rules">
           <li><b>Une seule display large par écran.</b> Le reste se tait.</li>
           <li><b>Contraste de chasse.</b> Une ligne à 150 répond à une ligne à 50–60. Jamais deux chasses moyennes côte à côte.</li>
-          <li><b>Anybody jamais sous 18 px.</b> En dessous : Hanken ou Martian.</li>
-          <li><b>Martian Mono en capitales</b> pour les labels de quatre mots maximum, les heures, les prix et les numéros de table.</li>
+          <li><b>Anybody jamais sous 18 px.</b> En dessous : Hanken ou Archivo.</li>
+          <li><b>Archivo étroit en capitales</b> pour les labels de quatre mots maximum, les heures, les prix et les numéros de table.</li>
           <li><b>Formats fixes.</b> 23:30, sam. 21 nov, 1 200 € avec espace insécable. Jamais « 23h30 ».</li>
           <li><b>Fer à gauche.</b> Le centré est réservé aux stories, aux chevalets et aux écrans LED.</li>
           <li><b>La trace typographique</b> seulement en display ≥ 48 px, une fois par écran, jamais en texte.</li>
@@ -2579,7 +2581,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
         <div class="avoid">
           <div class="av"><div class="pv"><span style="font-family:var(--f-display);text-transform:uppercase;font-variation-settings:'wdth' 100,'wght' 600;font-size:26px;line-height:.9">Ce soir,</span><span style="font-family:var(--f-display);text-transform:uppercase;font-variation-settings:'wdth' 112,'wght' 560;font-size:26px;line-height:.9">et tous</span></div><p><b>Deux chasses moyennes</b>Mou, sans tension.</p></div>
           <div class="av"><div class="pv"><span style="font-family:var(--f-display);font-variation-settings:'wdth' 54,'wght' 400;font-size:14px;line-height:1.3">Annulation gratuite jusqu'à 48 h avant la soirée, solde sur place.</span></div><p><b>Display en texte courant</b>Illisible sous 18 px.</p></div>
-          <div class="av"><div class="pv"><span style="font-family:var(--f-body);text-transform:uppercase;letter-spacing:.2em;font-size:12px">Billets · Tables · Paris</span></div><p><b>Hanken en capitales espacées</b>C'est le rôle de Martian.</p></div>
+          <div class="av"><div class="pv"><span style="font-family:var(--f-body);text-transform:uppercase;letter-spacing:.2em;font-size:12px">Billets · Tables · Paris</span></div><p><b>Hanken en capitales espacées</b>C'est le rôle d'Archivo.</p></div>
           <div class="av"><div class="pv"><span style="font-size:17px;text-shadow:var(--trace-nette)">Réserve ta table maintenant</span></div><p><b>Trace sur petit corps</b>La lumière bave, le texte meurt.</p></div>
         </div>
       </div>
@@ -2620,12 +2622,12 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
           <path d="M80 160v12M680 160v12M80 166h600"/>
           <path d="M686 64v-10M714 64v-10" stroke-dasharray="2 3"/>
         </g>
-        <g font-family="Martian Mono, monospace" font-size="10" letter-spacing=".8" style="fill:var(--valide)">
+        <g font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="10" letter-spacing=".8" style="fill:var(--valide)">
           <text x="672" y="168" text-anchor="end">QUEUE · 6 À 15 c</text>
           <text x="700" y="47" text-anchor="middle">TÊTE = 1 c</text>
           <text x="700" y="33" text-anchor="middle">CARRÉ DU LOGO</text>
         </g>
-        <g font-family="Martian Mono, monospace" font-size="10" letter-spacing=".8" style="fill:color-mix(in srgb,var(--lait) 70%,transparent)">
+        <g font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="10" letter-spacing=".8" style="fill:color-mix(in srgb,var(--lait) 70%,transparent)">
           <g data-pv="velours"><text x="80" y="206">POUDRE</text><text x="360" y="206">COGNAC</text><text x="650" y="206">LAIT</text></g><g data-pv="lueur"><text x="80" y="206">CIRE</text><text x="360" y="206">AMBRE FUMÉ</text><text x="640" y="206">IVOIRE</text></g>
           <text x="80" y="226" style="fill:color-mix(in srgb,var(--lait) 45%,transparent)">FLOU 0,5 c ← ─────────────── FLOU 0 · TOUJOURS HORIZONTALE, TÊTE À DROITE</text>
         </g>
@@ -2702,7 +2704,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
     <ul class="img-rules">
       <li><b>Passe-partout Creux 8 px</b>L'affiche garde ses couleurs ; le cadre l'installe dans notre nuit.</li>
       <li><b>Halo pris dans l'affiche</b>La lueur sous le cadre reprend la couleur dominante du partenaire.</li>
-      <li><b>Bandeau Martian + trace</b>Nom et date toujours dans notre typo, sous l'image, jamais dessus.</li>
+      <li><b>Bandeau Archivo + trace</b>Nom et date toujours dans notre typo, sous l'image, jamais dessus.</li>
       <li><b>Nos photos : grain fin 12–16 %</b>Un grain argentique, serré : il unifie des sources hétérogènes sans salir l'image.</li>
       <li><b>Cadrer serré, sur les mains</b>Des gestes, des silhouettes, de la lumière. Pas de bouteilles en vitrine.</li>
       <li><b>Pas de visages reconnaissables</b> sans accord écrit. Le contre-jour est notre ami.</li>
@@ -2974,7 +2976,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
             <ul class="seg-rules">
               <li><b>2 ou 3 vues, pas plus</b>Au-delà, ce sont des filtres (les onglets texte de l'agenda), pas des onglets.</li>
               <li><b>L'actif en ivoire</b>Le segment choisi est plein, en ivoire, texte nuit. Il glisse d'un segment à l'autre en 350 ms.</li>
-              <li><b>Le compteur en mono</b>Le nombre suit le label, en Martian. Il disparaît s'il vaut zéro.</li>
+              <li><b>Le compteur en mono</b>Le nombre suit le label, en Archivo. Il disparaît s'il vaut zéro.</li>
               <li><b>Même largeur</b>Tous les segments ont la même largeur, labels courts, un ou deux mots.</li>
             </ul>
           </div>
@@ -3148,7 +3150,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
                   <defs><filter x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7"/></filter>
                   <radialGradient cx="50%" cy="40%" r="70%"><stop offset="0" style="stop-color:var(--halo);stop-opacity:.22"/><stop offset="1" style="stop-color:var(--halo);stop-opacity:0"/></radialGradient></defs>
                   <rect x="110" y="10" width="100" height="24" rx="12" style="fill:var(--lueur)"/>
-                  <text x="160" y="26" text-anchor="middle" font-family="Martian Mono, monospace" font-size="8.5" letter-spacing="1.2" style="fill:var(--nuit)">CABINE DJ</text>
+                  <text x="160" y="26" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="8.5" letter-spacing="1.2" style="fill:var(--nuit)">CABINE DJ</text>
                   <rect x="88" y="48" width="144" height="104" rx="18" fill="url(#pl-p)" stroke-dasharray="3 4" stroke-linecap="round" style="stroke:color-mix(in srgb,var(--lait) 16%,transparent)"/>
                   <text x="160" y="105" text-anchor="middle" font-family="Anybody, sans-serif" font-size="14" font-weight="800" letter-spacing="3" style="fill:color-mix(in srgb,var(--lait) 40%,transparent)">PISTE</text>
                   <g class="tb" data-id="T1" data-name="Bord de piste" data-sub="Côté bar" data-cap="4" data-price="600"><circle class="glo" cx="44" cy="64" r="20" filter="url(#pl-g)"/><circle class="shape" cx="44" cy="64" r="20"/><text x="44" y="67">T1</text></g>
@@ -3160,7 +3162,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
                   <g class="tb off" data-id="T4" aria-disabled="true"><rect class="shape" x="62" y="192" width="52" height="34" rx="10"/><text x="88" y="212">T4</text></g>
                   <g class="tb sel" data-id="T5" data-name="Carré piste" data-sub="Face cabine" data-cap="6" data-price="1200"><rect class="glo" x="128" y="186" width="64" height="44" rx="12" filter="url(#pl-g)"/><rect class="shape" x="128" y="186" width="64" height="44" rx="12"/><text x="160" y="211">T5</text></g>
                   <g class="tb prem" data-id="T6" data-name="Carré premium" data-sub="Bord de piste, côté cabine" data-cap="8" data-price="1800"><rect class="glo" x="206" y="192" width="52" height="34" rx="10" filter="url(#pl-g)"/><rect class="shape" x="206" y="192" width="52" height="34" rx="10"/><text x="232" y="212">T6</text></g>
-                  <text x="160" y="246" text-anchor="middle" font-family="Martian Mono, monospace" font-size="7.5" letter-spacing="1.5" style="fill:color-mix(in srgb,var(--lait) 35%,transparent)">ENTRÉE ↓</text>
+                  <text x="160" y="246" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="7.5" letter-spacing="1.5" style="fill:color-mix(in srgb,var(--lait) 35%,transparent)">ENTRÉE ↓</text>
                 </svg>
               </div>
               <div class="legend"><span><i style="background:var(--actif)"></i>Sélection</span><span><i style="box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 60%,transparent)"></i>Libre</span><span><i style="box-shadow:inset 0 0 0 1.5px var(--lueur)"></i>Premium</span><span><i style="background:var(--creux);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 20%,transparent)"></i>Réservée</span></div>
@@ -3358,7 +3360,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
                   <defs><filter id="pl-g" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="7"/></filter>
                   <radialGradient id="pl-p" cx="50%" cy="40%" r="70%"><stop offset="0" style="stop-color:var(--halo);stop-opacity:.22"/><stop offset="1" style="stop-color:var(--halo);stop-opacity:0"/></radialGradient></defs>
                   <rect x="110" y="10" width="100" height="24" rx="12" style="fill:var(--lueur)"/>
-                  <text x="160" y="26" text-anchor="middle" font-family="Martian Mono, monospace" font-size="8.5" letter-spacing="1.2" style="fill:var(--nuit)">CABINE DJ</text>
+                  <text x="160" y="26" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="8.5" letter-spacing="1.2" style="fill:var(--nuit)">CABINE DJ</text>
                   <rect x="88" y="48" width="144" height="104" rx="18" fill="url(#pl-p)" stroke-dasharray="3 4" stroke-linecap="round" style="stroke:color-mix(in srgb,var(--lait) 16%,transparent)"/>
                   <text x="160" y="105" text-anchor="middle" font-family="Anybody, sans-serif" font-size="14" font-weight="800" letter-spacing="3" style="fill:color-mix(in srgb,var(--lait) 40%,transparent)">PISTE</text>
                   <g class="tb" data-id="T1" data-name="Bord de piste" data-sub="Côté bar" data-cap="4" data-price="600" tabindex="0" role="button" aria-label="Table T1, 4 personnes, 600 euros"><circle class="glo" cx="44" cy="64" r="20" filter="url(#pl-g)"/><circle class="shape" cx="44" cy="64" r="20"/><text x="44" y="67">T1</text></g>
@@ -3370,7 +3372,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
                   <g class="tb off" data-id="T4" tabindex="-1" aria-disabled="true" aria-label="Table T4, réservée"><rect class="shape" x="62" y="192" width="52" height="34" rx="10"/><text x="88" y="212">T4</text></g>
                   <g class="tb sel" data-id="T5" data-name="Carré piste" data-sub="Face cabine" data-cap="6" data-price="1200" tabindex="0" role="button" aria-pressed="true" aria-label="Table T5, 6 personnes, 1 200 euros"><rect class="glo" x="128" y="186" width="64" height="44" rx="12" filter="url(#pl-g)"/><rect class="shape" x="128" y="186" width="64" height="44" rx="12"/><text x="160" y="211">T5</text></g>
                   <g class="tb prem" data-id="T6" data-name="Carré premium" data-sub="Bord de piste, côté cabine" data-cap="8" data-price="1800" tabindex="0" role="button" aria-label="Table T6 premium, 8 personnes, 1 800 euros"><rect class="glo" x="206" y="192" width="52" height="34" rx="10" filter="url(#pl-g)"/><rect class="shape" x="206" y="192" width="52" height="34" rx="10"/><text x="232" y="212">T6</text></g>
-                  <text x="160" y="246" text-anchor="middle" font-family="Martian Mono, monospace" font-size="7.5" letter-spacing="1.5" style="fill:color-mix(in srgb,var(--lait) 35%,transparent)">ENTRÉE ↓</text>
+                  <text x="160" y="246" text-anchor="middle" font-family="Archivo, sans-serif" font-weight="600" font-stretch="68%" font-size="7.5" letter-spacing="1.5" style="fill:color-mix(in srgb,var(--lait) 35%,transparent)">ENTRÉE ↓</text>
                 </svg>
               </div>
               <div class="legend"><span><i style="background:var(--actif)"></i>Sélection</span><span><i style="box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 60%,transparent)"></i>Libre</span><span><i style="box-shadow:inset 0 0 0 1.5px var(--lueur)"></i>Premium</span><span><i style="background:var(--creux);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--lait) 20%,transparent)"></i>Réservée</span></div>
@@ -3457,7 +3459,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 
       <figure class="obj o-3">
         <div class="metro"><div class="lum lum-atarashi"></div><p class="mono">Paris · Yoyo · Palais de Tokyo</p><h4>Atarashi<span>Paris</span></h4><div class="info">East End Dubs<br>Ramyen<br>Niv Yefet<br><br>Sam. 21 nov · 23:30<br>nightsquare.org</div><span class="wm" role="img" aria-label="Night Square"><span class="w1">Night</span><span class="w2">Square</span><i class="sq"></i></span></div>
-        <figcaption><b>Affiche métro · 120 × 176</b>Une soirée, une lumière générée, le line-up en Martian.</figcaption>
+        <figcaption><b>Affiche métro · 120 × 176</b>Une soirée, une lumière générée, le line-up en Archivo.</figcaption>
       </figure>
 
       <figure class="obj o-3">
@@ -3613,7 +3615,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
       <div class="s14-body s14-rules-in">
         <ol class="s14-rules">
           <li><span><b>Plein écran, toujours.</b> L'image touche le haut de l'écran : photo, aplat pipetté ou nuit. Jamais une image posée au milieu du noir.</span></li>
-          <li><span><b>Le bandeau ivoire, de 106 à 140&nbsp;cqw, ne bouge jamais.</b> Nom en Anybody 900 sur deux lignes au plus, carré en haut à droite, ligne d'infos en Martian Mono.</span></li>
+          <li><span><b>Le bandeau ivoire, de 106 à 140&nbsp;cqw, ne bouge jamais.</b> Nom en Anybody 900 sur deux lignes au plus, carré en haut à droite, ligne d'infos en Archivo étroit.</span></li>
           <li><span><b>Une rangée de stickers, de 144 à 153&nbsp;cqw.</b> Le lien à gauche, la @mention à droite, à la même place sur chaque story.</span></li>
           <li><span><b>Un seul filtre photo</b> : le noir et blanc «&nbsp;filtre rouge&nbsp;» <code>#bp-nb</code>, et sa variante <code>#bp-nb-studio</code> pour un fond studio clair. Zoom ×2 au plus.</span></li>
           <li><span><b>Les flyers ne sont jamais recadrés.</b> Entiers, intacts, posés sur le bandeau, sur un aplat de leur couleur dominante.</span></li>
@@ -3894,7 +3896,7 @@ input[type=range]:focus-visible{outline:2px solid var(--lait);outline-offset:2px
 <footer class="end">
   <div class="wrap">
     <p class="big">Ce soir,<span>et tous les autres.</span></p>
-    <div class="foot mono"><span>Night Square · Brand book Afterglow v4</span><span>Anybody · Hanken Grotesk · Martian Mono</span><a href="#ouverture" style="text-decoration:none">Revenir en haut ↑</a></div>
+    <div class="foot mono"><span>Night Square · Brand book Afterglow v4</span><span>Anybody · Hanken Grotesk · Archivo étroit</span><a href="#ouverture" style="text-decoration:none">Revenir en haut ↑</a></div>
   </div>
 </footer>
 
